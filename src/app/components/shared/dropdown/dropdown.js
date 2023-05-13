@@ -1,7 +1,9 @@
 import styles from "./dropdown.module.css";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const dropdown = ({
+  multiple,
   value,
   options,
   folder,
@@ -14,16 +16,26 @@ const dropdown = ({
 
   function clearOptions() {
     if (onChange) {
-      onChange(undefined);
+      multiple ? onChange([]) : onChange(undefined);
     }
   }
 
   function selectOption(option) {
-    if (option !== value) onChange(option);
+    if (multiple) {
+      if (value.some((val) => val.id === option.id)) {
+        onChange(value.filter((o) => o.id !== option.id));
+      } else {
+        onChange([...value, option]);
+      }
+    } else {
+      if (option.id !== value.id) onChange(option);
+    }
   }
 
   function isOptionSelected(option) {
-    return option === value;
+    return multiple
+      ? value.some((val) => val.id === option.id)
+      : option.id === value.id;
   }
 
   useEffect(() => {
@@ -32,37 +44,79 @@ const dropdown = ({
 
   return (
     <div
-      onBlur={() => setIsOpen(false)} //not working
+      onMouseLeave={() => setIsOpen(false)}
       onClick={() => setIsOpen(!isOpen)}
       className={styles.wrapper}
     >
       <div className={styles.content}>
-        <div className={styles.label}>{input}</div>
+        <div className={styles.input}>{input}</div>
         <div className={styles.placeholder}>
-          {onChange ? ( //fix this conditional rendering
+          {!value.length && (
+            <div
+              className={styles.selectFaction}
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              Select {selectorType}
+            </div>
+          )}
+
+          {multiple ? (
+            value.map((v) => (
+              <div
+                className={styles.factionSelected}
+                key={v.value}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  selectOption(v);
+                }}
+              >
+                {
+                  <img
+                    src={`/Images/${folder}/${v?.[selectorType]}.png`}
+                    alt={value?.factionName}
+                    width={24}
+                    height={24}
+                  />
+                }
+              </div>
+            ))
+          ) : (
             <img
               src={`/Images/${folder}/${value?.[selectorType]}.png`}
               alt={value?.factionName}
               width={24}
               height={24}
             />
-          ) : (
-            ""
           )}
         </div>
       </div>
 
-      <div>
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            clearOptions();
-          }}
-          className={styles["clear-btn"]}
-        >
-          &times;
+      <div className={styles.buttons}>
+        {value.length > 0 && (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              clearOptions();
+            }}
+            className={styles["clear-btn"]}
+          >
+           Clear <img
+            src="/Images/Icons/Close.svg"
+            alt="close"
+            width={16}
+            height={16}
+          />
+          </button>
+        )}
+        <button className={styles.caret}>
+          <motion.img
+            src="/Images/Icons/caret.svg"
+            alt="chevron"
+            width={24}
+            height={24}
+            animate={{ rotate: isOpen ? 180 : 0 }}
+          />
         </button>
-        <button className={styles.caret}>↓</button>
       </div>
 
       <ul className={`${styles.options} ${isOpen ? styles.show : ""}`}>
@@ -71,24 +125,23 @@ const dropdown = ({
             onClick={(e) => {
               e.stopPropagation();
               selectOption(option);
-              setIsOpen(false);
-              console.log(Object.values(value)[index]); // TA ERRADO SEI LA PQ
             }}
             onMouseEnter={() => setHighlightedIndex(index)}
-            key={index}
+            key={option.value}
             className={`
-					${styles.option} 
-					${isOptionSelected(option) ? styles.selected : ""} 
-					${index === highlightedIndex ? styles.highlighted : ""}
-				`}
+			${styles.option} 
+			${isOptionSelected(option) ? styles.selected : ""} 
+			${index === highlightedIndex ? styles.highlighted : ""}`}
           >
-            <img
-              src={`/Images/${folder}/${option?.[selectorType]}.png`}
-              alt={value?.factionName}
-              width={24}
-              height={24}
-            />
-            {option[selectorType]}
+            <div className={styles.listItem}>
+              <img
+                src={`/Images/${folder}/${option?.[selectorType]}.png`}
+                alt={value?.factionName}
+                width={24}
+                height={24}
+              />
+              {option[selectorType]}
+            </div>
           </li>
         ))}
       </ul>

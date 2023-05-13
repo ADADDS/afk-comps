@@ -22,37 +22,40 @@ const Home = () => {
     { id: 2, class: "Support" },
     { id: 3, class: "Tank" },
     { id: 4, class: "Warrior" },
-  ]
+  ];
 
-  const [value, setValue] = useState(faction[0]);
-  const [value2, setValue2] = useState(classes[0]);
+  const [value, setValue] = useState([faction[0], faction[1], faction[2], faction[3], faction[4], faction[5], faction[6]]);
+  const [value2, setValue2] = useState([classes[0], classes[1], classes[2], classes[3], classes[4]]);
+
   return (
     <main className={styles.main}>
       <Head>
         <title>AFK Comps</title>
       </Head>
-      <Dropdown
-        multiple
-        input={"Faction"}
-        value={value}
-        folder={"Faction"}
-        options={faction}
-        selectorType={"faction"}
-        alt={faction}
-        onChange={(o) => setValue(o)}
-      />
 
+      <div className={styles.container}>
+        <Dropdown
+          multiple
+          input={"Faction"}
+          value={value}
+          folder={"Faction"}
+          options={faction}
+          selectorType={"faction"}
+          alt={faction}
+          onChange={(o) => setValue(o)}
+        />
 
-<Dropdown
-        multiple
-        input={"Classes"}
-        value={value2}
-        folder={"Classes"}
-        options={classes}
-        selectorType={"class"}
-        alt={classes}
-        onChange={(o) => setValue2(o)}
-      />
+        <Dropdown
+          multiple
+          input={"Classes"}
+          value={value2}
+          folder={"Classes"}
+          options={classes}
+          selectorType={"class"}
+          alt={classes}
+          onChange={(o) => setValue2(o)}
+        />
+      </div>
     </main>
   );
 };

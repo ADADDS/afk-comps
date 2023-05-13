@@ -1,6 +1,6 @@
 .wrapper{
 	position: relative;
-	width: 20rem;
+	width: 25rem;
 	padding: 24px;
 	background-color: #29282D;
 	border-radius: 12px;
@@ -8,6 +8,7 @@
 	display: flex;
 	outline: none;
 	justify-content: space-between;
+	margin-right: 8px;
 }
 
 .wrapper:focus{
@@ -16,30 +17,46 @@
 
 .wrapper:hover{
 	cursor: pointer;
-	background-color: #3c3b41;
 }
 
+.buttons{
+	display : flex;
+	justify-content: center;
+	align-items: center;
+}
 .content{
 	flex-direction: column;
 }
 
-.label {
+.input {
 	text-transform: uppercase;
 	font-size: 0.8rem;
 	font-weight: 600;
+	margin-bottom: 8px;
 }
 
+.selectFaction{
+	opacity: 0.3;
+}
 .placeholder {
- opacity: 0.4;
  display: flex;
 }
 
 .clear-btn{
-	background: none;
-	color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #3B3A3E;
+	color: #8F8F91;
 	outline: none;
-
+	height: 24px;
+border-radius: 16px;
 	border: none;
+	font-size: 12px;
+}
+
+.clear-btn > img {
+	margin-left: 4px;
 }
 
 .clear-btn:hover{
@@ -63,17 +80,18 @@
 	padding: 0;
 	list-style: none;
 	display: none;
-	max-height: auto;
+	align-items: center;
 	width: 100%;
 	left: 0;
-	top: calc(100% + .25rem);
+	top: calc(100%);
 	z-index: 100;
-	padding: 24px;
 	background-color: #29282D;
-	border-radius: 12px;
-	
+	border-radius: 0px 0px 12px 12px;
 }
-
+.options > li {
+	display: flex;
+	align-items: center;
+}
 .options.show {
 	display: block;
 }
@@ -81,14 +99,37 @@
 .option {
 	padding-left: 24px;
 	padding-bottom: 16px;
-	color: #595959;
+	color: #858487;
 	display: flex;
+	align-items: center;
 }
 
 .option.selected {
-	color: red;
-}
-.option.highlighted {
-	cursor: pointer;
-	color:white;
-}
+	text-decoration: line-through;
+	display: flex;
+align-items: center;
+  }
+  
+  .option.highlighted {
+	color: white;
+	display: flex;
+align-items: center;
+	
+  }
+
+  .option.selected > img {
+	filter: grayscale(100%);
+  }
+
+  .listItem > img {
+	margin-right: 8px;
+  }
+
+  .listItem {
+	display: flex;
+	align-items: center;
+  }
+
+  .factionSelected {
+	margin-right: 4px;
+  }
