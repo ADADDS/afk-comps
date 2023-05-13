@@ -1,12 +1,21 @@
 import styles from "./dropdown.module.css";
 import { useEffect, useState } from "react";
 
-const dropdown = ({ value, alt, options, name, onChange }) => {
+const dropdown = ({
+  value,
+  options,
+  folder,
+  selectorType,
+  input,
+  onChange,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(0);
 
   function clearOptions() {
-    onChange(undefined);
+    if (onChange) {
+      onChange(undefined);
+    }
   }
 
   function selectOption(option) {
@@ -23,20 +32,23 @@ const dropdown = ({ value, alt, options, name, onChange }) => {
 
   return (
     <div
-      onBlur={() => setIsOpen(false)}
+      onBlur={() => setIsOpen(false)} //not working
       onClick={() => setIsOpen(!isOpen)}
       className={styles.wrapper}
     >
       <div className={styles.content}>
-        <div className={styles.label}>{name}</div>
+        <div className={styles.label}>{input}</div>
         <div className={styles.placeholder}>
-          <img
-            src={`/Images/FactionIcon/${value?.label}.png`}
-            alt={alt}
-            width={24}
-            height={24}
-          />
-          {value?.label}
+          {onChange ? ( //fix this conditional rendering
+            <img
+              src={`/Images/${folder}/${value?.[selectorType]}.png`}
+              alt={value?.factionName}
+              width={24}
+              height={24}
+            />
+          ) : (
+            ""
+          )}
         </div>
       </div>
 
@@ -60,9 +72,10 @@ const dropdown = ({ value, alt, options, name, onChange }) => {
               e.stopPropagation();
               selectOption(option);
               setIsOpen(false);
+              console.log(Object.values(value)[index]); // TA ERRADO SEI LA PQ
             }}
             onMouseEnter={() => setHighlightedIndex(index)}
-            key={option.value}
+            key={index}
             className={`
 					${styles.option} 
 					${isOptionSelected(option) ? styles.selected : ""} 
@@ -70,12 +83,12 @@ const dropdown = ({ value, alt, options, name, onChange }) => {
 				`}
           >
             <img
-              src={`/Images/FactionIcon/${option.label}.png`}
-              alt={alt}
+              src={`/Images/${folder}/${option?.[selectorType]}.png`}
+              alt={value?.factionName}
               width={24}
               height={24}
             />
-            {option.label}
+            {option[selectorType]}
           </li>
         ))}
       </ul>

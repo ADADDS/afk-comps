@@ -6,59 +6,52 @@ import Dropdown from "./components/shared/dropdown/dropdown";
 import { useState } from "react";
 
 const Home = () => {
-  const options = [
-    {
-      label: "Celestial",
-      src: "/src/app/assets/FactionIcon/Celestial.png",
-      value: 1,
-    },
-    {
-      label: "Dimensional",
-      src: "/src/app/assets/FactionIcon/Dimensional.png",
-      value: 2,
-    },
-    {
-      label: "Graveborn",
-      src: "/src/app/assets/FactionIcon/Graveborn.png",
-      value: 3,
-    },
-    {
-      label: "Hypogean",
-      src: "/src/app/assets/FactionIcon/Hypogean.png",
-      value: 4,
-    },
-    {
-      label: "Lightbearer",
-      src: "/src/app/assets/FactionIcon/Lighbearer.png",
-      value: 5,
-    },
-    {
-      label: "Mauler",
-      src: "/src/app/assets/FactionIcon/Mauler.png",
-      value: 6,
-    },
-    {
-      label: "Wilder",
-      src: "/src/app/assets/FactionIcon/Wilder.png",
-      value: 7,
-    },
+  const faction = [
+    { id: 0, faction: "Celestial" },
+    { id: 1, faction: "Dimensional" },
+    { id: 2, faction: "Graveborn" },
+    { id: 3, faction: "Hypogean" },
+    { id: 4, faction: "Lightbearer" },
+    { id: 5, faction: "Mauler" },
+    { id: 6, faction: "Wilder" },
   ];
 
-  const [value, setValue] = useState(options[0]);
+  const classes = [
+    { id: 0, class: "Mage" },
+    { id: 1, class: "Ranger" },
+    { id: 2, class: "Support" },
+    { id: 3, class: "Tank" },
+    { id: 4, class: "Warrior" },
+  ]
 
+  const [value, setValue] = useState(faction[0]);
+  const [value2, setValue2] = useState(classes[0]);
   return (
     <main className={styles.main}>
       <Head>
         <title>AFK Comps</title>
       </Head>
-
       <Dropdown
         multiple
-        name={"Faction"}
+        input={"Faction"}
         value={value}
-        options={options}
-        alt={"label"}
+        folder={"Faction"}
+        options={faction}
+        selectorType={"faction"}
+        alt={faction}
         onChange={(o) => setValue(o)}
+      />
+
+
+<Dropdown
+        multiple
+        input={"Classes"}
+        value={value2}
+        folder={"Classes"}
+        options={classes}
+        selectorType={"class"}
+        alt={classes}
+        onChange={(o) => setValue2(o)}
       />
     </main>
   );
