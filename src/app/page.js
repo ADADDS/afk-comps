@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import Head from "next/head";
 import Dropdown from "./components/shared/dropdown/dropdown";
 import { useState } from "react";
+import Hero from "./components/shared/hero/hero";
 
 const Home = () => {
   const faction = [
@@ -24,8 +25,22 @@ const Home = () => {
     { id: 4, class: "Warrior" },
   ];
 
-  const [value, setValue] = useState([faction[0], faction[1], faction[2], faction[3], faction[4], faction[5], faction[6]]);
-  const [value2, setValue2] = useState([classes[0], classes[1], classes[2], classes[3], classes[4]]);
+  const [value, setValue] = useState([
+    faction[0],
+    faction[1],
+    faction[2],
+    faction[3],
+    faction[4],
+    faction[5],
+    faction[6],
+  ]);
+  const [value2, setValue2] = useState([
+    classes[0],
+    classes[1],
+    classes[2],
+    classes[3],
+    classes[4],
+  ]);
 
   return (
     <main className={styles.main}>
@@ -56,6 +71,10 @@ const Home = () => {
           onChange={(o) => setValue2(o)}
         />
       </div>
+
+      <Hero heroName={"Warek"} />
+      <Hero heroName={"Talene"} />
+      <Hero heroName={"Belinda"} />
     </main>
   );
 };

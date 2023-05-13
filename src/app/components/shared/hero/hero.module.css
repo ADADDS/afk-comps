@@ -1,0 +1,18 @@
+.container {
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	cursor: pointer;
+	border-radius: 32px 0px 32px 0px;
+
+  }
+  
+  .avatar {
+	border-radius: 32px 0px 32px 0px;
+	transition: transform .3s ease-in-out;
+  }
+  
+  .avatar:hover {
+	transform: scale(1.15); 
+  }
+  

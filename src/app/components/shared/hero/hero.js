@@ -1,11 +1,12 @@
 import styles from "./hero.module.css";
 
-const Hero = ({  }) => {
+const Hero = ({ heroName }) => {
   return (
 	<div className={styles.container}>
 		<img
-			src={`/Images/${folder}/${v?.[selectorType]}.png`}
-			alt={value?.factionName}
+			className={styles.avatar}
+			src={`/Images/HeroAvatar/${heroName}.png`}
+			alt={heroName}
 			width={100}
 			height={100}
 		/>
