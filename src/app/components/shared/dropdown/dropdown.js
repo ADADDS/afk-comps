@@ -13,7 +13,14 @@ const dropdown = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(0);
+  // const [heroList, setHeroList] = useState([]);
+  // const [selectedCategory, setSelectedCategory] = useState();
 
+  // useEffect(() => {
+  //   setHeroList(data.Heros);
+  // }, [])
+
+  
   function clearOptions() {
     if (onChange) {
       multiple ? onChange([]) : onChange(undefined);

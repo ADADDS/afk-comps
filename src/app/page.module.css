@@ -1,3 +1,19 @@
-.container{
+.main{
 	display: flex;
-width: 1000px}
+}
+
+.leftPanelWrapper {
+	/* background-color: blue; */
+	width:30vw;
+}
+
+.heroGridWrapper{
+	/* background-color: yellow; */
+	width: 70vw;
+	padding-left: 32px;
+	padding-right: 32px;
+}
+
+.dropdown {
+	display: flex;
+}

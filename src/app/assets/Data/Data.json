@@ -1,0 +1,134 @@
+{
+	"Heroes": [
+	  {
+		"id": 1,
+		"name": "Estrilda",
+		"title": "Knight of Valor",
+		"type": "Strength",
+		"class": "Strength",
+		"role": "Burst Damage",
+		"faction": "Lightbearers",
+		"Rarity": "Ascended"
+	  },
+	  {
+		"id": 2,
+		"name": "Belinda",
+		"title": "Beam of Hope",
+		"type": "Intelligence",
+		"class": "Mage",
+		"role": "AoE",
+		"faction": "Lightbearers",
+		"Rarity": "Ascended"
+	  },
+	  {
+		"id": 3,
+		"name": "Raine",
+		"title": "Death's Denier",
+		"type": "Agility",
+		"class": "Support",
+		"role": "Buffer",
+		"faction": "Lightbearers",
+		"Rarity": "Ascended"
+	  },
+	  {
+		"id": 4,
+		"name": "Rosaline",
+		"title": "The Kind",
+		"type": "Intelligence",
+		"class": "Support",
+		"role": "Buffer",
+		"faction": "Lightbearers",
+		"Rarity": "Ascended"
+	  },
+	  {
+		"id": 5,
+		"name": "Lucius",
+		"title": "Ligthbringer",
+		"type": "Strength",
+		"class": "Tank",
+		"role": "Regen",
+		"faction": "Lightbearers",
+		"Rarity": "Ascended"
+	  },
+	  {
+		"id": 6,
+		"name": "Thane",
+		"title": "The Exalted",
+		"type": "Agility",
+		"class": "Ranger",
+		"role": "Assassin",
+		"faction": "Lightbearers",
+		"Rarity": "Ascended"
+	  },
+	  {
+		"id": 7,
+		"name": "Fawkes",
+		"title": "Death's Defeat",
+		"type": "Agility",
+		"class": "Ranger",
+		"role": "Control",
+		"faction": "Lightbearers",
+		"Rarity": "Ascended"
+	  },
+	  {
+		"id": 8,
+		"name": "Brutus",
+		"title": "The Blood Claw",
+		"type": "Strength",
+		"class": "Tank",
+		"role": "Tank",
+		"faction": "Maulers",
+		"Rarity": "Ascended"
+	  },
+	  {
+		"id": 9,
+		"name": "Khasos",
+		"title": "The Unruly",
+		"type": "Strength",
+		"class": "Warrior",
+		"role": "Continuous Damage",
+		"faction": "Maulers",
+		"Rarity": "Ascended"
+	  },
+	  {
+		"id": 10,
+		"name": "Vurk",
+		"title": "The Devious",
+		"type": "Agility",
+		"class": "Ranger",
+		"role": "AoE",
+		"faction": "Maulers",
+		"Rarity": "Ascended"
+	  },
+	  {
+		"id": 11,
+		"name": "Numisu",
+		"title": "The All Seer",
+		"type": "Intelligence",
+		"class": "Support",
+		"role": "Regen",
+		"faction": "Maulers",
+		"Rarity": "Ascended"
+	  },
+	  {
+		"id": 12,
+		"name": "Warek",
+		"title": "The Untamed",
+		"type": "Strength",
+		"class": "Warrior",
+		"role": "Continuous Damage",
+		"faction": "Maulers",
+		"Rarity": "Ascended"
+	  },
+	  {
+		"id": 13,
+		"name": "Skreg",
+		"title": "The Cunning",
+		"type": "Strength",
+		"class": "Tank",
+		"role": "Tank",
+		"faction": "Maulers",
+		"Rarity": "Ascended"
+	  }
+	]
+  }

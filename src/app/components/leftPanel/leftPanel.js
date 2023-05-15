@@ -1,9 +1,17 @@
-import React from 'react'
+import styles from "./LeftPanel.module.css";
 
-const leftPanel = () => {
+const LeftPanel = () => {
   return (
-	<div>leftPanel</div>
+    <div>
+      
+      <div className={styles.wrapper}>
+			<div className={styles.logo}>
+				<div className={styles.block}></div>
+				<span>Comps</span>
+			</div>
+		</div>
+    </div>
   )
 }
 
-export default leftPanel
+export default LeftPanel

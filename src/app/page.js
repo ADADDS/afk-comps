@@ -3,8 +3,10 @@
 import styles from "./page.module.css";
 import Head from "next/head";
 import Dropdown from "./components/shared/dropdown/dropdown";
-import { useState } from "react";
-import Hero from "./components/shared/hero/hero";
+import { useEffect, useMemo, useState } from "react";
+import HeroGrid from "src/app/components/HeroGrid/HeroGrid.js";
+import LeftPanel from "src/app/components/LeftPanel/LeftPanel.js";
+import data from "src/app/assets/Data/Data.json";
 
 const Home = () => {
   const faction = [
@@ -42,39 +44,73 @@ const Home = () => {
     classes[4],
   ]);
 
+  const [heroList, setHeroList] = useState([]);
+  const [selectedFaction, setSelectedFaction] = useState();
+
+  useEffect(() => {
+    setHeroList(data.Heroes);
+  }, []);
+
+  function getFilteredList() {
+    if (!selectedFaction) {
+        return heroList;
+    }
+    return heroList.filter((hero) => hero.faction === selectedFaction);
+}
+
+  var filteredList = useMemo(getFilteredList, [selectedFaction, heroList]);
+
+  function handleDropdownChange(o) {
+    const newFactions = faction.filter(f => !o.includes(f));
+    setSelectedFaction(newFactions);
+    setValue(o);
+  }
+  
+
+
+  
+
   return (
     <main className={styles.main}>
       <Head>
         <title>AFK Comps</title>
       </Head>
 
-      <div className={styles.container}>
-        <Dropdown
-          multiple
-          input={"Faction"}
-          value={value}
-          folder={"Faction"}
-          options={faction}
-          selectorType={"faction"}
-          alt={faction}
-          onChange={(o) => setValue(o)}
-        />
-
-        <Dropdown
-          multiple
-          input={"Classes"}
-          value={value2}
-          folder={"Classes"}
-          options={classes}
-          selectorType={"class"}
-          alt={classes}
-          onChange={(o) => setValue2(o)}
-        />
+      <div className={styles.leftPanelWrapper}>
+        <LeftPanel />
       </div>
 
-      <Hero heroName={"Warek"} />
-      <Hero heroName={"Talene"} />
-      <Hero heroName={"Belinda"} />
+      <div className={styles.heroGridWrapper}>
+        <div className={styles.container}>
+          <div className={styles.dropdown}>
+            <Dropdown
+            onChange={handleDropdownChange}
+              multiple
+              input={"Faction"}
+              value={value}
+              folder={"Faction"}
+              options={faction}
+              selectorType={"faction"}
+              alt={faction}
+            />
+
+            <Dropdown
+              multiple
+              input={"Classes"}
+              value={value2}
+              folder={"Classes"}
+              options={classes}
+              selectorType={"class"}
+              alt={classes}
+              onChange={(o) => setValue2(o)}
+            />
+          </div>
+        </div>
+
+        {filteredList.map((element, index) => (
+          <HeroGrid key={index} heroes={filteredList} />
+        ))}
+      </div>
     </main>
   );
 };
