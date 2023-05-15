@@ -1,41 +1,19 @@
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
 import Hero from "../shared/hero/hero";
 import data from "src/app/assets/Data/Data.json";
 import styles from "src/app/components/heroGrid/heroGrid.module.css";
 
-const HeroGrid = ({ selectedFactions }) => {
+const HeroGrid = ({ selectedFactions, selectedClasses }) => {
   const [heroList] = useState(data.Heroes);
-  const [selectedFaction] = useState(selectedFactions);
+  const filteredHeroes = heroList.filter(hero => selectedFactions.includes(hero.faction) 
+  && selectedClasses.includes(hero.class));
 
-
-// heroList.forEach(obj => {
-//   if (selectedFaction.includes(obj.faction)){
-//     console.log("hero")
-//   }
-// })
-
-let filteredHeroList = heroList.filter(obj => selectedFaction.includes(obj.faction));
-
-  // just for debugging
-
-  useEffect(() => {
-    console.log("filteredHeroList (heroGrid.js):", filteredHeroList);
-  }, [heroList]);
-
-  useEffect(() => {
-    console.log("getFilteredList (heroGrid.js):", heroList);
-  }, [heroList]);
-
-  useEffect(() => {
-    console.log("selectedFactions heroGrid.js:", selectedFactions);
-  }, [selectedFactions]);
 
   return (
-    
     <>
+      <p>Heroes ({filteredHeroes.length})</p>
     <div className={styles.container}>
-      {heroList.map((hero) => (
-        selectedFactions.includes(hero.faction) && 
+      {filteredHeroes.map((hero) => (
         <div key={hero.id}>
           <Hero heroName={hero.name} />
         </div>
@@ -46,5 +24,3 @@ let filteredHeroList = heroList.filter(obj => selectedFaction.includes(obj.facti
 };
 
 export default HeroGrid;
-
-// if(factions.includes(hero.faction)){

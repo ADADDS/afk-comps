@@ -1,12 +1,11 @@
-
 "use client";
+
 import styles from "./page.module.css";
 import Head from "next/head";
 import Dropdown from "./components/shared/dropdown/dropdown";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import HeroGrid from "src/app/components/HeroGrid/HeroGrid.js";
 import LeftPanel from "src/app/components/LeftPanel/LeftPanel.js";
-import data from "src/app/assets/Data/Data.json";
 
 const Home = () => {
   const faction = [
@@ -19,7 +18,7 @@ const Home = () => {
     { id: 6, faction: "Wilder" },
   ];
 
-  const classes = [
+  const heroClass = [
     { id: 0, class: "Mage" },
     { id: 1, class: "Ranger" },
     { id: 2, class: "Support" },
@@ -27,7 +26,7 @@ const Home = () => {
     { id: 4, class: "Warrior" },
   ];
 
-  const [value, setValue] = useState([
+  const [factionOptions, setFactionOptions] = useState([
     faction[0],
     faction[1],
     faction[2],
@@ -36,25 +35,28 @@ const Home = () => {
     faction[5],
     faction[6],
   ]);
-  const [value2, setValue2] = useState([
-    classes[0],
-    classes[1],
-    classes[2],
-    classes[3],
-    classes[4],
+
+  const [classOptions, setClassOptions] = useState([
+    heroClass[0],
+    heroClass[1],
+    heroClass[2],
+    heroClass[3],
+    heroClass[4],
   ]);
   const [selectedOptions, setSelectedOptions] = useState(faction);
-  
- 
+  const [selectedClasses, setSelectedClasses] = useState(heroClass);
 
-  function handleDropdownChange(selectedOptions) {
-    setValue(selectedOptions);
+  function handleFactionDropdownChange(selectedOptions) {
     setSelectedOptions(selectedOptions);
   }
 
-  // extrai só valores faction dentro do objeto selectedOptions
-  let newSelectedOptions = selectedOptions.map(obj => obj.faction);
+  function handleClassDropdownChange(selectedClasses) {
+    setSelectedClasses(selectedClasses);
+  }
 
+  // extrai só valores dentro do objeto
+  let selectedFactions = selectedOptions.map((obj) => obj.faction);
+  let Classes = selectedClasses.map((obj) => obj.class);
 
   return (
     <main className={styles.main}>
@@ -70,10 +72,10 @@ const Home = () => {
         <div className={styles.container}>
           <div className={styles.dropdown}>
             <Dropdown
-              onChange={handleDropdownChange}
               multiple
+              onChange={handleFactionDropdownChange}
               input={"Faction"}
-              value={value}
+              value={factionOptions}
               folder={"Faction"}
               options={faction}
               selectorType={"faction"}
@@ -82,18 +84,21 @@ const Home = () => {
 
             <Dropdown
               multiple
+              onChange={handleClassDropdownChange}
               input={"Classes"}
-              value={value2}
               folder={"Classes"}
-              options={classes}
+              value={classOptions}
+              options={heroClass}
               selectorType={"class"}
-              alt={classes}
-              onChange={(o) => setValue2(o)}
+              alt={heroClass}
             />
           </div>
         </div>
 
-        <HeroGrid selectedFactions={newSelectedOptions} />
+        <HeroGrid
+          selectedFactions={selectedFactions}
+          selectedClasses={Classes}
+        />
       </div>
     </main>
   );
