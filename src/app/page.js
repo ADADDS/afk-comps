@@ -44,16 +44,17 @@ const Home = () => {
     classes[4],
   ]);
   const [selectedOptions, setSelectedOptions] = useState(faction);
+  
+ 
 
   function handleDropdownChange(selectedOptions) {
     setValue(selectedOptions);
     setSelectedOptions(selectedOptions);
   }
 
-  // just for debugging 
-  useEffect(() => {
-    console.log("Selected Options:", selectedOptions);
-  }, [selectedOptions]);
+  // extrai só valores faction dentro do objeto selectedOptions
+  let newSelectedOptions = selectedOptions.map(obj => obj.faction);
+
 
   return (
     <main className={styles.main}>
@@ -92,7 +93,7 @@ const Home = () => {
           </div>
         </div>
 
-        <HeroGrid selectedFactions={selectedOptions} />
+        <HeroGrid selectedFactions={newSelectedOptions} />
       </div>
     </main>
   );
