@@ -1,5 +1,5 @@
-"use client";
 
+"use client";
 import styles from "./page.module.css";
 import Head from "next/head";
 import Dropdown from "./components/shared/dropdown/dropdown";
@@ -43,32 +43,17 @@ const Home = () => {
     classes[3],
     classes[4],
   ]);
+  const [selectedOptions, setSelectedOptions] = useState(faction);
 
-  const [heroList, setHeroList] = useState([]);
-  const [selectedFaction, setSelectedFaction] = useState();
-
-  useEffect(() => {
-    setHeroList(data.Heroes);
-  }, []);
-
-  function getFilteredList() {
-    if (!selectedFaction) {
-        return heroList;
-    }
-    return heroList.filter((hero) => hero.faction === selectedFaction);
-}
-
-  var filteredList = useMemo(getFilteredList, [selectedFaction, heroList]);
-
-  function handleDropdownChange(o) {
-    const newFactions = faction.filter(f => !o.includes(f));
-    setSelectedFaction(newFactions);
-    setValue(o);
+  function handleDropdownChange(selectedOptions) {
+    setValue(selectedOptions);
+    setSelectedOptions(selectedOptions);
   }
-  
 
-
-  
+  // just for debugging 
+  useEffect(() => {
+    console.log("Selected Options:", selectedOptions);
+  }, [selectedOptions]);
 
   return (
     <main className={styles.main}>
@@ -84,7 +69,7 @@ const Home = () => {
         <div className={styles.container}>
           <div className={styles.dropdown}>
             <Dropdown
-            onChange={handleDropdownChange}
+              onChange={handleDropdownChange}
               multiple
               input={"Faction"}
               value={value}
@@ -107,9 +92,7 @@ const Home = () => {
           </div>
         </div>
 
-        {filteredList.map((element, index) => (
-          <HeroGrid key={index} heroes={filteredList} />
-        ))}
+        <HeroGrid selectedFactions={selectedOptions} />
       </div>
     </main>
   );

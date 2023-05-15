@@ -7,7 +7,7 @@
 		"type": "Strength",
 		"class": "Strength",
 		"role": "Burst Damage",
-		"faction": "Lightbearers",
+		"faction": "Lightbearer",
 		"Rarity": "Ascended"
 	  },
 	  {
@@ -17,7 +17,7 @@
 		"type": "Intelligence",
 		"class": "Mage",
 		"role": "AoE",
-		"faction": "Lightbearers",
+		"faction": "Lightbearer",
 		"Rarity": "Ascended"
 	  },
 	  {
@@ -27,7 +27,7 @@
 		"type": "Agility",
 		"class": "Support",
 		"role": "Buffer",
-		"faction": "Lightbearers",
+		"faction": "Lightbearer",
 		"Rarity": "Ascended"
 	  },
 	  {
@@ -37,7 +37,7 @@
 		"type": "Intelligence",
 		"class": "Support",
 		"role": "Buffer",
-		"faction": "Lightbearers",
+		"faction": "Lightbearer",
 		"Rarity": "Ascended"
 	  },
 	  {
@@ -47,7 +47,7 @@
 		"type": "Strength",
 		"class": "Tank",
 		"role": "Regen",
-		"faction": "Lightbearers",
+		"faction": "Lightbearer",
 		"Rarity": "Ascended"
 	  },
 	  {
@@ -57,7 +57,7 @@
 		"type": "Agility",
 		"class": "Ranger",
 		"role": "Assassin",
-		"faction": "Lightbearers",
+		"faction": "Lightbearer",
 		"Rarity": "Ascended"
 	  },
 	  {
@@ -67,7 +67,7 @@
 		"type": "Agility",
 		"class": "Ranger",
 		"role": "Control",
-		"faction": "Lightbearers",
+		"faction": "Lightbearer",
 		"Rarity": "Ascended"
 	  },
 	  {
@@ -77,7 +77,7 @@
 		"type": "Strength",
 		"class": "Tank",
 		"role": "Tank",
-		"faction": "Maulers",
+		"faction": "Mauler",
 		"Rarity": "Ascended"
 	  },
 	  {
@@ -87,7 +87,7 @@
 		"type": "Strength",
 		"class": "Warrior",
 		"role": "Continuous Damage",
-		"faction": "Maulers",
+		"faction": "Mauler",
 		"Rarity": "Ascended"
 	  },
 	  {
@@ -97,7 +97,7 @@
 		"type": "Agility",
 		"class": "Ranger",
 		"role": "AoE",
-		"faction": "Maulers",
+		"faction": "Mauler",
 		"Rarity": "Ascended"
 	  },
 	  {
@@ -107,7 +107,7 @@
 		"type": "Intelligence",
 		"class": "Support",
 		"role": "Regen",
-		"faction": "Maulers",
+		"faction": "Mauler",
 		"Rarity": "Ascended"
 	  },
 	  {
@@ -117,7 +117,7 @@
 		"type": "Strength",
 		"class": "Warrior",
 		"role": "Continuous Damage",
-		"faction": "Maulers",
+		"faction": "Mauler",
 		"Rarity": "Ascended"
 	  },
 	  {
@@ -127,7 +127,7 @@
 		"type": "Strength",
 		"class": "Tank",
 		"role": "Tank",
-		"faction": "Maulers",
+		"faction": "Mauler",
 		"Rarity": "Ascended"
 	  }
 	]
