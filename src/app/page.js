@@ -1,62 +1,44 @@
-"use client";
+'use client'
 
-import styles from "./page.module.css";
+import { useState } from "react";
 import Head from "next/head";
 import Dropdown from "./components/shared/dropdown/dropdown";
-import { useEffect, useState } from "react";
 import HeroGrid from "src/app/components/HeroGrid/HeroGrid.js";
 import LeftPanel from "src/app/components/LeftPanel/LeftPanel.js";
+import styles from "./page.module.css";
+
+const FACTION_OPTIONS = [
+  { id: 0, faction: "Celestial" },
+  { id: 1, faction: "Dimensional" },
+  { id: 2, faction: "Graveborn" },
+  { id: 3, faction: "Hypogean" },
+  { id: 4, faction: "Lightbearer" },
+  { id: 5, faction: "Mauler" },
+  { id: 6, faction: "Wilder" },
+];
+
+const CLASS_OPTIONS = [
+  { id: 0, class: "Mage" },
+  { id: 1, class: "Ranger" },
+  { id: 2, class: "Support" },
+  { id: 3, class: "Tank" },
+  { id: 4, class: "Warrior" },
+];
 
 const Home = () => {
-  const faction = [
-    { id: 0, faction: "Celestial" },
-    { id: 1, faction: "Dimensional" },
-    { id: 2, faction: "Graveborn" },
-    { id: 3, faction: "Hypogean" },
-    { id: 4, faction: "Lightbearer" },
-    { id: 5, faction: "Mauler" },
-    { id: 6, faction: "Wilder" },
-  ];
+  const [selectedFactions, setSelectedFactions] = useState(FACTION_OPTIONS);
+  const [selectedClasses, setSelectedClasses] = useState(CLASS_OPTIONS);
 
-  const heroClass = [
-    { id: 0, class: "Mage" },
-    { id: 1, class: "Ranger" },
-    { id: 2, class: "Support" },
-    { id: 3, class: "Tank" },
-    { id: 4, class: "Warrior" },
-  ];
+  const handleFactionChange = (newSelection) => {
+    setSelectedFactions(newSelection);
+  };
 
-  const [factionOptions, setFactionOptions] = useState([
-    faction[0],
-    faction[1],
-    faction[2],
-    faction[3],
-    faction[4],
-    faction[5],
-    faction[6],
-  ]);
+  const handleClassChange = (newSelection) => {
+    setSelectedClasses(newSelection);
+  };
 
-  const [classOptions, setClassOptions] = useState([
-    heroClass[0],
-    heroClass[1],
-    heroClass[2],
-    heroClass[3],
-    heroClass[4],
-  ]);
-  const [selectedOptions, setSelectedOptions] = useState(faction);
-  const [selectedClasses, setSelectedClasses] = useState(heroClass);
-
-  function handleFactionDropdownChange(selectedOptions) {
-    setSelectedOptions(selectedOptions);
-  }
-
-  function handleClassDropdownChange(selectedClasses) {
-    setSelectedClasses(selectedClasses);
-  }
-
-  // extrai só valores dentro do objeto
-  let selectedFactions = selectedOptions.map((obj) => obj.faction);
-  let Classes = selectedClasses.map((obj) => obj.class);
+  const selectedFactionValues = selectedFactions.map((obj) => obj.faction);
+  const selectedClassValues = selectedClasses.map((obj) => obj.class);
 
   return (
     <main className={styles.main}>
@@ -73,31 +55,31 @@ const Home = () => {
           <div className={styles.dropdown}>
             <Dropdown
               multiple
-              onChange={handleFactionDropdownChange}
-              input={"Faction"}
-              value={factionOptions}
-              folder={"Faction"}
-              options={faction}
-              selectorType={"faction"}
-              alt={faction}
+              onChange={handleFactionChange}
+              input="Faction"
+              value={selectedFactions}
+              folder="Faction"
+              options={FACTION_OPTIONS}
+              selectorType="faction"
+              alt={FACTION_OPTIONS}
             />
 
             <Dropdown
               multiple
-              onChange={handleClassDropdownChange}
-              input={"Classes"}
-              folder={"Classes"}
-              value={classOptions}
-              options={heroClass}
-              selectorType={"class"}
-              alt={heroClass}
+              onChange={handleClassChange}
+              input="Classes"
+              folder="Classes"
+              value={selectedClasses}
+              options={CLASS_OPTIONS}
+              selectorType="class"
+              alt={CLASS_OPTIONS}
             />
           </div>
         </div>
 
         <HeroGrid
-          selectedFactions={selectedFactions}
-          selectedClasses={Classes}
+          selectedFactions={selectedFactionValues}
+          selectedClasses={selectedClassValues}
         />
       </div>
     </main>
