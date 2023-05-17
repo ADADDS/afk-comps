@@ -18,7 +18,7 @@ const HeroGrid = ({ selectedFactions, selectedClasses }) => {
     <div className={styles.container}>
       {filteredHeroes.map((hero) => (
         <div key={hero.id}>
-          <Hero heroName={hero.name} faction={hero.faction} />
+          <Hero className={styles.hero} heroName={hero.name} faction={hero.faction} />
         </div>
       ))}
     </div>

@@ -74,13 +74,24 @@ const Home = () => {
               selectorType="class"
               alt={CLASS_OPTIONS}
             />
+            <Dropdown
+              multiple
+              onChange={handleClassChange}
+              input="Attribute"
+              folder="Classes"
+              value={selectedClasses}
+              options={CLASS_OPTIONS}
+              selectorType="class"
+              alt={CLASS_OPTIONS}
+            />
+      
           </div>
-        </div>
-
         <HeroGrid
           selectedFactions={selectedFactionValues}
           selectedClasses={selectedClassValues}
         />
+      </div>
+
       </div>
     </main>
   );

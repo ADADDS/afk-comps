@@ -9,8 +9,8 @@ const Hero = ({ heroName, faction }) => {
 			className={styles.avatar}
 			src={`/Images/HeroAvatar/${heroName}.png`}
 			alt={heroName}
-			width={100}
-			height={100}
+			width={80}
+			height={80}
 		/>
 	</div>
 	

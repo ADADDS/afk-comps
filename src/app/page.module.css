@@ -1,20 +1,23 @@
 .main{
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	height: 100vh;
+	margin-right: 120px;
+	
 }
-
 .leftPanelWrapper {
-	/* background-color: blue; */
-	width:30vw;
+	background-color: blue;
+	
 }
 
 .heroGridWrapper{
 	/* background-color: yellow; */
-	width: 70vw;
-	padding-left: 32px;
-	padding-right: 32px;
 }
 
 .dropdown {
 	display: flex;
+	width: 100%;
+
 	margin-bottom: 40px;
+	margin-top: 40px;
 }

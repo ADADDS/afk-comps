@@ -1,7 +1,46 @@
 :root {
-  --font-family: 'Roboto', sans-serif;
-  --font-size-base: 16px;
-  --font-size-large: 24px;
+  --font-size-200: 0.75rem;
+  --font-size-400: 1rem;
+  --font-size-600: 1.5rem;
+
+  --font-size-body: var(--font-size-400);
+  --font-size-captions: var(--font-size-200);
+  --font-size-headings: var(--font-size-600);
+
+  --font-family-primary: 'Inter', sans-serif;
+  --font-family-body: var(--font-family-primary);
+  --font-family-heading: var(--font-family-primary);
+  
+  --font-weight-regular: 400;
+  --font-weigth-semibold: 500;
+  --font-weight-bold: 700;
+
+  --color-neutral-100: HSL(265, 3%, 13%);
+  --color-neutral-200: HSL(270, 7%, 17%);
+  --color-neutral-300: HSL(270, 6%, 22%);
+  --color-neutral-400: HSL(270, 2%, 57%);
+  --color-neutral-500: HSL(0, 0%, 100%);
+  
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 40px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 56px;
+  --spacing-4xl: 64px;
+  --spacing-5xl: 72px;
+  --spacing-6xl: 80px;
+  --spacing-7xl: 88px;
+  --spacing-8xl: 96px;
+  --spacing-9xl: 104px;
+  --spacing-10xl: 112px;
+  --spacing-11xl: 120px;
+  --spacing-12xl: 128px;
+  --spacing-13xl: 136px;
+  --spacing-14xl: 144px;
+  --spacing-15xl: 152px;
+  --spacing-16xl: 160px;
 }
 
 /* Box sizing rules */

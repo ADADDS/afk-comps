@@ -53,7 +53,9 @@ const dropdown = ({
     <div
       onMouseLeave={() => setIsOpen(false)}
       onClick={() => setIsOpen(!isOpen)}
-      className={styles.wrapper}
+      className={`
+			${styles.wrapper} 
+			${isOpen ? styles.opened : ""} `}
     >
       <div className={styles.content}>
         <div className={styles.input}>{input}</div>
@@ -99,7 +101,7 @@ const dropdown = ({
       </div>
 
       <div className={styles.buttons}>
-        {value.length > 0 && (
+        {/* {value.length > 0 && (
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -114,7 +116,7 @@ const dropdown = ({
             height={16}
           />
           </button>
-        )}
+        )} */}
         <button className={styles.caret}>
           <motion.img
             src="/Images/Icons/caret.svg"
@@ -140,7 +142,9 @@ const dropdown = ({
 			${isOptionSelected(option) ? styles.selected : ""} 
 			${index === highlightedIndex ? styles.highlighted : ""}`}
           >
-            <div className={styles.listItem}>
+            <div className={`
+			${styles.listItem} 
+			${isOptionSelected(option) ? styles.selected : ""} `}>
               <img
                 src={`/Images/${folder}/${option?.[selectorType]}.png`}
                 alt={value?.factionName}
