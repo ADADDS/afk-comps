@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useState } from "react";
 import Head from "next/head";
@@ -28,6 +28,7 @@ const CLASS_OPTIONS = [
 const Home = () => {
   const [selectedFactions, setSelectedFactions] = useState(FACTION_OPTIONS);
   const [selectedClasses, setSelectedClasses] = useState(CLASS_OPTIONS);
+  const [selectedHeroes, setSelectedHeroes] = useState([]);
 
   const handleFactionChange = (newSelection) => {
     setSelectedFactions(newSelection);
@@ -35,6 +36,16 @@ const Home = () => {
 
   const handleClassChange = (newSelection) => {
     setSelectedClasses(newSelection);
+  };
+
+  const handleStatusChange = (heroes) => {
+    setSelectedHeroes(heroes);
+  };
+
+  const handleHeroRemove = (index) => {
+    setSelectedHeroes(
+      selectedHeroes.map((hero, i) => (i === index ? null : hero))
+    );
   };
 
   const selectedFactionValues = selectedFactions.map((obj) => obj.faction);
@@ -47,7 +58,10 @@ const Home = () => {
       </Head>
 
       <div className={styles.leftPanelWrapper}>
-        <LeftPanel />
+        <LeftPanel
+          selectedHeroes={selectedHeroes}
+          onHeroRemove={handleHeroRemove}
+        />
       </div>
 
       <div className={styles.heroGridWrapper}>
@@ -84,14 +98,14 @@ const Home = () => {
               selectorType="class"
               alt={CLASS_OPTIONS}
             />
-      
           </div>
-        <HeroGrid
-          selectedFactions={selectedFactionValues}
-          selectedClasses={selectedClassValues}
-        />
-      </div>
-
+          <HeroGrid
+            onStatusChange={handleStatusChange}
+            selectedFactions={selectedFactionValues}
+            selectedClasses={selectedClassValues}
+            selectedHeroes={selectedHeroes}
+          />
+        </div>
       </div>
     </main>
   );

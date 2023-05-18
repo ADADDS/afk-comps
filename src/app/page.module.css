@@ -1,17 +1,19 @@
-.main{
+.main {
 	display: grid;
-	grid-template-columns: 1fr 2fr;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
 	height: 100vh;
-	margin-right: 120px;
-	
-}
+  }
+  
 .leftPanelWrapper {
-	background-color: blue;
+	/* background-color: blue; */
 	
 }
 
 .heroGridWrapper{
 	/* background-color: yellow; */
+	margin-right: 120px;
+	margin-left: 120px;
+	max-width: 100%;
 }
 
 .dropdown {

@@ -1,10 +1,14 @@
 .container {
-	width: 80px;
-	height: 80px;
+	width: 100px;
+	height: 100px;
 	overflow: hidden;
 	cursor: pointer;
 	border-radius: 24px 4px 24px 4px;
+	background-color: aqua;
   }
+
+
+  
 /*   
   .avatar {
 	border-radius: 32px 0px 32px 0px;
@@ -21,4 +25,10 @@
 	height: 24px;
 	margin-left: 8px;
 	margin-top: 8px;
+	pointer-events: none;
+
+  }
+
+  .container.selected{
+	opacity: 0.3;
   }

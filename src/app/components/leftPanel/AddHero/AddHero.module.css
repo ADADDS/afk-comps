@@ -1,0 +1,28 @@
+.container {
+	width: 120px;
+	height: 120px;
+	border-radius: 24px 4px 24px 4px;
+	border: 2px solid var(--color-neutral-400);
+
+  }
+.container:hover {
+	border: 2px solid var(--color-neutral-500);
+	cursor: pointer;
+}
+  .container.selected {
+	border: 2px solid var(--color-neutral-500);
+	background-color: white;
+  }
+
+  .faction_badge{
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	margin-left: 8px;
+	margin-top: 8px;
+  }
+
+  .container img {
+	pointer-events: none;
+	
+  }
