@@ -38,14 +38,12 @@ const Home = () => {
     setSelectedClasses(newSelection);
   };
 
-  const handleStatusChange = (heroes) => {
+  const updateSelectedHeroes = (heroes) => {
     setSelectedHeroes(heroes);
   };
 
   const handleHeroRemove = (index) => {
-    setSelectedHeroes(
-      selectedHeroes.map((hero, i) => (i === index ? null : hero))
-    );
+  
   };
 
   const selectedFactionValues = selectedFactions.map((obj) => obj.faction);
@@ -60,7 +58,6 @@ const Home = () => {
       <div className={styles.leftPanelWrapper}>
         <LeftPanel
           selectedHeroes={selectedHeroes}
-          onHeroRemove={handleHeroRemove}
         />
       </div>
 
@@ -100,7 +97,7 @@ const Home = () => {
             />
           </div>
           <HeroGrid
-            onStatusChange={handleStatusChange}
+            updateSelectedHeroes={updateSelectedHeroes}
             selectedFactions={selectedFactionValues}
             selectedClasses={selectedClassValues}
             selectedHeroes={selectedHeroes}

@@ -4,7 +4,7 @@ import Hero from "../shared/hero/hero";
 import data from "src/app/assets/Data/Data.json";
 import styles from "src/app/components/heroGrid/heroGrid.module.css";
 
-const HeroGrid = ({ onStatusChange, selectedFactions, selectedClasses }) => {
+const HeroGrid = ({ updateSelectedHeroes, selectedFactions, selectedClasses }) => {
   const [selectedHeroes, setSelectedHeroes] = useState([]);
 
   const HERO_LIST = data.Heroes;
@@ -29,9 +29,10 @@ const HeroGrid = ({ onStatusChange, selectedFactions, selectedClasses }) => {
     }
   };
 
+  // isso aqui é oq atualiza o componente FormationSelector :thi 
   useEffect(() => {
-    onStatusChange(selectedHeroes);
-  }, [selectedHeroes, onStatusChange]);
+    updateSelectedHeroes(selectedHeroes);
+  }, [selectedHeroes, updateSelectedHeroes]);
 
   return (
     <>
@@ -47,7 +48,6 @@ const HeroGrid = ({ onStatusChange, selectedFactions, selectedClasses }) => {
             key={hero.id}
             onClick={() => handleHeroClick(hero)}
           >
-            {/* {selectedHero === hero ? "Selected" : ""} */}
             <Hero heroName={hero.name} faction={hero.faction} />
           </div>
         ))}

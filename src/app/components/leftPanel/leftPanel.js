@@ -1,5 +1,5 @@
-import AddHero from "./AddHero/AddHero";
-import CompSelector from "./CompSelector/CompSelector";
+import SelectableFormationSlot from "./SelectableFormationSlot/SelectableFormationSlot";
+import FormationSelector from "./FormationSelector/FormationSelector";
 import styles from "./LeftPanel.module.css";
 
 const LeftPanel = ({ selectedHeroes, onHeroRemove }) => {
@@ -12,7 +12,7 @@ const LeftPanel = ({ selectedHeroes, onHeroRemove }) => {
         </div>
       </div>
       <div className={styles.compContainer}>
-        <CompSelector
+        <FormationSelector
           selectedHeroes={selectedHeroes}
           onHeroRemove={onHeroRemove}
         />

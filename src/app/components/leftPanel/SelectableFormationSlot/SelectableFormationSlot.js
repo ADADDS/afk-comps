@@ -1,13 +1,13 @@
-import styles from "./AddHero.module.css";
+import styles from "./SelectableFormationSlot.module.css";
 
-const AddHero = ({ hero, onClick }) => {
+const SelectableFormationSlot = ({ hero, onClick, isSelected }) => {
   return (
     <>
       <div
         onClick={onClick}
         className={`
         ${styles.container} 
-        ${hero ? styles.selected : ""} `}
+        ${isSelected ? styles.selected : ""} `}
       >
         {hero ? (
           <>
@@ -33,4 +33,4 @@ const AddHero = ({ hero, onClick }) => {
   );
 };
 
-export default AddHero;
+export default SelectableFormationSlot;
