@@ -1,11 +1,12 @@
 "use client";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import Dropdown from "./components/shared/dropdown/dropdown";
 import HeroGrid from "src/app/components/HeroGrid/HeroGrid.js";
 import LeftPanel from "src/app/components/LeftPanel/LeftPanel.js";
 import styles from "./page.module.css";
+import Data from "/Users/lucianoinfanti/afk-comps/src/app/assets/Data/Data.json";
+import SearchBar from "./components/Search/SearchBar/SearchBar";
 
 const FACTION_OPTIONS = [
   { id: 0, faction: "Celestial" },
@@ -30,6 +31,8 @@ const Home = () => {
   const [selectedClasses, setSelectedClasses] = useState(CLASS_OPTIONS);
   const [selectedHeroes, setSelectedHeroes] = useState([]);
 
+
+
   const handleFactionChange = (newSelection) => {
     setSelectedFactions(newSelection);
   };
@@ -42,10 +45,6 @@ const Home = () => {
     setSelectedHeroes(heroes);
   };
 
-  const handleHeroRemove = (index) => {
-  
-  };
-
   const selectedFactionValues = selectedFactions.map((obj) => obj.faction);
   const selectedClassValues = selectedClasses.map((obj) => obj.class);
 
@@ -56,13 +55,15 @@ const Home = () => {
       </Head>
 
       <div className={styles.leftPanelWrapper}>
-        <LeftPanel
-          selectedHeroes={selectedHeroes}
-        />
+        <LeftPanel selectedHeroes={selectedHeroes} />
       </div>
 
       <div className={styles.heroGridWrapper}>
         <div className={styles.container}>
+          <div className={styles.searchContainer}>
+          <SearchBar placeholder="Search for a hero" data={Data} />
+          </div>
+
           <div className={styles.dropdown}>
             <Dropdown
               multiple
@@ -100,7 +101,6 @@ const Home = () => {
             updateSelectedHeroes={updateSelectedHeroes}
             selectedFactions={selectedFactionValues}
             selectedClasses={selectedClassValues}
-            selectedHeroes={selectedHeroes}
           />
         </div>
       </div>
