@@ -1,4 +1,6 @@
 import styles from "./hero.module.css";
+import { imageSelectionStore } from "@/stores/ImageSelectionStore";
+import { useStore } from "zustand";
 
 const Hero = ({
   heroName,
@@ -8,8 +10,32 @@ const Hero = ({
   width,
   displayBadge,
 }) => {
+  // const { hoveredHero, setHoveredHero, clearHoveredHero } = useStore(
+  //   (state) => state
+  // );
+
+  const { hoveredHero, setHoveredHero, clearHoveredHero } =
+  imageSelectionStore((state) => state);
+
+  const state = imageSelectionStore((state) => state);
+  console.log(state);
+
+  const handleMouseEnter = () => {
+    setHoveredHero(heroName);
+  };
+
+  const handleMouseLeave = () => {
+    clearHoveredHero();
+  };
+
+  const isHovered = heroName === hoveredHero;
+
   return (
-    <div className={`${styles.container} ${isSelected ? styles.selected : ""}`}>
+    <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={`${styles.container}`}
+    >
       {displayBadge && (
         <img
           className={styles.faction_badge}

@@ -1,64 +1,20 @@
-import React, { useState } from "react";
-import styles from "./SearchBar.module.css";
-import Hero from "../../shared/hero/hero";
-const SearchBar = ({ placeholder, data }) => {
-  const [filteredData, setFilteredData] = useState([]);
-  const [wordEntered, setWordEntered] = useState("");
-  const transformData = Object.values(data.Heroes).filter(
-    (hero) => hero.type === "Strength"
-  );
+import { heroGridStore } from "@/stores/heroGridStore";
 
-  const handleFilter = (event) => {
-    const searchWord = event.target.value;
-    setWordEntered(searchWord);
-    const newFilter = transformData.filter((value) => {
-      return value.name.toLowerCase().includes(searchWord.toLowerCase());
-    });
+const SearchBar = () => {
+  const { searchQuery, setSearchQuery } = heroGridStore((state) => state);
 
-    if (searchWord === "") {
-      setFilteredData([]);
-    } else {
-      setFilteredData(newFilter);
-    }
-  };
-
-  const clearInput = () => {
-    setFilteredData([]);
-    setWordEntered("");
+  const handleInputChange = (event) => {
+    const inputValue = event.target.value;
+    setSearchQuery(inputValue); // Update searchQuery in store
   };
 
   return (
-    <>
-      <div className={styles.container}>
-        <div className={styles.searchInput}>
-          <input
-            type="text"
-            placeholder={placeholder}
-            value={wordEntered}
-            onChange={handleFilter}
-          />
-        </div>
-        {filteredData.slice(0, 15).map((value, key) => {
-          const index = value.name
-            .toLowerCase()
-            .indexOf(wordEntered.toLowerCase());
-          const prefix = value.name.slice(0, index);
-          const match = value.name.slice(index, index + wordEntered.length);
-          const suffix = value.name.slice(index + wordEntered.length);
-          return (
-            <div key={key}>
-               <Hero heroName={value.name}  height={30} width={39} displayBadge={false}/>
-
-              <p>
-                {prefix}
-                <strong>{match}</strong>
-                {suffix}
-              </p>
-            </div>
-          );
-        })}
-      </div>
-    </>
+    <input
+      type="text"
+      placeholder="Search by name"
+      value={searchQuery}
+      onChange={handleInputChange}
+    />
   );
 };
 

@@ -31,8 +31,6 @@ const Home = () => {
   const [selectedClasses, setSelectedClasses] = useState(CLASS_OPTIONS);
   const [selectedHeroes, setSelectedHeroes] = useState([]);
 
-
-
   const handleFactionChange = (newSelection) => {
     setSelectedFactions(newSelection);
   };
@@ -44,6 +42,13 @@ const Home = () => {
   const updateSelectedHeroes = (heroes) => {
     setSelectedHeroes(heroes);
   };
+
+  const handleWordEntered = (e) => {
+    if (e && e.target && e.target.value) {
+      setWordEntered(e.target.value);
+    }
+  };
+  
 
   const selectedFactionValues = selectedFactions.map((obj) => obj.faction);
   const selectedClassValues = selectedClasses.map((obj) => obj.class);
@@ -61,7 +66,7 @@ const Home = () => {
       <div className={styles.heroGridWrapper}>
         <div className={styles.container}>
           <div className={styles.searchContainer}>
-          <SearchBar placeholder="Search for a hero" data={Data} />
+            <SearchBar placeholder="Search for a hero" data={Data} />
           </div>
 
           <div className={styles.dropdown}>

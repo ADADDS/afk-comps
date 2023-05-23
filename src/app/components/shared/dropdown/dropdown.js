@@ -135,9 +135,11 @@ const dropdown = ({
 			${isOptionSelected(option) ? styles.selected : ""} 
 			${index === highlightedIndex ? styles.highlighted : ""}`}
           >
-            <div className={`
+            <div
+              className={`
 			${styles.listItem} 
-			${isOptionSelected(option) ? styles.selected : ""} `}>
+			${isOptionSelected(option) ? styles.selected : ""} `}
+            >
               <img
                 src={`/Images/${folder}/${option?.[selectorType]}.png`}
                 alt={value?.factionName}

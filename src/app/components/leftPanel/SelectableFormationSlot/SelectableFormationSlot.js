@@ -2,8 +2,9 @@ import { imageSelectionStore } from "@/stores/ImageSelectionStore";
 import styles from "./SelectableFormationSlot.module.css";
 
 const SelectableFormationSlot = ({ slot }) => {
-  const { selectedSlot, setSelectedSlot, removeHero, slots } =
+  const { selectedSlot, setSelectedSlot, setHero, removeHero, slots, hoveredHero } =
     imageSelectionStore((state) => state);
+
   const isSelected = selectedSlot === slot;
   const hero = slots[slot];
 
@@ -18,10 +19,18 @@ const SelectableFormationSlot = ({ slot }) => {
   return (
     <div
       onClick={onClick}
-      className={`
-        ${styles.container} 
-        ${isSelected ? styles.selected : ""} `}
+      className={`${styles.container} ${isSelected ? styles.selected : ""}`}
     >
+      {isSelected && !hero && hoveredHero && (
+        <img
+          className={styles.ghostAvatar}
+          src={`/Images/HeroAvatar/${hoveredHero}.png`}
+          alt={hoveredHero}
+          width={120}
+          height={120}
+        />
+      )}
+
       {hero ? (
         <>
           <img

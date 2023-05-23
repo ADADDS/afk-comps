@@ -11,7 +11,6 @@
 }
   .container.selected {
 	border: 2px solid var(--color-neutral-500);
-	background-color: white;
   }
 
   .faction_badge{
@@ -25,4 +24,9 @@
   .container img {
 	pointer-events: none;
 	
+  }
+
+
+  .ghostAvatar{
+	opacity: 0.2;
   }

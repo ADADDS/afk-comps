@@ -129,6 +129,39 @@
 		"role": "Tank",
 		"faction": "Mauler",
 		"Rarity": "Ascended"
+	  },
+	  {
+		"id": 14,
+		"name": "Nemora",
+		"title": "The Cunning",
+		"type": "Strength",
+		"class": "Tank",
+		"role": "Tank",
+		"faction": "Wilder",
+		"Rarity": "Ascended"
+	  },
+
+	  {
+		"id": 15,
+		"name": "Lyca",
+		"title": "The Cunning",
+		"type": "Strength",
+		"class": "Tank",
+		"role": "Tank",
+		"faction": "Wilder",
+		"Rarity": "Ascended"
+	  },
+	  {
+		"id": 16,
+		"name": "Kaz",
+		"title": "The Cunning",
+		"type": "Strength",
+		"class": "Tank",
+		"role": "Tank",
+		"faction": "Wilder",
+		"Rarity": "Ascended"
 	  }
+
+
 	]
   }

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import styles from "./FormationSelector.module.css";
 import SelectableFormationSlot from "../SelectableFormationSlot/SelectableFormationSlot";
 

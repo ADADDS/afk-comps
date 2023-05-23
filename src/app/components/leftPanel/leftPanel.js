@@ -1,4 +1,3 @@
-import SelectableFormationSlot from "./SelectableFormationSlot/SelectableFormationSlot";
 import FormationSelector from "./FormationSelector/FormationSelector";
 import styles from "./LeftPanel.module.css";
 
@@ -17,10 +16,6 @@ const LeftPanel = ({ selectedHeroes, onHeroRemove }) => {
           onHeroRemove={onHeroRemove}
         />
       </div>
-
-      {/* 
-		{selectedHero && <div>Heroi selecionado: {selectedHero.name}</div>} 
-		<AddHero heroName={selectedHero?.name} faction={selectedHero?.faction}/> */}
     </div>
   );
 };

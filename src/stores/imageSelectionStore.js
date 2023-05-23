@@ -3,7 +3,15 @@ import { create } from "zustand";
 export const imageSelectionStore = create((set, get) => ({
   selectedSlot: undefined,
   slots: {},
+  hoveredHero: undefined,
   setSelectedSlot: (slot) => set({ selectedSlot: slot }),
+  setHoveredHero: (hero) => {
+    set({ hoveredHero: hero });
+  },
+  clearHoveredHero: () => {
+    console.log("clearHoveredHero function is defined");
+    set({ hoveredHero: undefined });
+  },
   setHero: (hero) => {
     const slot = get().selectedSlot;
     if (slot == undefined) return;
@@ -19,12 +27,11 @@ export const imageSelectionStore = create((set, get) => ({
     const slots = get().slots;
     let slot;
     for (slot of Object.keys(slots)) {
-		if (slots[slot].id == hero.id) {
-			delete slots[slot];
-			console.log(slots);
-			break;
-		}
+      if (slots[slot].id == hero.id) {
+        delete slots[slot];
+        break;
+      }
     }
-	set({ slots: { ...slots } });
+    set({ slots: { ...slots } });
   },
 }));
