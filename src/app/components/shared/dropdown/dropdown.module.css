@@ -1,139 +1,145 @@
-.wrapper{
-	position: relative;
-	z-index: 999;
-	padding: 24px;
-	background-color: #29282D;
-	border-radius: 12px;
-	display: flex;
-	width: 100%;
-	justify-content: space-between;
+.wrapper {
+    position: relative;
+        padding: 24px;
+    background-color: var(--color-primary-background);
+    border-bottom: 1px solid var(--color-divider);
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    transition: border-color 0.4s ease-in-out;
 
 }
-.wrapper.opened{
-	border-radius: 12px 12px 0px 0px;
-}
-.wrapper:hover{
-	cursor: pointer;
+
+.wrapper.opened {
+    border-radius: 12px 12px 0px 0px;
 }
 
-.buttons{
-	display : flex;
-	justify-content: center;
-	align-items: center;
+.wrapper:hover {
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-highlight);
 }
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .input {
-	text-transform: uppercase;
-	font-size: 0.8rem;
-	font-weight: 600;
-	margin-bottom: 8px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 8px;
 }
 
-.selectFaction{
-	opacity: 0.3;
+.selectFaction {
+    opacity: 0.3;
 }
+
 .placeholder {
- display: flex;
+    display: flex;
 }
 
-.clear-btn{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: #3B3A3E;
-	color: #8F8F91;
-	outline: none;
-	height: 24px;
-	border-radius: 16px;
-	border: none;
-	font-size: 12px;
+.clear-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3B3A3E;
+    color: #8F8F91;
+    outline: none;
+    height: 24px;
+    border-radius: 16px;
+    border: none;
+    font-size: 12px;
 }
 
-.clear-btn > img {
-	margin-left: 4px;
+.clear-btn>img {
+    margin-left: 4px;
 }
 
-.clear-btn:hover{
-	cursor: pointer;
+.clear-btn:hover {
+    cursor: pointer;
 }
 
 .caret {
-	background: none;
-	color: white;
-	outline: none;
-	border: none;
+    background: none;
+    color: white;
+    outline: none;
+    border: none;
 
 }
 
 .caret:hover {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .options {
-	position: absolute;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	display: none;
-	align-items: center;
-	width: 100%;
-	left: 0;
-	top: calc(100%);
-	z-index: 100;	
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: none;
+    align-items: center;
+    width: 100%;
+    left: 0;
+    top: calc(100%);
+    z-index: 100;
+    background-color: #29282D;
+    border-radius: 0px 0px 12px 12px;
+}
 
-	background-color: #29282D;
-	border-radius: 0px 0px 12px 12px;
+.options>li {
+    display: flex;
+    align-items: center;
 }
-.options > li {
-	display: flex;
-	align-items: center;
-}
+
 .options.show {
-	display: block;
+    display: block;
 }
 
 .option {
-	padding-left: 24px;
-	padding-bottom: 16px;
-	color: #858487;
-	display: flex;
-	align-items: center;
+    padding-left: 24px;
+    padding-bottom: 16px;
+    color: #858487;
+    display: flex;
+    align-items: center;
 }
 
 .option.selected {
-	color: white;
-	display: flex;
-	align-items: center;
-  }
-  
-  .option.highlighted {
-	color: white;
-	display: flex;
-	align-items: center;
-	
-  }
+    color: white;
+    display: flex;
+    align-items: center;
+}
 
-  .option.selected > img {
-	filter: saturate(0);
-  }
+.option.highlighted {
+    color: white;
+    display: flex;
+    align-items: center;
 
-  .listItem > img {
-	margin-right: 8px;
-	filter: saturate(0);
-  }
+}
 
-  .listItem.selected > img {
-	filter: saturate(1);
-	color: red;
+.option.selected>img {
+    filter: saturate(0);
+}
 
-  }
+.listItem>img {
+    margin-right: 8px;
+    filter: saturate(0);
+}
 
-  .listItem {
-	display: flex;
-	align-items: center;
-  }
+.listItem.selected>img {
+    filter: saturate(1);
+    color: red;
 
-  .factionSelected {
-	margin-right: 4px;
-	width: 24px;
-	height: 24px;
-  }
+}
+
+.listItem {
+    display: flex;
+    align-items: center;
+}
+
+.factionSelected {
+    margin-right: 4px;
+    width: 24px;
+    height: 24px;
+}

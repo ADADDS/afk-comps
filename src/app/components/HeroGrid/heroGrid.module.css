@@ -1,15 +1,25 @@
 .container {
-	display: grid;
-	grid-template-columns: repeat(6, minmax(100px, 1fr));
-	margin-top: var(--spacing-sm);
-	gap: var(--spacing-sm);
+    display: grid;
+    grid-template-columns: repeat(6, minmax(100px, 1fr));
+    margin-top: var(--spacing-sm);
+    gap: var(--spacing-sm);
 }
 
-.title{
-	padding-top: 40px;
-	font-size: 24px;
+.title {
+    padding-top: var(--spacing-6xl);
+    font-size: 32px;
+    font-family: Bebas Neue;
 }
 
-.hero.selected{
-	filter: grayscale(1);
+.title > span {
+    opacity: 0.3;
+}
+
+.hero {
+    transition: filter 0.3s ease-in-out;
+}
+
+.hero.selected {
+    filter: grayscale(1);
+
 }

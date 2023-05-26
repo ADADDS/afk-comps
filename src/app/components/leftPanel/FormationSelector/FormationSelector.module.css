@@ -3,6 +3,7 @@
 	flex-direction: row;	
 	margin-left: 8%;
 	margin-top: 40px;
+	z-index: 999;
 }
 
 .containerLeft {

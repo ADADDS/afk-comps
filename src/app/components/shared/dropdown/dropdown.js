@@ -63,10 +63,10 @@ const dropdown = ({
           )}
 
           {multiple ? (
-            value.map((v) => (
+            value.map((v, i) => (
               <div
                 className={styles.factionSelected}
-                key={v.value}
+                key={i}
                 onClick={(e) => {
                   e.stopPropagation();
                   selectOption(v);
@@ -94,31 +94,7 @@ const dropdown = ({
       </div>
 
       <div className={styles.buttons}>
-        {/* {value.length > 0 && (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              clearOptions();
-            }}
-            className={styles["clear-btn"]}
-          >
-           Clear <img
-            src="/Images/Icons/Close.svg"
-            alt="close"
-            width={16}
-            height={16}
-          />
-          </button>
-        )} */}
-        <button className={styles.caret}>
-          <motion.img
-            src="/Images/Icons/caret.svg"
-            alt="chevron"
-            width={24}
-            height={24}
-            animate={{ rotate: isOpen ? 180 : 0 }}
-          />
-        </button>
+      
       </div>
 
       <ul className={`${styles.options} ${isOpen ? styles.show : ""}`}>
@@ -129,7 +105,7 @@ const dropdown = ({
               selectOption(option);
             }}
             onMouseEnter={() => setHighlightedIndex(index)}
-            key={option.value}
+            key={index}
             className={`
 			${styles.option} 
 			${isOptionSelected(option) ? styles.selected : ""} 

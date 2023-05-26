@@ -48,68 +48,68 @@ const Home = () => {
       setWordEntered(e.target.value);
     }
   };
-  
 
   const selectedFactionValues = selectedFactions.map((obj) => obj.faction);
   const selectedClassValues = selectedClasses.map((obj) => obj.class);
 
   return (
-    <main className={styles.main}>
-      <Head>
-        <title>AFK Comps</title>
-      </Head>
+      <main className={styles.main}>
+        <Head>
+          <title>AFK Comps</title>
+        </Head>
 
-      <div className={styles.leftPanelWrapper}>
-        <LeftPanel selectedHeroes={selectedHeroes} />
-      </div>
-
-      <div className={styles.heroGridWrapper}>
-        <div className={styles.container}>
-          <div className={styles.searchContainer}>
-            <SearchBar placeholder="Search for a hero" data={Data} />
-          </div>
-
-          <div className={styles.dropdown}>
-            <Dropdown
-              multiple
-              onChange={handleFactionChange}
-              input="Faction"
-              value={selectedFactions}
-              folder="Faction"
-              options={FACTION_OPTIONS}
-              selectorType="faction"
-              alt={FACTION_OPTIONS}
-            />
-
-            <Dropdown
-              multiple
-              onChange={handleClassChange}
-              input="Classes"
-              folder="Classes"
-              value={selectedClasses}
-              options={CLASS_OPTIONS}
-              selectorType="class"
-              alt={CLASS_OPTIONS}
-            />
-            <Dropdown
-              multiple
-              onChange={handleClassChange}
-              input="Attribute"
-              folder="Classes"
-              value={selectedClasses}
-              options={CLASS_OPTIONS}
-              selectorType="class"
-              alt={CLASS_OPTIONS}
-            />
-          </div>
-          <HeroGrid
-            updateSelectedHeroes={updateSelectedHeroes}
-            selectedFactions={selectedFactionValues}
-            selectedClasses={selectedClassValues}
-          />
+        <div className={styles.leftPanelWrapper}>
+            <LeftPanel selectedHeroes={selectedHeroes} />
         </div>
-      </div>
-    </main>
+
+        <div className={styles.heroGridWrapper}>
+          <div className={styles.container}>
+            <div className={styles.searchContainer}>
+              <SearchBar placeholder="Search for a hero" data={Data} />
+            </div>
+
+            <div className={styles.dropdown}>
+              <Dropdown
+                multiple
+                onChange={handleFactionChange}
+                input="Faction"
+                value={selectedFactions}
+                folder="Faction"
+                options={FACTION_OPTIONS}
+                selectorType="faction"
+                alt={FACTION_OPTIONS}
+              />
+
+              <Dropdown
+                multiple
+                onChange={handleClassChange}
+                input="Classes"
+                folder="Classes"
+                value={selectedClasses}
+                options={CLASS_OPTIONS}
+                selectorType="class"
+                alt={CLASS_OPTIONS}
+              />
+              <Dropdown
+                multiple
+                onChange={handleClassChange}
+                input="Attribute"
+                folder="Classes"
+                value={selectedClasses}
+                options={CLASS_OPTIONS}
+                selectorType="class"
+                alt={CLASS_OPTIONS}
+              />
+            </div>
+            
+            <HeroGrid
+              updateSelectedHeroes={updateSelectedHeroes}
+              selectedFactions={selectedFactionValues}
+              selectedClasses={selectedClassValues}
+            />
+          </div>
+        </div>
+      </main>
   );
 };
 

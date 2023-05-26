@@ -1,23 +1,47 @@
-.wrapper{
-	display: flex;
-	padding-left: 8%;
-	padding-right: 8%;
-	padding-top: 8%;
+.wrapper {
+    display: flex;
+    padding-left: 8%;
+    padding-top: 8%;
 }
 
-.block{
-	width: 32px;
-	height: 32px;
-	border-radius: 6px 0px 6px 0px;
-	background-color: white;
+.block {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px 0px 6px 0px;
+    background-color: white;
 }
 
 .logo {
-	display: flex;
-	vertical-align: center;
-	align-items: center;
+    display: flex;
+    vertical-align: center;
+    align-items: center;
 }
 
-.logo > span {
-	margin-left: 10px;
+.logo>span {
+    margin-left: 4px;
+}
+
+
+
+.title {
+    opacity: 0.3;
+	font-size: 16px;
+    font-family: Bebas Neue;
+}
+
+.title ~ span {
+    color: blue;
+    font-family: Bebas Neue;
+}
+
+.sectionTitle{
+    font-size: 16px;
+    font-family: Bebas Neue;
+    padding-left: 8%;
+}
+
+.EditingPanelWrapper{
+    z-index: 999;
+    position: relative;
+    
 }

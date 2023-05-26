@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 :root {
   --font-size-200: 0.75rem;
   --font-size-400: 1rem;
@@ -10,17 +12,14 @@
   --font-family-primary: 'Inter', sans-serif;
   --font-family-body: var(--font-family-primary);
   --font-family-heading: var(--font-family-primary);
-  
-  --font-weight-regular: 400;
-  --font-weigth-semibold: 500;
-  --font-weight-bold: 700;
 
-  --color-neutral-100: HSL(265, 3%, 13%);
-  --color-neutral-200: HSL(270, 7%, 17%);
-  --color-neutral-300: HSL(270, 6%, 22%);
-  --color-neutral-400: HSL(270, 2%, 57%);
-  --color-neutral-500: HSL(0, 0%, 100%);
-  
+  --color-primary-background: hsl(0, 0%, 0%);
+  --color-secondary-background: hsl(210, 2%, 8%);
+  --color-divider: hsl(0, 0%, 20%);
+  --color-primary-text: hsl(0, 0%, 30%);
+  --color-icon: hsl(0, 0%, 50%);
+  --color-highlight: hsl(0, 0%, 100%);
+
   --spacing-xs: 8px;
   --spacing-sm: 16px;
   --spacing-md: 24px;
@@ -79,7 +78,7 @@ html:focus-within {
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-  background-color: #212025;
+  background-color: var(--color-primary-background);
   color: #e7e7e7;
 }
 
@@ -106,9 +105,9 @@ select {
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-   scroll-behavior: auto;
+    scroll-behavior: auto;
   }
-  
+
   *,
   *::before,
   *::after {

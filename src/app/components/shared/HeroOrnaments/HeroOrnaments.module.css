@@ -1,0 +1,53 @@
+.container {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+}
+
+.star {
+    width: 14px;
+    height: 14px;
+}
+
+.heroFrame {
+    z-index: 20;
+    position: relative;
+
+}
+
+.starsContainer {
+    display: flex;
+    position: absolute;
+    bottom: 7%;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    padding: 4px;
+    border-radius: 32px;
+    justify-content: center;
+    z-index: 10;
+}
+
+.signatureContainer {
+	position: absolute;
+
+}
+
+.signature{
+	position: relative;
+	z-index: 500;
+}
+
+.factionContainer{
+	position: absolute;
+}
+
+.factionBadge{
+	position: relative;
+	z-index: 400;
+
+	
+    width: 24px;
+    height: 24px;
+    margin-left: 11px;
+    margin-top: 10px;
+}

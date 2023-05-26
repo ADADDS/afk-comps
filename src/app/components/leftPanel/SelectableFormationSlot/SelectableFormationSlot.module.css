@@ -1,32 +1,90 @@
 .container {
-	width: 120px;
-	height: 120px;
-	border-radius: 24px 4px 24px 4px;
-	border: 2px solid var(--color-neutral-400);
-
-  }
-.container:hover {
-	border: 2px solid var(--color-neutral-500);
-	cursor: pointer;
+    width: 120px;
+    height: 120px;
+    border-radius: 32px 4px 40px 0px;
+    outline: 1px solid var(--color-divider);
+    position: relative;
+    transition: background-color 0.3s ease-in-out;
+       justify-content: center;
+    align-items: center;
 }
-  .container.selected {
-	border: 2px solid var(--color-neutral-500);
-  }
 
-  .faction_badge{
-	position: absolute;
-	width: 24px;
-	height: 24px;
-	margin-left: 8px;
-	margin-top: 8px;
-  }
+.container:hover {
+    outline: 2px solid var(--color-highlight);
+    cursor: pointer;
+    transition: outline-color 0.5s ease-in-out;
+    background-color: var(--color-secondary-background);
+}
 
-  .container img {
-	pointer-events: none;
-	
-  }
+.container.selected {
+    outline: 2px solid white;
+    animation: pulse-white 3s infinite;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+}
+
+.addIcon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+
+.iconGone {
+    opacity: 0;
+}
+
+.faction_badge {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    margin-left: 5px;
+    margin-top: 5px;
+    z-index: 400;
+    border-radius: 0px;
+}
 
 
-  .ghostAvatar{
-	opacity: 0.2;
-  }
+.avatar {
+    border-radius: 32px 4px 32px 4px;
+    width: 115px;
+    height: 115px;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.avatarPreview {
+    background-size: 100%;
+    border-radius: 32px 4px 40px 0px;
+    width: 120px;
+    height: 120px;
+    z-index: 10;
+
+}
+
+.gradient {
+    width: 120px;
+    height: 120px;
+    border-radius: 32px 4px 40px 0px;
+    position: absolute;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(17, 19, 21, 0.72) 0%, #111315 100%);
+}
+
+@keyframes pulse-white {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+.Ornaments{
+    position: relative;
+    z-index: 100;
+}

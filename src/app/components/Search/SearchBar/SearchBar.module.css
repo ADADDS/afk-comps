@@ -1,0 +1,26 @@
+.input {
+	background-color: var(--color-primary-background);
+	border: none;
+	width: 100%;
+	color: white;
+	height: 80px;
+	border-top: 1px solid var(--color-divider);
+	border-radius: 12px;
+	transition: border-color 0.3s ease-in-out;
+	padding: 12px 20px;
+	margin-top: 100px;
+}
+
+input ~ .input::placeholder {
+	padding: var(--spacing-large);
+	
+  }
+
+  .input:focus {
+	border: none;
+  }
+
+.input:hover{
+	cursor: text;
+	border-top: 1px solid var(--color-highlight);
+}

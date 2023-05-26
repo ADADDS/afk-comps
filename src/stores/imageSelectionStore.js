@@ -9,7 +9,6 @@ export const imageSelectionStore = create((set, get) => ({
     set({ hoveredHero: hero });
   },
   clearHoveredHero: () => {
-    console.log("clearHoveredHero function is defined");
     set({ hoveredHero: undefined });
   },
   setHero: (hero) => {

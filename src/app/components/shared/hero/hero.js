@@ -18,7 +18,7 @@ const Hero = ({
   imageSelectionStore((state) => state);
 
   const state = imageSelectionStore((state) => state);
-  console.log(state);
+
 
   const handleMouseEnter = () => {
     setHoveredHero(heroName);

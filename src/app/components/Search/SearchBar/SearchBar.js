@@ -1,4 +1,5 @@
 import { heroGridStore } from "@/stores/heroGridStore";
+import styles from "./SearchBar.module.css";
 
 const SearchBar = () => {
   const { searchQuery, setSearchQuery } = heroGridStore((state) => state);
@@ -10,6 +11,7 @@ const SearchBar = () => {
 
   return (
     <input
+      className={styles.input}
       type="text"
       placeholder="Search by name"
       value={searchQuery}
