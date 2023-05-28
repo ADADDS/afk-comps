@@ -5,22 +5,18 @@ export const imageSelectionStore = create((set, get) => ({
   slots: {},
   hoveredHero: undefined,
   setSelectedSlot: (slot) => set({ selectedSlot: slot }),
-  setHoveredHero: (hero) => {
-    set({ hoveredHero: hero });
-  },
-  clearHoveredHero: () => {
-    set({ hoveredHero: undefined });
-  },
+  setHoveredHero: (hero) => set({ hoveredHero: hero }),
+  clearHoveredHero: () => set({ hoveredHero: undefined }),
   setHero: (hero) => {
     const slot = get().selectedSlot;
     if (slot == undefined) return;
 
-    set((state) => ({
-      slots: {
-        ...state.slots,
-        [slot]: hero,
-      },
-    }));
+    const slots = get().slots;
+    const selectedHero = slots[slot];
+    if (!selectedHero) return;
+
+    const updatedHero = { ...selectedHero, starCount: hero.starCount };
+    set({ slots: { ...slots, [slot]: updatedHero } });
   },
   removeHero: (hero) => {
     const slots = get().slots;

@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { imageSelectionStore } from "@/stores/ImageSelectionStore";
 import styles from "./SelectableFormationSlot.module.css";
+import { heroOrnaments } from "@/stores/heroOrnaments";
 import HeroOrnaments from "../../shared/HeroOrnaments/HeroOrnaments";
 
 const SelectableFormationSlot = ({ slot }) => {
@@ -61,7 +62,7 @@ const SelectableFormationSlot = ({ slot }) => {
             exit={{ opacity: 0, scale: 0 }}
           >
             <div className={styles.Ornaments}>
-              <HeroOrnaments awakeningLevel={"Ascended"} starCount={5} signatureLevel={"stage4"} faction={hero.faction}/>
+              <HeroOrnaments/>
             </div>
             {/* <img
               className={styles.faction_badge}

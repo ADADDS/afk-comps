@@ -1,7 +1,6 @@
 import { imageSelectionStore } from "@/stores/ImageSelectionStore";
 import { heroGridStore } from "@/stores/heroGridStore";
 import { motion, AnimatePresence } from "framer-motion";
-import { LayoutGroup } from "framer-motion"
 
 import Hero from "../shared/hero/hero";
 import styles from "src/app/components/heroGrid/heroGrid.module.css";

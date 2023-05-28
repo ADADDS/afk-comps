@@ -1,14 +1,18 @@
 import React from "react";
 import styles from "./HeroOrnaments.module.css";
+import { imageSelectionStore } from "@/stores/ImageSelectionStore";
+import { heroOrnaments } from "@/stores/heroOrnaments";
 
-const HeroOrnaments = ({
-  awakeningLevel,
-  signatureLevel,
-  furnitureLevel,
-  engravingLevel,
-  starCount,
-  faction,
-}) => {
+const HeroOrnaments = ({}) => {
+  const {
+    awakeningLevel,
+    engravingLevel,
+    signatureLevel,
+    furnitureLevel,
+    starCount,
+    faction,
+  } = heroOrnaments((state) => state);
+
   const starAmount = [];
 
   for (let i = 0; i < starCount; i++) {
