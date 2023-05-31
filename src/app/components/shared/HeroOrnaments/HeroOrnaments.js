@@ -1,75 +1,94 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./HeroOrnaments.module.css";
-import { imageSelectionStore } from "@/stores/ImageSelectionStore";
-import { heroOrnaments } from "@/stores/heroOrnaments";
 
-const HeroOrnaments = ({}) => {
-  const {
-    awakeningLevel,
-    engravingLevel,
-    signatureLevel,
-    furnitureLevel,
-    starCount,
-    faction,
-  } = heroOrnaments((state) => state);
+const HeroOrnaments = ({ hero }) => {
+  const [starAmount, setStarAmount] = useState([]);
+  const [signatureLevelStage, setSignatureLevelStage] = useState(undefined);
 
-  const starAmount = [];
+  console.log("signatureStage:", signatureLevelStage);
 
-  for (let i = 0; i < starCount; i++) {
-    starAmount.push(
-      <img
-        key={i}
-        className={styles.star}
-        src={`/Images/Stars/Stage2.png`}
-        alt={`star${i}`}
-      />
-    );
-  }
+  useEffect(() => {
+    const newStarAmount = [];
+    for (let i = 0; i < (hero?.stars || 0); i++) {
+      newStarAmount.push(
+        <img
+          key={i}
+          className={styles.star}
+          src={`/Images/Stars/Stage2.png`}
+          alt={`star${i}`}
+        />
+      );
+    }
+    setStarAmount(newStarAmount);
+  }, [hero]);
+
+  useEffect(() => {
+    const signatureLevel = hero?.signatureLevel; // Fetch signatureLevel from hero prop
+
+    if (signatureLevel === 0 || signatureLevel === undefined) {
+      setSignatureLevelStage(undefined);
+    } else if (signatureLevel >= 1 && signatureLevel <= 9) {
+      setSignatureLevelStage("Stage1");
+    } else if (signatureLevel >= 10 && signatureLevel <= 19) {
+      setSignatureLevelStage("Stage2");
+    } else if (signatureLevel >= 20 && signatureLevel <= 29) {
+      setSignatureLevelStage("Stage3");
+    } else if (signatureLevel >= 30) {
+      setSignatureLevelStage("Stage4");
+    }
+  }, [hero]);
+
   return (
     <div className={styles.container}>
+      {/* FURNITURE SECTION */}
       <div className={styles.furnitureContainer}>
-        {furnitureLevel ? (
+        {hero?.furnitureLevel ? (
           <img
             className={styles.furniture}
-            src={`/Images/Furniture/${furnitureLevel}.png`}
-            alt={furnitureLevel}
-          />
-        ) : null}
-      </div>
-      <div className={styles.signatureContainer}>
-        {signatureLevel ? (
-          <img
-            className={styles.signature}
-            src={`/Images/SignatureTag/${signatureLevel}.png`}
-            alt={signatureLevel}
+            src={`/Images/Furniture/${hero.furnitureLevel}.png`}
+            alt={hero.furnitureLevel}
           />
         ) : null}
       </div>
 
-      <div className={styles.factionContainer}>
-        {faction ? (
+      {/* SIGNATURE SECTION */}
+      <div className={styles.signatureContainer}>
+        {signatureLevelStage ? (
           <img
-            className={styles.factionBadge}
-            src={`/Images/Faction/${faction}.png`}
-            alt={faction}
+            className={styles.signature}
+            src={`/Images/SignatureTag/${signatureLevelStage}.png`}
+            alt={hero.signatureLevel}
           />
         ) : null}
       </div>
+
+      {/* FACTION SECTION */}
+      <div className={styles.factionContainer}>
+        {hero?.faction ? (
+          <img
+            className={styles.factionBadge}
+            src={`/Images/Faction/${hero.faction}.png`}
+            alt={hero.faction}
+          />
+        ) : null}
+      </div>
+
+      {/* AWAKENING SECTION */}
       <div className={styles.awakeningContainer}>
         <div className={styles.heroFrameContainer}>
-          {awakeningLevel ? (
+          {hero?.awakeningLevel ? (
             <img
               className={styles.heroFrame}
-              src={`/Images/AwakeningFrame/${awakeningLevel}.png`}
-              alt={awakeningLevel}
+              src={`/Images/AwakeningFrame/${hero.awakeningLevel}.png`}
+              alt={hero.awakeningLevel}
               width={120}
               height={120}
             />
           ) : null}
         </div>
-        <div className={styles.starsContainer}>
-          {engravingLevel || starCount ? starAmount : null}
-        </div>
+
+        {/* STARS SECTION */}
+        <div className={styles.starsContainer}>{starAmount}</div>
       </div>
     </div>
   );

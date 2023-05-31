@@ -1,12 +1,15 @@
 import { imageSelectionStore } from "@/stores/ImageSelectionStore";
 import { heroGridStore } from "@/stores/heroGridStore";
 import { motion, AnimatePresence } from "framer-motion";
+import { globalStore } from "@/stores/globalStore";
+
 
 import Hero from "../shared/hero/hero";
 import styles from "src/app/components/heroGrid/heroGrid.module.css";
 
 const HeroGrid = ({ selectedFactions, selectedClasses }) => {
-  const { selectedSlot, removeHero, slots, setHero } = imageSelectionStore(
+
+  const { selectedSlot, removeHero, slots, setHero } = globalStore(
     (state) => state
   );
 

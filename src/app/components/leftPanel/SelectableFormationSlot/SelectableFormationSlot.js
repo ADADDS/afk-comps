@@ -1,15 +1,17 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { imageSelectionStore } from "@/stores/ImageSelectionStore";
 import styles from "./SelectableFormationSlot.module.css";
-import { heroOrnaments } from "@/stores/heroOrnaments";
 import HeroOrnaments from "../../shared/HeroOrnaments/HeroOrnaments";
+import { globalStore } from "@/stores/globalStore";
 
 const SelectableFormationSlot = ({ slot }) => {
   const { selectedSlot, setSelectedSlot, removeHero, slots, hoveredHero } =
-    imageSelectionStore((state) => state);
+    globalStore((state) => state);
 
   const isSelected = selectedSlot === slot;
   const hero = slots[slot];
+  console.log("hero name", hero);
+  console.log("slots name", slots);
 
   const onClick = () => {
     if (hero) {
@@ -62,7 +64,7 @@ const SelectableFormationSlot = ({ slot }) => {
             exit={{ opacity: 0, scale: 0 }}
           >
             <div className={styles.Ornaments}>
-              <HeroOrnaments/>
+              <HeroOrnaments hero={hero} />
             </div>
             {/* <img
               className={styles.faction_badge}
