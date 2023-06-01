@@ -4,6 +4,7 @@ import styles from "./HeroOrnaments.module.css";
 const HeroOrnaments = ({ hero }) => {
   const [starAmount, setStarAmount] = useState([]);
   const [signatureLevelStage, setSignatureLevelStage] = useState(undefined);
+  const [awakeningLevelStage, setAwakeningLevelStage] = useState(undefined);
 
   console.log("signatureStage:", signatureLevelStage);
 
@@ -23,7 +24,7 @@ const HeroOrnaments = ({ hero }) => {
   }, [hero]);
 
   useEffect(() => {
-    const signatureLevel = hero?.signatureLevel; // Fetch signatureLevel from hero prop
+    const signatureLevel = hero?.signatureLevel;
 
     if (signatureLevel === 0 || signatureLevel === undefined) {
       setSignatureLevelStage(undefined);
@@ -35,6 +36,22 @@ const HeroOrnaments = ({ hero }) => {
       setSignatureLevelStage("Stage3");
     } else if (signatureLevel >= 30) {
       setSignatureLevelStage("Stage4");
+    }
+  }, [hero]);
+
+  useEffect(() => {
+    const awakeningLevel = hero?.awakeningLevel;
+
+    if (awakeningLevel === undefined) {
+      setAwakeningLevelStage(undefined);
+    } else if (awakeningLevel === "Elite") {
+      setAwakeningLevelStage("Elite");
+    } else if (awakeningLevel === "ElitePlus") {
+      setAwakeningLevelStage("ElitePlus");
+    } else if (awakeningLevel === "Legendary") {
+      setAwakeningLevelStage("Legendary");
+    } else if (awakeningLevel === "LegendaryPlus") {
+      setAwakeningLevelStage("LegendaryPlus");
     }
   }, [hero]);
 
@@ -79,7 +96,7 @@ const HeroOrnaments = ({ hero }) => {
           {hero?.awakeningLevel ? (
             <img
               className={styles.heroFrame}
-              src={`/Images/AwakeningFrame/${hero.awakeningLevel}.png`}
+              src={`/Images/AwakeningFrame/${awakeningLevelStage}.png`}
               alt={hero.awakeningLevel}
               width={120}
               height={120}
@@ -88,7 +105,9 @@ const HeroOrnaments = ({ hero }) => {
         </div>
 
         {/* STARS SECTION */}
-        <div className={styles.starsContainer}>{starAmount}</div>
+        {starAmount.length >= 1 ? (
+          <div className={styles.starsContainer}>{starAmount}</div>
+        ) : null}
       </div>
     </div>
   );

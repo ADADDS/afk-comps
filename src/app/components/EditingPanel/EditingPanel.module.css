@@ -22,3 +22,20 @@
     display: flex;
     width: 100%;
 }
+
+.signatureSection {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.starsSection {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.awakeningSection {
+    display: flex;
+    flex-direction: column;
+}

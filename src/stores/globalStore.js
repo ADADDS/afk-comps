@@ -16,9 +16,20 @@ export const globalStore = create((set, get) => {
     setHoveredHero: (hero) => set({ hoveredHero: hero }),
     clearHoveredHero: () => set({ hoveredHero: undefined }),
 
+    getNextSlot: () => {
+      const slots = get().slots;
+      let nextSlot = (get().selectedSlot % 5) + 1;
+
+      while (slots[nextSlot]) {
+        nextSlot = (nextSlot % 5) + 1;
+      }
+
+      return nextSlot;
+    },
+
     setHero: (hero) => {
       const slot = get().selectedSlot;
-      if (slot == undefined) return;
+      if (slot === undefined) return;
 
       const {
         faction,
@@ -41,6 +52,7 @@ export const globalStore = create((set, get) => {
             stars,
           },
         },
+        selectedSlot: get().getNextSlot(),
       }));
     },
 
@@ -48,7 +60,7 @@ export const globalStore = create((set, get) => {
       const slots = get().slots;
       let slot;
       for (slot of Object.keys(slots)) {
-        if (slots[slot].id == hero.id) {
+        if (slots[slot] && slots[slot].id == hero.id) {
           delete slots[slot];
           break;
         }
@@ -119,7 +131,7 @@ export const globalStore = create((set, get) => {
     setStars: (stars) => {
       const slot = get().selectedSlot;
       if (slot === undefined) return;
-    
+
       set((state) => ({
         slots: {
           ...state.slots,
@@ -130,7 +142,21 @@ export const globalStore = create((set, get) => {
         },
       }));
     },
+    swapHero: (hero, slot) => {
+      const slots = get().slots;
+      let existingSlotKey;
+      for (const [key, val] of Object.entries(slots)) {
+        if (val?.id === hero.id) {
+          existingSlotKey = key;
+          break;
+        }
+      }
+      if (existingSlotKey) {
+        const temp = slots[existingSlotKey];
+        slots[existingSlotKey] = slots[slot];
+        slots[slot] = temp;
+      }
+      set({ slots: { ...slots } });
+    },
   };
 });
-
-

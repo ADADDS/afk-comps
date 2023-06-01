@@ -13,12 +13,11 @@ const SelectableFormationSlot = ({ slot }) => {
   console.log("hero name", hero);
   console.log("slots name", slots);
 
-  const onClick = () => {
-    if (hero) {
+  const onClick = (event) => {
+    if (event.detail == 2) {
       removeHero(hero);
-    } else {
-      setSelectedSlot(slot);
     }
+    setSelectedSlot(slot);
   };
 
   return (
