@@ -6,7 +6,7 @@ import Hero from "../shared/hero/hero";
 import styles from "src/app/components/heroGrid/heroGrid.module.css";
 
 const HeroGrid = ({ selectedFactions, selectedClasses }) => {
-  const { selectedSlot, removeHero, slots, setHero, swapHero } = globalStore(
+  const { selectedSlot, removeHero, slots, setHero, swapHero, deserializeState, serializeState } = globalStore(
     (state) => state
   );
 

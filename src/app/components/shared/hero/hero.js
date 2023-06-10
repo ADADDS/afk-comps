@@ -1,30 +1,10 @@
 import styles from "./hero.module.css";
-import { imageSelectionStore } from "@/stores/ImageSelectionStore";
-import { useStore } from "zustand";
 import { globalStore } from "@/stores/globalStore";
 
-const Hero = ({
-  heroName,
-  faction,
-  isSelected,
-  height,
-  width,
-  displayBadge,
-}) => {
-  // const { hoveredHero, setHoveredHero, clearHoveredHero } = useStore(
-  //   (state) => state
-  // );
-
-  // const { hoveredHero, setHoveredHero, clearHoveredHero } =
-  // imageSelectionStore((state) => state);
-
+const Hero = ({ heroName, faction, height, width, displayBadge }) => {
   const { hoveredHero, setHoveredHero, clearHoveredHero } = globalStore(
     (state) => state
   );
-
-
-  // const state = imageSelectionStore((state) => state);
-
 
   const handleMouseEnter = () => {
     setHoveredHero(heroName);
@@ -33,8 +13,6 @@ const Hero = ({
   const handleMouseLeave = () => {
     clearHoveredHero();
   };
-
-  const isHovered = heroName === hoveredHero;
 
   return (
     <div

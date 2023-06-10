@@ -6,8 +6,6 @@ const HeroOrnaments = ({ hero }) => {
   const [signatureLevelStage, setSignatureLevelStage] = useState(undefined);
   const [awakeningLevelStage, setAwakeningLevelStage] = useState(undefined);
 
-  console.log("signatureStage:", signatureLevelStage);
-
   useEffect(() => {
     const newStarAmount = [];
     for (let i = 0; i < (hero?.stars || 0); i++) {
@@ -52,6 +50,12 @@ const HeroOrnaments = ({ hero }) => {
       setAwakeningLevelStage("Legendary");
     } else if (awakeningLevel === "LegendaryPlus") {
       setAwakeningLevelStage("LegendaryPlus");
+    } else if (awakeningLevel === "Mythic") {
+      setAwakeningLevelStage("Mythic");
+    } else if (awakeningLevel === "MythicPlus") {
+      setAwakeningLevelStage("MythicPlus");
+    } else if (awakeningLevel === "Ascended") {
+      setAwakeningLevelStage("Ascended");
     }
   }, [hero]);
 
