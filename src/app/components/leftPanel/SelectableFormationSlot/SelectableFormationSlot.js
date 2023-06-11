@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { editingPanelStore } from "@/stores/editingPanel";
 import styles from "./SelectableFormationSlot.module.css";
 import HeroOrnaments from "../../shared/HeroOrnaments/HeroOrnaments";
 import { globalStore } from "@/stores/globalStore";
@@ -7,9 +8,19 @@ const SelectableFormationSlot = ({ slot }) => {
   const { selectedSlot, setSelectedSlot, removeHero, slots, hoveredHero } =
     globalStore((state) => state);
 
+  const {
+    modalIsOpen,
+    setModalIsOpen,
+    hoveredSelectableFormationSlot,
+    setHoveredSelectableFormationSlot,
+  } = editingPanelStore();
+
+  const handleHover = (value) => setHoveredSelectableFormationSlot(value);
+
+  const toggleModal = () => setModalIsOpen(!modalIsOpen);
+
   const isSelected = selectedSlot === slot;
   const hero = slots[slot];
- 
 
   const onClick = (event) => {
     if (event.detail == 2) {
@@ -21,7 +32,9 @@ const SelectableFormationSlot = ({ slot }) => {
   return (
     <div
       onClick={onClick}
-      className={`${styles.container} ${isSelected ? styles.selected : ""}`} // adicionar um if aqui se o awakening level for maior q 0 entao tem que tirar o border
+      onMouseEnter={() => handleHover(slot)}
+      onMouseLeave={() => handleHover(null)}
+      className={`${styles.container} ${isSelected ? styles.selected : ""}`}
     >
       <img
         className={`${styles.addIcon}  ${hero ? styles.iconGone : ""}`}
@@ -31,6 +44,7 @@ const SelectableFormationSlot = ({ slot }) => {
         height={16}
       />
 
+      {/* HANDLES HERO HOVER */}
       {isSelected && !hero && hoveredHero && (
         <AnimatePresence>
           <motion.div
@@ -52,6 +66,19 @@ const SelectableFormationSlot = ({ slot }) => {
           </motion.div>
         </AnimatePresence>
       )}
+      <AnimatePresence>
+        {hero && (isSelected || hoveredSelectableFormationSlot === slot) && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            className={styles.editButton}
+            onClick={toggleModal}
+          >
+            <img src={`/Images/Icons/Pencil.svg`} />
+          </motion.button>
+        )}
+      </AnimatePresence>
 
       <AnimatePresence>
         {hero && (
@@ -63,10 +90,6 @@ const SelectableFormationSlot = ({ slot }) => {
             <div className={styles.Ornaments}>
               <HeroOrnaments hero={hero} />
             </div>
-            {/* <img
-              className={styles.faction_badge}
-              src={`/Images/Faction/${hero.faction}.png`}
-            /> */}
 
             <img
               className={styles.avatar}

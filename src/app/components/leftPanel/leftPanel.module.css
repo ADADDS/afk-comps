@@ -1,7 +1,7 @@
 .wrapper {
-    display: flex;
-    padding-left: 8%;
-    padding-top: 8%;
+    position: absolute;
+    top: 0;
+    z-index: 999;
 }
 
 .block {
@@ -20,8 +20,6 @@
 .logo>span {
     margin-left: 4px;
 }
-
-
 
 .title {
     opacity: 0.3;

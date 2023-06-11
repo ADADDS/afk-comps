@@ -6,7 +6,7 @@ const SearchBar = () => {
 
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
-    setSearchQuery(inputValue); // Update searchQuery in store
+    setSearchQuery(inputValue);
   };
 
   return (

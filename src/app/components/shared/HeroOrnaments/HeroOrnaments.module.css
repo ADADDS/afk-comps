@@ -51,3 +51,10 @@
     margin-left: 11px;
     margin-top: 10px;
 }
+
+.furnitureContainer{
+    position: absolute;
+    z-index: 500;
+    left: 10px;
+    top: 33px;
+}

@@ -1,16 +1,17 @@
 .container {
     width: 120px;
     height: 120px;
+    display: flex;
     border-radius: 32px 4px 40px 0px;
     outline: 1px solid var(--color-divider);
     position: relative;
     transition: background-color 0.3s ease-in-out;
-       justify-content: center;
+    justify-content: center;
     align-items: center;
 }
 
 .container:hover {
-    outline: 2px solid var(--color-highlight);
+    outline: 1px solid var(--color-highlight);
     cursor: pointer;
     transition: outline-color 0.5s ease-in-out;
     background-color: var(--color-secondary-background);
@@ -28,7 +29,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     transition: opacity 0.3s ease;
-    z-index: 0;
+    z-index: 99;
 }
 
 .iconGone {
@@ -76,15 +77,32 @@
     0% {
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
     }
+
     50% {
         box-shadow: 0 0 0 6px rgba(255, 255, 255, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
     }
 }
 
-.Ornaments{
+.Ornaments {
     position: relative;
     z-index: 100;
+}
+
+.editButton {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: -8px;
+    top: -8px;
+    background-color: var(--color-secondary-background);
+    border: 1px solid var(--color-divider);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
 }

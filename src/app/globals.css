@@ -80,6 +80,9 @@ body {
   text-rendering: optimizeSpeed;
   background-color: var(--color-primary-background);
   color: #e7e7e7;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 /* A elements that don't have a class get default styles */

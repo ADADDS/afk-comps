@@ -5,6 +5,7 @@ const HeroOrnaments = ({ hero }) => {
   const [starAmount, setStarAmount] = useState([]);
   const [signatureLevelStage, setSignatureLevelStage] = useState(undefined);
   const [awakeningLevelStage, setAwakeningLevelStage] = useState(undefined);
+  const [furnitureLevelStage, setFurnitureLevelStage] = useState(undefined);
 
   useEffect(() => {
     const newStarAmount = [];
@@ -38,6 +39,24 @@ const HeroOrnaments = ({ hero }) => {
   }, [hero]);
 
   useEffect(() => {
+    const furnitureLevel = hero?.furnitureLevel;
+
+    if (furnitureLevel === 0 || furnitureLevel === undefined) {
+      setFurnitureLevelStage(undefined);
+      console.log("furnitureLevel is:", furnitureLevelStage);
+    } else if (furnitureLevel === 3) {
+      setFurnitureLevelStage("Stage1");
+      console.log("furnitureLevel is:", furnitureLevelStage);
+    } else if (furnitureLevel === 6) {
+      setFurnitureLevelStage("Stage2");
+      console.log("furnitureLevel is:", furnitureLevelStage);
+    } else if (furnitureLevel === 9) {
+      setFurnitureLevelStage("Stage3");
+      console.log("furnitureLevel is:", furnitureLevelStage);
+    }
+  }, [hero]);
+
+  useEffect(() => {
     const awakeningLevel = hero?.awakeningLevel;
 
     if (awakeningLevel === undefined) {
@@ -66,7 +85,7 @@ const HeroOrnaments = ({ hero }) => {
         {hero?.furnitureLevel ? (
           <img
             className={styles.furniture}
-            src={`/Images/Furniture/${hero.furnitureLevel}.png`}
+            src={`/Images/Furniture/${furnitureLevelStage}.png`}
             alt={hero.furnitureLevel}
           />
         ) : null}

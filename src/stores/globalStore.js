@@ -125,8 +125,7 @@ export const globalStore = create((set, get) => {
       }));
     },
 
-    setFurnitureLevel: (level) => {
-      const slot = get().selectedSlot;
+    setFurnitureLevel: (level, slot) => {
       if (slot === undefined) return;
 
       set((state) => ({
@@ -139,6 +138,7 @@ export const globalStore = create((set, get) => {
         },
       }));
     },
+
     setAwakeningLevel: (level, slot) => {
       if (slot === undefined) return;
 
