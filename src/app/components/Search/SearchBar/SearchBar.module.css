@@ -1,26 +1,48 @@
-.input {
-	background-color: var(--color-primary-background);
-	border: none;
-	width: 100%;
-	color: white;
-	height: 80px;
-	border-top: 1px solid var(--color-divider);
-	border-radius: 12px;
-	transition: border-color 0.3s ease-in-out;
-	padding: 12px 20px;
-	margin-top: 100px;
+.inputWrapper {
+    position: sticky;
 }
 
-input ~ .input::placeholder {
-	padding: var(--spacing-large);
-	
-  }
+.input {
+    border-radius: 12px;
+    border: 1px solid #262629;
+    background: rgba(14, 15, 17, 0.50);
+    backdrop-filter: blur(7.5px);
+    width: 100%;
+    color: var(--color-primary-text);
+    height: 80px;
+    transition: border-color 0.3s ease-in-out;
+    padding-left: 4rem;
+    font-size: 1.5rem;
 
-  .input:focus {
-	border: none;
-  }
+}
 
-.input:hover{
-	cursor: text;
-	border-top: 1px solid var(--color-highlight);
+input~.input::placeholder {
+    padding: var(--spacing-large);
+}
+
+
+.input:focus {
+    border: none;
+}
+
+.input:hover {
+    cursor: text;
+    border: 1px solid #353739;
+    color: white;
+}
+
+.inputWrapper {
+    position: relative;
+}
+
+.inputIcon {
+    position: absolute;
+    left: 24px;
+    /* adjust this value to move the icon left or right */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    height: 24px;
+    width: 24px;
+    /* adjust this value based on the size you want for your icon */
 }

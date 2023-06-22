@@ -1,0 +1,16 @@
+.primaryButton {
+    border-radius: 12px;
+    color: white;
+    background: #7867F6;
+    display: inline-flex;
+    padding: 24px 16px;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.primaryButton:hover {
+    cursor: pointer;
+    background-color: #614DF6;
+}

@@ -10,13 +10,16 @@ const SearchBar = () => {
   };
 
   return (
-    <input
-      className={styles.input}
-      type="text"
-      placeholder="Search by name"
-      value={searchQuery}
-      onChange={handleInputChange}
-    />
+    <div className={styles.inputWrapper}>
+      <img src={"/Images/Icons/Search.svg"} className={styles.inputIcon} />
+      <input
+        className={styles.input}
+        type="text"
+        placeholder="Search for hero..."
+        value={searchQuery}
+        onChange={handleInputChange}
+      />
+    </div>
   );
 };
 

@@ -8,7 +8,9 @@
 		"class": "Tank",
 		"role": "Burst Damage",
 		"faction": "Lightbearer",
-		"Rarity": "Ascended"
+		"Rarity": "Ascended",
+		"Awakened": "No"
+
 	  },
 	  {
 		"id": 2,
@@ -18,7 +20,8 @@
 		"class": "Mage",
 		"role": "AoE",
 		"faction": "Lightbearer",
-		"Rarity": "Ascended"
+		"Rarity": "Ascended",
+		"Awakened": "No"
 	  },
 	  {
 		"id": 3,
@@ -28,7 +31,8 @@
 		"class": "Support",
 		"role": "Buffer",
 		"faction": "Lightbearer",
-		"Rarity": "Ascended"
+		"Rarity": "Ascended",
+		"Awakened": "No"
 	  },
 	  {
 		"id": 4,
@@ -38,7 +42,9 @@
 		"class": "Support",
 		"role": "Buffer",
 		"faction": "Lightbearer",
-		"Rarity": "Ascended"
+		"Rarity": "Ascended",
+		"Awakened": "No"
+
 	  },
 	  {
 		"id": 5,
@@ -48,7 +54,9 @@
 		"class": "Tank",
 		"role": "Regen",
 		"faction": "Lightbearer",
-		"Rarity": "Ascended"
+		"Rarity": "Ascended",
+		"Awakened": "No"
+
 	  },
 	  {
 		"id": 6,
@@ -58,7 +66,9 @@
 		"class": "Ranger",
 		"role": "Assassin",
 		"faction": "Lightbearer",
-		"Rarity": "Ascended"
+		"Rarity": "Ascended",
+		"Awakened": "No"
+
 	  },
 	  {
 		"id": 7,
@@ -68,10 +78,640 @@
 		"class": "Ranger",
 		"role": "Control",
 		"faction": "Lightbearer",
-		"Rarity": "Ascended"
+		"Rarity": "Ascended",
+		"Awakened": "No"
+
 	  },
 	  {
 		"id": 8,
+		"name": "Hendrik",
+		"title": "The Defender",
+		"type": "Strength",
+		"class": "Tank",
+		"role": "Tank",
+		"faction": "Lightbearer",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 9,
+		"name": "Rowan",
+		"title": "The Roamer",
+		"type": "Intelligence",
+		"class": "Support",
+		"role": "Buffer",
+		"faction": "Lightbearer",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 10,
+		"name": "Gwyneth",
+		"title": "The Fair Maiden",
+		"type": "Strength",
+		"class": "Ranger",
+		"role": "Continuous Damage",
+		"faction": "Lightbearer",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 12,
+		"name": "Oscar",
+		"title": "The True Gentleman",
+		"type": "Agility",
+		"class": "Ranger",
+		"role": "Assassin",
+		"faction": "Lightbearer",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 13,
+		"name": "Eluard",
+		"title": "Protector of Souls",
+		"type": "Intelligence",
+		"class": "Mage",
+		"role": "AoE",
+		"faction": "Lightbearer",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 14,
+		"name": "Palmer",
+		"title": "Luminous Archbishop",
+		"type": "Intelligence",
+		"class": "Support",
+		"role": "Buffer",
+		"faction": "Lightbearer",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 15,
+		"name": "Peggy",
+		"title": "The Precious Pearl",
+		"type": "Intelligence",
+		"class": "Support",
+		"role": "Regen",
+		"faction": "Lightbearer",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 16,
+		"name": "Walker",
+		"title": "The Lone Ranger",
+		"type": "Strength",
+		"class": "Warrior",
+		"role": "Continuous Damage",
+		"faction": "Lightbearer",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 17,
+		"name": "Morrow",
+		"title": "The Dark Crow",
+		"type": "Intelligence",
+		"class": "Mage",
+		"role": "Control",
+		"faction": "Lightbearer",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 18,
+		"name": "Scarlet",
+		"title": "The Arcane Shadow",
+		"type": "Intelligence",
+		"class": "Mage",
+		"role": "Burst Damage",
+		"faction": "Lightbearer",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 22,
+		"name": "Hogan",
+		"title": "Knight of the kingdom",
+		"type": "Strength",
+		"class": "",
+		"role": "Control",
+		"faction": "Lightbearer",
+		"Rarity": "Legendary +",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 24,
+		"name": "Morvus",
+		"title": "The Far Stalker",
+		"type": "Agility",
+		"class": "",
+		"role": "Debuffer",
+		"faction": "Lightbearer",
+		"Rarity": "Legendary +",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 25,
+		"name": "Mirael",
+		"title": "The Burning Light",
+		"type": "Intelligence",
+		"class": "",
+		"role": "AoE",
+		"faction": "Lightbearer",
+		"Rarity": "Legendary +",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 26,
+		"name": "Merek",
+		"title": "",
+		"type": "Intelligence",
+		"class": "",
+		"role": "Buffer",
+		"faction": "Lightbearer",
+		"Rarity": "Common",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 27,
+		"name": "Ulric",
+		"title": "",
+		"type": "Strength",
+		"class": "",
+		"role": "Buffer",
+		"faction": "Lightbearer",
+		"Rarity": "Common",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 28,
+		"name": "Brutus",
+		"title": "The Blood Claw",
+		"type": "Strength",
+		"class": "Tank",
+		"role": "Tank",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 29,
+		"name": "Khasos",
+		"title": "The Unruly",
+		"type": "Strength",
+		"class": "Warrior",
+		"role": "Continuous Damage",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 30,
+		"name": "Vurk",
+		"title": "The Devious",
+		"type": "Agility",
+		"class": "Ranger",
+		"role": "AoE",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 31,
+		"name": "Numisu",
+		"title": "The All Seer",
+		"type": "Intelligence",
+		"class": "Support",
+		"role": "Regen",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 32,
+		"name": "Warek",
+		"title": "The Untamed",
+		"type": "Strength",
+		"class": "Warrior",
+		"role": "Continuous Damage",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 33,
+		"name": "Skreg",
+		"title": "The Cunning",
+		"type": "Strength",
+		"class": "Tank",
+		"role": "Tank",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 34,
+		"name": "Safiya",
+		"title": "Daughter of the Desert",
+		"type": "Intelligence",
+		"class": "Mage",
+		"role": "AoE",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 35,
+		"name": "Satrana",
+		"title": "Flame Weaver",
+		"type": "Intelligence",
+		"class": "Mage",
+		"role": "Burst Damage",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 36,
+		"name": "Antandra",
+		"title": "Desert Fury",
+		"type": "Agility",
+		"class": "Warrior",
+		"role": "Continuous Damage",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 37,
+		"name": "Tidus",
+		"title": "Shadowmane",
+		"type": "Agility",
+		"class": "Ranger",
+		"role": "Continuous Damage",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 38,
+		"name": "Skriath",
+		"title": "The Wise One",
+		"type": "Intelligence",
+		"class": "Mage",
+		"role": "AoE",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 39,
+		"name": "Anoki",
+		"title": "The Blood Guard",
+		"type": "Strength",
+		"class": "Warrior",
+		"role": "Control",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 40,
+		"name": "Drez",
+		"title": "The Quicksand Recluse",
+		"type": "Agility",
+		"class": "Ranger",
+		"role": "Burst Damage",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 41,
+		"name": "Kren",
+		"title": "The Fanatical",
+		"type": "Agility",
+		"class": "Ranger",
+		"role": "Continuous Damage",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 42,
+		"name": "Thali",
+		"title": "Maniacal Mage",
+		"type": "Intelligence",
+		"class": "Mage",
+		"role": "Continuous Damage",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 43,
+		"name": "Granit",
+		"title": "Desert's Stone",
+		"type": "Strength",
+		"class": "Tank",
+		"role": "Tank",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 44,
+		"name": "Thesku",
+		"title": "The Serpent Charmer",
+		"type": "Intelligence",
+		"class": "Mage",
+		"role": "Control",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 45,
+		"name": "Alaro",
+		"title": "Desert's Eye",
+		"type": "Agility",
+		"class": "Support",
+		"role": "Buffer",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 46,
+		"name": "Anasta",
+		"title": "The Sacrifice",
+		"type": "Strength",
+		"class": "Warrior",
+		"role": "Continuous Damage",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 48,
+		"name": "Salaki",
+		"title": "Withering Winds",
+		"type": "Intelligence",
+		"class": "Support",
+		"role": "Buffer",
+		"faction": "Mauler",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 50,
+		"name": "Ankhira",
+		"title": "Deceptive Beauty",
+		"type": "Intelligence",
+		"class": "",
+		"role": "Debuffer",
+		"faction": "Mauler",
+		"Rarity": "Legendary +",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 51,
+		"name": "Golus",
+		"title": "The Bladestorm",
+		"type": "Strength",
+		"class": "",
+		"role": "Control",
+		"faction": "Mauler",
+		"Rarity": "Legendary +",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 52,
+		"name": "Saveas",
+		"title": "Strongheart",
+		"type": "Agility",
+		"class": "",
+		"role": "Burst Damage",
+		"faction": "Mauler",
+		"Rarity": "Legendary +",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 53,
+		"name": "Bloodsnarl",
+		"title": "",
+		"type": "Strength",
+		"class": "",
+		"role": "Continuous Damage",
+		"faction": "Mauler",
+		"Rarity": "Common",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 54,
+		"name": "Arkadios",
+		"title": "",
+		"type": "Intelligence",
+		"class": "",
+		"role": "Continuous Damage",
+		"faction": "Mauler",
+		"Rarity": "Common",
+		"Awakened": "No"
+	  }
+	  ,
+	  {
+		"id": 56,
+		"name": "Kaz",
+		"title": "Hand of the Wood",
+		"type": "Agility",
+		"class": "Ranger",
+		"role": "Assassin",
+		"faction": "Wilder",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 57,
+		"name": "Lyca",
+		"title": "Keeper of Glades",
+		"type": "Agility",
+		"class": "Ranger",
+		"role": "Buffer",
+		"faction": "Wilder",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 58,
+		"name": "Ulmus",
+		"title": "Aldermarrow",
+		"type": "Strength",
+		"class": "Tank",
+		"role": "Tank",
+		"faction": "Wilder",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 59,
+		"name": "Gorvo",
+		"title": "The Indomitable",
+		"type": "Strength",
+		"class": "Tank",
+		"role": "Tank",
+		"faction": "Wilder",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 60,
+		"name": "Eironn",
+		"title": "Stormsword",
+		"type": "Agility",
+		"class": "Ranger",
+		"role": "Aoe",
+		"faction": "Wilder",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 61,
+		"name": "Tasi",
+		"title": "Dreamhopper",
+		"type": "Intelligence",
+		"class": "Support",
+		"role": "Control",
+		"faction": "Wilder",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 62,
+		"name": "Seirus",
+		"title": "Savior of the Sea",
+		"type": "Strength",
+		"class": "Warrior",
+		"role": "Tank",
+		"faction": "Wilder",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 63,
+		"name": "Lorsan",
+		"title": "Wind Whisperer",
+		"type": "Intelligence",
+		"class": "Mage",
+		"role": "AoE",
+		"faction": "Wilder",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 64,
+		"name": "Solise",
+		"title": "The Floral Wonder",
+		"type": "Intelligence",
+		"class": "Mage",
+		"role": "Control",
+		"faction": "Wilder",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 65,
+		"name": "Saurus",
+		"title": "The Risen Warrior",
+		"type": "Strength",
+		"class": "Warrior",
+		"role": "Continuous Damage",
+		"faction": "Wilder",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 66,
+		"name": "Pippa",
+		"title": "The Muddled Magician",
+		"type": "Intelligence",
+		"class": "Mage",
+		"role": "Continuous Damage",
+		"faction": "Wilder",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 67,
+		"name": "Respen",
+		"title": "The Windchild",
+		"type": "Agility",
+		"class": "Ranger",
+		"role": "Burst Damage",
+		"faction": "Wilder",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 68,
+		"name": "Raku",
+		"title": "The Rascal",
+		"type": "Agility",
+		"class": "Ranger",
+		"role": "Burst Damage",
+		"faction": "Wilder",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 69,
+		"name": "Mishka",
+		"title": "The Wild Child",
+		"type": "Strength",
+		"class": "Tank",
+		"role": "Control",
+		"faction": "Wilder",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 70,
+		"name": "Astar",
+		"title": "The Brilliant Flame",
+		"type": "Intelligence",
+		"class": "Support",
+		"role": "Regen",
+		"faction": "Wilder",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 71,
+		"name": "Oku",
+		"title": "Ironfist",
+		"type": "Strength",
+		"class": "Tank",
+		"role": "Tank",
+		"faction": "Wilder",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 72,
+		"name": "Nevanthi",
+		"title": "The Green Lady",
+		"type": "Intelligence",
+		"class": "Support",
+		"role": "Regen",
+		"faction": "Wilder",
+		"Rarity": "Ascended",
+		"Awakened": "No"
+	  },
+	  {
+		"id": 82,
 		"name": "Brutus",
 		"title": "The Blood Claw",
 		"type": "Strength",
@@ -81,7 +721,7 @@
 		"Rarity": "Ascended"
 	  },
 	  {
-		"id": 9,
+		"id": 92,
 		"name": "Khasos",
 		"title": "The Unruly",
 		"type": "Strength",
@@ -91,7 +731,7 @@
 		"Rarity": "Ascended"
 	  },
 	  {
-		"id": 10,
+		"id": 120,
 		"name": "Vurk",
 		"title": "The Devious",
 		"type": "Agility",
@@ -101,7 +741,7 @@
 		"Rarity": "Ascended"
 	  },
 	  {
-		"id": 11,
+		"id": 121,
 		"name": "Numisu",
 		"title": "The All Seer",
 		"type": "Intelligence",
@@ -111,7 +751,7 @@
 		"Rarity": "Ascended"
 	  },
 	  {
-		"id": 12,
+		"id": 122,
 		"name": "Warek",
 		"title": "The Untamed",
 		"type": "Strength",
@@ -121,7 +761,7 @@
 		"Rarity": "Ascended"
 	  },
 	  {
-		"id": 13,
+		"id": 123,
 		"name": "Skreg",
 		"title": "The Cunning",
 		"type": "Strength",
@@ -131,7 +771,7 @@
 		"Rarity": "Ascended"
 	  },
 	  {
-		"id": 14,
+		"id": 124,
 		"name": "Nemora",
 		"title": "The Cunning",
 		"type": "Strength",
@@ -142,18 +782,8 @@
 	  },
 
 	  {
-		"id": 15,
+		"id": 135,
 		"name": "Lyca",
-		"title": "The Cunning",
-		"type": "Strength",
-		"class": "Tank",
-		"role": "Tank",
-		"faction": "Wilder",
-		"Rarity": "Ascended"
-	  },
-	  {
-		"id": 16,
-		"name": "Kaz",
 		"title": "The Cunning",
 		"type": "Strength",
 		"class": "Tank",

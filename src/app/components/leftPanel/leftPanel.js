@@ -7,27 +7,23 @@ import { useState, useEffect } from "react";
 import { editingPanelStore } from "@/stores/editingPanel";
 import { motion, AnimatePresence } from "framer-motion";
 import { globalStore } from "@/stores/globalStore";
+import MaxOutButtons from "../EditingPanel/MaxOutButtons/MaxOutButtons";
 
 const LeftPanel = ({ selectedHeroes, onHeroRemove }) => {
-  const { selectedSlot } = globalStore();
   const { modalIsOpen, setModalIsOpen } = editingPanelStore();
 
   const toggleModal = () => setModalIsOpen(!modalIsOpen);
 
   return (
-    <div>
-      <div className={styles.wrapper} />
+    
       <div className={styles.compContainer}>
-        <div className={styles.sectionTitle}>COMP SELECTOR</div>
-
-
         <AnimatePresence>
           {modalIsOpen && (
             <div className={styles.wrapper}>
               <motion.div
                 key="panel"
                 initial={{ x: "100vw" }}
-                animate={{ x: "calc(100vw - 33vw)" }}
+                animate={{ x: "calc(100vw - 600px)" }}
                 transition={{ ease: "easeInOut", duration: 0.35 }}
                 exit={{ x: "100vw" }}
               >
@@ -43,8 +39,12 @@ const LeftPanel = ({ selectedHeroes, onHeroRemove }) => {
             onHeroRemove={onHeroRemove}
           />
         </div>
+
+        <div className={styles.maxOutSection}>
+          <MaxOutButtons />
+        </div>
       </div>
-    </div>
+ 
   );
 };
 

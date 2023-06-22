@@ -1,16 +1,40 @@
 import { heroGridStore } from "@/stores/heroGridStore";
 import { motion, AnimatePresence } from "framer-motion";
 import { globalStore } from "@/stores/globalStore";
-
+import { useState, useEffect } from "react";
 import Hero from "../shared/hero/hero";
 import styles from "src/app/components/heroGrid/heroGrid.module.css";
 
 const HeroGrid = ({ selectedFactions, selectedClasses }) => {
-  const { selectedSlot, removeHero, slots, setHero, swapHero, deserializeState, serializeState } = globalStore(
-    (state) => state
-  );
+  const {
+    selectedSlot,
+    removeHero,
+    slots,
+    setHero,
+    setSelectedSlot,
+    swapHero,
+    clearHoveredHero,
+  } = globalStore((state) => state);
 
   const filteredHeroes = heroGridStore((state) => state.filteredHeroes);
+
+  const [isHovered, setIsHovered] = useState(false);
+  const [hoveredHeroName, setHoveredHeroName] = useState("");
+
+  const handleMouseEnter = (heroName) => {
+    setIsHovered(true);
+    setHoveredHeroName(heroName);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setHoveredHeroName("");
+  };
+
+  const handleRemoveHero = (event, hero) => {
+    event.stopPropagation(); // stop the event from bubbling up
+    removeHero(hero);
+  };
 
   const handleHeroClick = (hero) => {
     const existingSlot = Object.entries(slots).find(
@@ -30,38 +54,66 @@ const HeroGrid = ({ selectedFactions, selectedClasses }) => {
   return (
     <>
       <span className={styles.title}>
-        Heroes<span>{filteredHeroes.length}</span>
+        Heroes<div className={styles.heroQuantity}>{filteredHeroes.length}</div>
       </span>
-      <div className={styles.container}>
+
+      <div className={styles.gradientOverlay}></div>
+      <div className={styles.heroGridWrapper}>
         <AnimatePresence>
-          {filteredHeroes
-            .filter(
-              (hero) =>
-                selectedFactions.includes(hero.faction) &&
-                selectedClasses.includes(hero.class)
-            )
-            .map((hero) => {
-              const isSelected = Object.values(slots).find(
-                (h) => h?.id === hero.id
-              );
-              return (
+          {filteredHeroes.map((hero) => {
+            const isSelected = Object.values(slots).find(
+              (h) => h?.id === hero.id
+            );
+            return (
+              <motion.div
+                key={hero.id}
+                onClick={() => handleHeroClick(hero)}
+                onMouseEnter={() => handleMouseEnter(hero.name)}
+                onMouseLeave={handleMouseLeave}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className={styles.heroWrapper}
+              >
+                <AnimatePresence>
+                  {isSelected && hoveredHeroName === hero.name ? (
+                    <div className={styles.overlayWrapper}>
+                      <motion.div
+                        onClick={(event) => handleRemoveHero(event, hero)}
+                        whileHover={{ scale: 1.1 }}
+                        initial={{
+                          opacity: 0,
+                          scale: 0,
+                          x: "-50%",
+                          y: "-50%",
+                        }}
+                        animate={{
+                          opacity: 1,
+                          scale: 1,
+                          x: "-50%",
+                          y: "-50%",
+                        }}
+                        exit={{ opacity: 0, scale: 0, x: "-50%", y: "-50%" }}
+                        className={styles.deleteButtonWrapper}
+                      >
+                        <img
+                          src={"/Images/Icons/Close.svg"}
+                          width={16}
+                          height={16}
+                          className={styles.deleteIcon}
+                        />
+                      </motion.div>
+                    </div>
+                  ) : null}
+                </AnimatePresence>
+
                 <motion.div
-                  className={`${styles.hero} ${
-                    isSelected ? styles.selected : ""
-                  }`}
-                  key={hero.id}
-                  onClick={() => handleHeroClick(hero)}
-                  // layout
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{
-                    ease: [0.17, 0.67, 0.83, 0.67],
-                    opacity: { ease: [0.17, 0.67, 0.83, 0.67] },
-                    layout: { duration: 0.3 },
-                  }}
-                  exit={{
-                    opacity: 0,
-                  }}
+                  transition={{ duration: 2 }}
+                  className={`${styles.heroWrapper} ${
+                    isSelected ? styles.selected : ""
+                  }`}
                 >
                   <Hero
                     heroName={hero.name}
@@ -69,8 +121,9 @@ const HeroGrid = ({ selectedFactions, selectedClasses }) => {
                     displayBadge
                   />
                 </motion.div>
-              );
-            })}
+              </motion.div>
+            );
+          })}
         </AnimatePresence>
       </div>
     </>

@@ -110,8 +110,7 @@ export const globalStore = create((set, get) => {
       set({ slots: { ...slots } });
     },
 
-    setEngravingLevel: (level) => {
-      const slot = get().selectedSlot;
+    setEngravingLevel: (level, slot) => {
       if (slot === undefined) return;
 
       set((state) => ({

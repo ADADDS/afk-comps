@@ -1,0 +1,4 @@
+.maxOutSection {
+    display: flex;
+    flex-direction: column;
+}

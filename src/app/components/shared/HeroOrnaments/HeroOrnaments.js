@@ -6,34 +6,51 @@ const HeroOrnaments = ({ hero }) => {
   const [signatureLevelStage, setSignatureLevelStage] = useState(undefined);
   const [awakeningLevelStage, setAwakeningLevelStage] = useState(undefined);
   const [furnitureLevelStage, setFurnitureLevelStage] = useState(undefined);
+  const [engravingLevel, setEngravingLevel] = useState(0);
+
+  useEffect(() => {
+    const engravingLevel = hero?.engravingLevel;
+    console.log("engravingLevel do HeroOrnaments", engravingLevel);
+
+    if (engravingLevel === 0 || engravingLevel === undefined) {
+      setEngravingLevel("Stage0");
+    } else if (engravingLevel === 30) {
+      setEngravingLevel("Stage1");
+    } else if (engravingLevel === 60) {
+      setEngravingLevel("Stage2");
+    } else if (engravingLevel === 80) {
+      setEngravingLevel("Stage3");
+    }
+  }, [hero]);
 
   useEffect(() => {
     const newStarAmount = [];
+
     for (let i = 0; i < (hero?.stars || 0); i++) {
       newStarAmount.push(
         <img
           key={i}
           className={styles.star}
-          src={`/Images/Stars/Stage2.png`}
+          src={`/Images/Stars/${engravingLevel}.png`}
           alt={`star${i}`}
         />
       );
     }
     setStarAmount(newStarAmount);
-  }, [hero]);
+  }, [hero, engravingLevel]);
 
   useEffect(() => {
     const signatureLevel = hero?.signatureLevel;
 
     if (signatureLevel === 0 || signatureLevel === undefined) {
       setSignatureLevelStage(undefined);
-    } else if (signatureLevel >= 1 && signatureLevel <= 9) {
+    } else if (signatureLevel === 1) {
       setSignatureLevelStage("Stage1");
-    } else if (signatureLevel >= 10 && signatureLevel <= 19) {
+    } else if (signatureLevel === 10) {
       setSignatureLevelStage("Stage2");
-    } else if (signatureLevel >= 20 && signatureLevel <= 29) {
+    } else if (signatureLevel === 20) {
       setSignatureLevelStage("Stage3");
-    } else if (signatureLevel >= 30) {
+    } else if (signatureLevel === 30) {
       setSignatureLevelStage("Stage4");
     }
   }, [hero]);
@@ -41,18 +58,14 @@ const HeroOrnaments = ({ hero }) => {
   useEffect(() => {
     const furnitureLevel = hero?.furnitureLevel;
 
-    if (furnitureLevel === 0 || furnitureLevel === undefined) {
+    if (furnitureLevel === "0/9" || furnitureLevel === undefined) {
       setFurnitureLevelStage(undefined);
-      console.log("furnitureLevel is:", furnitureLevelStage);
-    } else if (furnitureLevel === 3) {
+    } else if (furnitureLevel === "3/9") {
       setFurnitureLevelStage("Stage1");
-      console.log("furnitureLevel is:", furnitureLevelStage);
-    } else if (furnitureLevel === 6) {
+    } else if (furnitureLevel === "9/9") {
       setFurnitureLevelStage("Stage2");
-      console.log("furnitureLevel is:", furnitureLevelStage);
-    } else if (furnitureLevel === 9) {
+    } else if (furnitureLevel === "27/9") {
       setFurnitureLevelStage("Stage3");
-      console.log("furnitureLevel is:", furnitureLevelStage);
     }
   }, [hero]);
 

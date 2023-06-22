@@ -1,13 +1,51 @@
 .container {
-    width: 33vw;
+    width: 600px;
     display: flex;
     flex-direction: column;
     height: 100vh;
+    padding: 48px;
     background-color: var(--color-secondary-background);
 }
 
-.wrapper {
-    position: absolute;
-    top: 0;
-    z-index: 9999999;
+
+.awakeningSection{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+}
+
+.maxOutSection{
+    display: flex;
+    flex-direction: column;
+}
+
+.maxOutButton{
+	border: 1px solid var(--color-divider);
+    height: 48px;
+    border-radius: 32px 0px 32px 0px ;
+    margin-bottom: 8px;
+    background-color: var(--color-secondary-background);
+    color: var(--color-primary-text);
+}
+
+.maxOutButton:hover{
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+
+.closeButton{
+    background-color: var(--color-secondary-background);
+	border: 1px solid var(--color-divider);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeButton:hover{
+    border: 1px solid white;
+    cursor: pointer;
 }

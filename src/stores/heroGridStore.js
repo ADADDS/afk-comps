@@ -8,7 +8,7 @@ export const heroGridStore = create((set) => ({
   setSearchQuery: (query) =>
     set({
       searchQuery: query,
-      filteredHeroes: (Data.Heroes).filter((hero) =>
+      filteredHeroes: Data.Heroes.filter((hero) =>
         hero.name.toLowerCase().includes(query.toLowerCase())
       ),
     }),

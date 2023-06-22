@@ -1,6 +1,7 @@
 import styles from "./EditingPanel.module.css";
 import { globalStore } from "@/stores/globalStore";
 import { motion, AnimatePresence } from "framer-motion";
+import GroupButton from "./GroupButton/GroupButton";
 
 const EditingPanel = ({ handleClose }) => {
   const {
@@ -10,11 +11,10 @@ const EditingPanel = ({ handleClose }) => {
     setSignatureLevel,
     setAwakeningLevel,
     setFurnitureLevel,
+    setEngravingLevel,
   } = globalStore();
 
-
-
-  const handleClick = (stars) => {
+  const handleStars = (stars) => {
     setStars(stars, selectedSlot);
   };
 
@@ -30,19 +30,25 @@ const EditingPanel = ({ handleClose }) => {
     setFurnitureLevel(furnitureLevel, selectedSlot);
   };
 
+  const handleEngravingLevel = (engravingLevel) => {
+    setEngravingLevel(engravingLevel, selectedSlot);
+  };
+
   const handleMaxOutHero = () => {
     setStars(5, selectedSlot);
-    setSignatureLevel(35, selectedSlot);
+    setSignatureLevel(30, selectedSlot);
     setAwakeningLevel("Ascended", selectedSlot);
-    setFurnitureLevel(9, selectedSlot);
+    setFurnitureLevel("27/9", selectedSlot);
+    setEngravingLevel(80, selectedSlot);
   };
 
   const handleMaxOutComposition = () => {
     Object.keys(slots).forEach((slot) => {
       setStars(5, slot);
-      setSignatureLevel(35, slot);
+      setSignatureLevel(30, slot);
       setAwakeningLevel("Ascended", slot);
-      setFurnitureLevel(9, slot);
+      setFurnitureLevel("27/9", slot);
+      setEngravingLevel(80, slot);
     });
   };
 
@@ -55,46 +61,31 @@ const EditingPanel = ({ handleClose }) => {
         >
           <div className={styles.Header}>
             Editing {slots[selectedSlot]?.name}
-            <button onClick={handleClose}>Close</button>
+            <button className={styles.closeButton} onClick={handleClose}><img src={`/Images/Icons/close.svg`}/></button>
           </div>
-
-          <div className={styles.starsSection}>
-            Stars
-            <button onClick={() => handleClick(0)}>Star: 0</button>
-            <button onClick={() => handleClick(1)}>Star: 1</button>
-            <button onClick={() => handleClick(2)}>Star: 2</button>
-            <button onClick={() => handleClick(3)}>Star: 3</button>
-            <button onClick={() => handleClick(4)}>Star: 4</button>
-            <button onClick={() => handleClick(5)}>Star: 5</button>
-          </div>
-
-          <div className={styles.furnitureSection}>
-            Furniture Level
-            <button onClick={() => handleFurnitureLevel(0)}>
-              Furniture Level: 0/9
-            </button>
-            <button onClick={() => handleFurnitureLevel(3)}>
-              Furniture Level: 3/9
-            </button>
-            <button onClick={() => handleFurnitureLevel(6)}>
-              Furniture Level: 6/9
-            </button>
-            <button onClick={() => handleFurnitureLevel(9)}>
-              Furniture Level: 9/9
-            </button>
-          </div>
-
-          <div className={styles.signatureSection}>
-            Signature Level
-            <button onClick={() => handleSignatureLevel(0)}>0</button>
-            <button onClick={() => handleSignatureLevel(10)}>10</button>
-            <button onClick={() => handleSignatureLevel(20)}>20</button>
-            <button onClick={() => handleSignatureLevel(30)}>30</button>
-            <button onClick={() => handleSignatureLevel(35)}>35</button>
-          </div>
+          <GroupButton
+            title={"Stars"}
+            options={[0, 1, 2, 3, 4, 5]}
+            handleClick={handleStars}
+          />
+          <GroupButton
+            title={"Furniture"}
+            options={["0/9", "3/9", "9/9", "27/9"]}
+            handleClick={handleFurnitureLevel}
+          />
+          <GroupButton
+            title={"Signature"}
+            options={[0, 1, 10, 20, 30]}
+            handleClick={handleSignatureLevel}
+          />
+          <GroupButton
+            title={"Engraving"}
+            options={[0, 30, 60, 80]}
+            handleClick={handleEngravingLevel}
+          />
 
           <div className={styles.awakeningSection}>
-            Signature Level
+            Awakening Level
             <button onClick={() => handleAwakeningLevel("Elite")}>Elite</button>
             <button onClick={() => handleAwakeningLevel("ElitePlus")}>
               Elite Plus
@@ -117,8 +108,8 @@ const EditingPanel = ({ handleClose }) => {
           </div>
 
           <div className={styles.maxOutSection}>
-            <button onClick={handleMaxOutHero}>Max out hero</button>
-            <button onClick={handleMaxOutComposition}>
+            <button className={styles.maxOutButton} onClick={handleMaxOutHero}>Max out hero</button>
+            <button className={styles.maxOutButton} onClick={handleMaxOutComposition}>
               Max out composition
             </button>
           </div>
