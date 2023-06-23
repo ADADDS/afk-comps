@@ -1,4 +1,112 @@
 .maxOutSection {
     display: flex;
     flex-direction: column;
+    position: fixed;
+    left: 0;
+}
+
+.maxOutHeroButton {
+    margin-bottom: 8px;
+    border-radius: 12px;
+    border: 1px solid #262629;
+    background: #0E0F11;
+    display: flex;
+    width: 264px;
+    color: #9C9DA6;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 24px 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.maxOutHeroButton:hover {
+    cursor: pointer;
+    border: 1px solid #353739;
+    color: white;
+}
+
+.maxOutHeroButton.disabled {
+    color: #9c9da64f;
+}
+
+.maxOutHeroButton.disabled:hover {
+    cursor: not-allowed;
+    border: 1px solid #262629;
+    color: #9c9da64f;
+}
+
+
+.maxOutHeroButton.shake {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+.maxOutCompButton.shake {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+.maxOutCompButton {
+    border-radius: 12px;
+    background: #FFF;
+    display: flex;
+    font-size: 16px;
+    font-weight: 600;
+    width: 264px;
+    padding: 24px 16px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.maxOutCompButton:hover {
+    cursor: pointer;
+}
+
+.maxOutCompButton.disabled {
+    background-color: #1B1B1B;
+    color: #373737;
+}
+
+
+.maxOutCompButton.disabled:hover {
+    cursor: not-allowed;
+
+    background-color: #1B1B1B;
+    color: #373737;
+}
+
+
+
+
+@keyframes shake {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+    }
+
+    6.5% {
+        -webkit-transform: translateX(-6px) rotateY(-9deg);
+        transform: translateX(-6px) rotateY(-9deg)
+    }
+
+    18.5% {
+        -webkit-transform: translateX(5px) rotateY(7deg);
+        transform: translateX(5px) rotateY(7deg)
+    }
+
+    31.5% {
+        -webkit-transform: translateX(-3px) rotateY(-5deg);
+        transform: translateX(-3px) rotateY(-5deg)
+    }
+
+    43.5% {
+        -webkit-transform: translateX(2px) rotateY(3deg);
+        transform: translateX(2px) rotateY(3deg)
+    }
+
+    50% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+    }
 }
