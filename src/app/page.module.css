@@ -1,35 +1,15 @@
 .main {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-
 }
 
 .heroGridWrapper {
     /* background-color: yellow; */
     margin-right: 80px;
-    margin-left: 120px;
-    max-width: 100%;
-}
-
-.dropdown {
     display: flex;
-    width: 100%;
-
-    margin-bottom: 40px;
-    margin-top: 40px;
+    flex-direction: column;
 }
 
-.container {
-    position: sticky;
-    top: 32px;
-}
-
-.searchContainer {
-    position: sticky;
-    top: 32px;
-    z-index: 999;
-
-}
 
 .backgroundImage {
     position: fixed;
@@ -48,6 +28,9 @@
 .leftPanelWrapper {
     position: relative;
     display: flex;
-    align-items: center;
     justify-content: center;
+}
+
+.topBarWrapper{
+    z-index: 999;
 }

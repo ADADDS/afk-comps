@@ -2,11 +2,9 @@
 
 .Wrapper {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0 5rem 0 5rem;
     margin-top: 80px;
     margin-bottom: 80px;
+    width: 100%;
 }
 
 .logoWrapper {

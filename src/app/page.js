@@ -51,8 +51,6 @@ const Home = () => {
 
   return (
     <>
-      {/* <TopBar /> */}
-      <Header />
       <main className={styles.main}>
         <Head>
           <title>AFK Comps</title>
@@ -63,24 +61,21 @@ const Home = () => {
         />
 
         <div className={styles.leftPanelWrapper}>
-          <div className={styles.leftPanelInnerWrapper}>
+          <div classN ame={styles.leftPanelInnerWrapper}>
             <LeftPanel selectedHeroes={selectedHeroes} />
           </div>
         </div>
         <div className={styles.heroGridWrapper}>
-          <div className={styles.container}>
-            <div className={styles.searchContainer}>
-              <SearchBar placeholder="Search for a hero" data={Data} />
-            </div>
+      <TopBar />
+    
 
-            <div className={styles.dropdown}></div>
+          <div className={styles.dropdown}></div>
 
-            <HeroGrid
-              updateSelectedHeroes={updateSelectedHeroes}
-              selectedFactions={selectedFactionValues}
-              selectedClasses={selectedClassValues}
-            />
-          </div>
+          <HeroGrid
+            updateSelectedHeroes={updateSelectedHeroes}
+            selectedFactions={selectedFactionValues}
+            selectedClasses={selectedClassValues}
+          />
         </div>
       </main>
     </>

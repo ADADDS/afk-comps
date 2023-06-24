@@ -1,6 +1,7 @@
 import styles from "./ShareButton.module.css";
 import { globalStore } from "@/stores/globalStore";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const ShareButton = () => {
   //URL serialization and deserialization
@@ -26,9 +27,22 @@ const ShareButton = () => {
   };
 
   return (
-    <button onClick={handleShare} className={styles.primaryButton}>
-      Share build <img src={"/Images/Icons/Send.svg"} />
-    </button>
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      onClick={handleShare}
+      className={styles.primaryButton}
+    >
+      Share build{" "}
+      <span className={styles.IconWrapper}>
+        <img
+          className={styles.Icon}
+          src={"/Images/Icons/Send.svg"}
+          width={18}
+          height={18}
+        />
+      </span>
+    </motion.button>
   );
 };
 

@@ -14,4 +14,5 @@
 	left: 50%;
 	transform: translateX(-50%);
 	bottom: 2px;
+    pointer-events: none;
 }

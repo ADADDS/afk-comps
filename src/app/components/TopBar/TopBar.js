@@ -8,11 +8,11 @@ const TopBar = () => {
   const ref = useRef(null);
   const [hasScrolled, setHasScrolled] = useState(false);
   const { scrollYProgress } = useScroll(ref);
-  const opacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
+  const opacity = useTransform(scrollYProgress, [0.3, 0.4], [0, 1]);
 
   useEffect(() => {
     const checkScroll = () => {
-      setHasScrolled(window.scrollY > 300);
+      setHasScrolled(window.scrollY > 200);
     };
 
     window.addEventListener("scroll", checkScroll);
@@ -23,18 +23,38 @@ const TopBar = () => {
   }, []);
 
   return (
-    <motion.div
-      ref={ref}
-      className={styles.wrapper}
-      style={hasScrolled ? { opacity } : { opacity: 0 }}
-    >
-      <div className={styles.SearchBarWrapper}>
-        <SearchBar />
-      </div>
-      <div className={styles.ShareButtonWrapper}>
-        <ShareButton />
-      </div>
-    </motion.div>
+    <>
+    
+      <motion.div ref={ref} className={styles.wrapper}>
+        
+        <div className={styles.container}>
+        <div className={styles.placeholder}></div> 
+      <div className={styles.logoWrapper}>
+        <div className={styles.shape} />
+        <p className={styles.logoText}>
+          <span className={styles.afkText}> AFK</span>COMPS
+        </p>
+      </div> 
+          <div className={styles.SearchBarWrapper}>
+            <SearchBar />
+          </div>
+          <div className={styles.buttonWrapper}>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className={styles.secondaryButton}
+            >
+              <img src={"/Images/Icons/Star.svg"} width={18} height={18} />
+              Star us on Github
+            </motion.button>
+            <ShareButton />
+          </div>
+        </div>
+      </motion.div>
+      <motion.div style={{ opacity }} className={styles.scrolledContent}>
+        {" "}
+      </motion.div>
+    </>
   );
 };
 

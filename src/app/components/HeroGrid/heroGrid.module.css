@@ -6,8 +6,14 @@
 }
 
 
+
 .title {
-    font-size: 32px;
+    font-size: 28px;
+    font-family: 'Bebas Neue';
+    color: white;
+    display: flex;
+    align-items:center;
+    gap: 8px;
 }
 
 .title>span {
@@ -62,22 +68,9 @@
     align-items: center;
 }
 
-.title {
-    display: flex;
-    align-items:center;
-    gap: 8px;
-}
 
 .heroQuantity {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--color-secondary-background);
-    border-radius: 50%;
-    font-size: 12px;
-    color: var(--color-primary-text);
+    opacity: 0.3;
 }
 
 .gradientOverlay {
