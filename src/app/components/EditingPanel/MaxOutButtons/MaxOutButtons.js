@@ -1,7 +1,8 @@
 import styles from "./MaxOutButtons.module.css";
 import { globalStore } from "@/stores/globalStore";
-import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
+
+const MAX_SLOTS = 5;
 
 const MaxOutButtons = () => {
   const {
@@ -14,17 +15,22 @@ const MaxOutButtons = () => {
     setEngravingLevel,
   } = globalStore();
 
-  const [shakeHero, setShakeHero] = useState(false);
-  const [shakeComposition, setShakeComposition] = useState(false);
+  const [isMaxOutHeroButtonShaking, setIsMaxOutHeroButtonShaking] =
+    useState(false);
+  const [
+    isMaxOutCompositionButtonShaking,
+    setIsMaxOutCompositionButtonShaking,
+  ] = useState(false);
 
-  const [maxOutHeroLabel, setMaxOutHeroLabel] = useState("");
-  const [maxOutCompositionLabel, setMaxOutCompositionLabel] = useState("");
+  const [maxOutHeroButtonLabel, setMaxOutHeroButtonLabel] = useState("");
+  const [maxOutCompositionButtonLabel, setMaxOutCompositionButtonLabel] =
+    useState("");
 
-  const [isCompositionMaxedOut, setIsCompositionMaxedOut] = useState(false);
-
-  const isAnySlotFilled = Object.values(slots).some((slot) => slot);
-  const filledSlotCount = Object.values(slots).filter((slot) => slot).length;
-  const remainingHeroSlots = 5 - filledSlotCount;
+  const isAnyHeroSelected = Object.values(slots).some((slot) => slot);
+  const numberOfFilledSlots = Object.values(slots).filter(
+    (slot) => slot
+  ).length;
+  const numberOfEmptySlots = MAX_SLOTS - numberOfFilledSlots;
 
   const selectedHero = slots?.[selectedSlot];
 
@@ -47,7 +53,6 @@ const MaxOutButtons = () => {
   };
 
   const handleMaxOutComposition = () => {
-    setIsCompositionMaxedOut(true);
     Object.keys(slots).forEach((slot) => {
       setStars(5, slot);
       setSignatureLevel(30, slot);
@@ -59,100 +64,99 @@ const MaxOutButtons = () => {
 
   const handleMaxOutHeroClick = () => {
     if (!slots[selectedSlot]) {
-      setShakeHero(true);
-      setTimeout(() => setShakeHero(false), 200);
+      setIsMaxOutHeroButtonShaking(true);
+      setTimeout(() => setIsMaxOutHeroButtonShaking(false), 200);
     } else {
       handleMaxOutHero();
     }
 
     if (isMaxedOut) {
-      setShakeHero(true);
-      setTimeout(() => setShakeHero(false), 200);
+      setIsMaxOutHeroButtonShaking(true);
+      setTimeout(() => setIsMaxOutHeroButtonShaking(false), 200);
     }
   };
 
-  const handleMaxOutCompClick = () => {
-    if (filledSlotCount === 5) {
-      handleMaxOutComposition();
+  const handleCompositionButtonClick = () => {
+    if (numberOfFilledSlots === MAX_SLOTS) {
+      if (!isCompositionMaxedOut()) {
+        handleMaxOutComposition();
+      } else {
+        setIsMaxOutCompositionButtonShaking(true);
+        setTimeout(() => setIsMaxOutCompositionButtonShaking(false), 200);
+      }
     } else {
-      setShakeComposition(true);
-      setTimeout(() => setShakeComposition(false), 200);
+      setIsMaxOutCompositionButtonShaking(true);
+      setTimeout(() => setIsMaxOutCompositionButtonShaking(false), 200);
     }
+  };
 
-    if (isCompositionMaxedOut) {
-      setShakeComposition(true);
-      setTimeout(() => setShakeComposition(false), 200);
-    }
+  const isCompositionMaxedOut = () => {
+    return Object.keys(slots).every((slot) => {
+      const hero = slots[slot];
+      return (
+        hero?.stars === 5 &&
+        hero?.signatureLevel === 30 &&
+        hero?.awakeningLevel === "Ascended" &&
+        hero?.furnitureLevel === "27/9" &&
+        hero?.engravingLevel === 80
+      );
+    });
   };
 
   // Generates the button label for the `Max out comp` button
-  // bug provavelmente aqui: quando vc maximiza heroi por heroi manualmente inves do max out comp ele n troca o texto
-  //quando deleta um heroi tb nao
   useEffect(() => {
-    if (filledSlotCount < 5) {
-      setMaxOutCompositionLabel(`Select ${remainingHeroSlots} more heroes`);
+    if (numberOfFilledSlots < MAX_SLOTS) {
+      if (numberOfFilledSlots === 4) {
+        setMaxOutCompositionButtonLabel(
+          `Select ${numberOfEmptySlots} more hero`
+        );
+      } else {
+        setMaxOutCompositionButtonLabel(
+          `Select ${numberOfEmptySlots} more heroes`
+        );
+      }
+    } else if (isCompositionMaxedOut()) {
+      setMaxOutCompositionButtonLabel("Composition is maxed out");
     } else {
-      setMaxOutCompositionLabel("Max out composition");
+      setMaxOutCompositionButtonLabel("Max out composition");
     }
-
-    if (isCompositionMaxedOut) {
-      setMaxOutCompositionLabel("Composition is maxed out");
-    }
-  }, [selectedSlot, slots]);
+  }, [selectedSlot, slots, numberOfFilledSlots]);
 
   // Generates the button label for the `Max out hero` button
   useEffect(() => {
     if (slots?.[selectedSlot]?.name) {
       if (isMaxedOut) {
-        setMaxOutHeroLabel(`${selectedHero.name} is maxed out`);
+        setMaxOutHeroButtonLabel(`${selectedHero.name} is maxed out`);
       } else {
-        setMaxOutHeroLabel(`Max out ${slots[selectedSlot].name}`);
+        setMaxOutHeroButtonLabel(`Max out ${slots[selectedSlot].name}`);
       }
     } else {
-      setMaxOutHeroLabel("Max out hero");
+      setMaxOutHeroButtonLabel("Max out hero");
     }
   }, [selectedSlot, slots]);
-
-  // Checks if the composition is maxed out or not
-  useEffect(() => {
-    if (slots && Object.keys(slots).length > 0) {
-      const compositionMaxedOut = Object.keys(slots).every((slot) => {
-        const hero = slots[slot];
-        return (
-          hero?.stars === 5 &&
-          hero?.signatureLevel === 30 &&
-          hero?.awakeningLevel === "Ascended" &&
-          hero?.furnitureLevel === "27/9" &&
-          hero?.engravingLevel === 80
-        );
-      });
-
-      setIsCompositionMaxedOut(compositionMaxedOut);
-    }
-  }, [slots]);
 
   return (
     <div className={styles.maxOutSection}>
       <button
         className={`${styles.maxOutHeroButton} ${
           slots[selectedSlot] ? styles.selectable : styles.disabled
-        } ${shakeHero ? styles.shake : ""} ${
+        } ${isMaxOutHeroButtonShaking ? styles.shake : ""} ${
           isMaxedOut ? styles.disabled : ""
         }`}
         onClick={handleMaxOutHeroClick}
       >
-        {maxOutHeroLabel}
+        {maxOutHeroButtonLabel}
       </button>
       <button
         className={`${styles.maxOutCompButton} ${
-          isAnySlotFilled ? styles.selectable : styles.disabled
-        } ${shakeComposition ? styles.shake : ""} ${
-          isCompositionMaxedOut ? styles.disabled : ""
+          isAnyHeroSelected ? styles.selectable : styles.disabled
+        } ${isMaxOutCompositionButtonShaking ? styles.shake : ""} ${
+          isCompositionMaxedOut() ? styles.disabled : ""
         } 
-        ${remainingHeroSlots > 0 ? styles.disabled : ""}`}
-        onClick={handleMaxOutCompClick}
+        ${numberOfEmptySlots > 0 ? styles.disabled : ""}`}
+        onClick={handleCompositionButtonClick}
       >
-        {maxOutCompositionLabel}
+        {maxOutCompositionButtonLabel}
       </button>
     </div>
   );
