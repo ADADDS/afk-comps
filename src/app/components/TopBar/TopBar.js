@@ -24,29 +24,27 @@ const TopBar = () => {
 
   return (
     <>
-    
       <motion.div ref={ref} className={styles.wrapper}>
-        
         <div className={styles.container}>
-        <div className={styles.placeholder}></div> 
-      <div className={styles.logoWrapper}>
-        <div className={styles.shape} />
-        <p className={styles.logoText}>
-          <span className={styles.afkText}> AFK</span>COMPS
-        </p>
-      </div> 
           <div className={styles.SearchBarWrapper}>
             <SearchBar />
           </div>
           <div className={styles.buttonWrapper}>
-            <motion.button
+            <motion.a
+              href="https://github.com/ADADDS/afk-comps"
+              target="_blank"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className={styles.secondaryButton}
             >
-              <img src={"/Images/Icons/Star.svg"} width={18} height={18} />
+              <img
+                src={"/Images/Icons/Star.svg"}
+                width={18}
+                height={18}
+                alt="Star icon"
+              />
               Star us on Github
-            </motion.button>
+            </motion.a>
             <ShareButton />
           </div>
         </div>

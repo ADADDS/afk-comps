@@ -16,6 +16,7 @@ const LeftPanel = ({ selectedHeroes, onHeroRemove }) => {
 
   return (
     <div className={styles.compContainer}>
+      
       <AnimatePresence>
         {modalIsOpen && (
           <div className={styles.wrapper}>

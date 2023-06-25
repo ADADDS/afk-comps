@@ -26,11 +26,45 @@
 }
 
 .leftPanelWrapper {
-    position: relative;
+    
     display: flex;
     justify-content: center;
 }
 
-.topBarWrapper{
+.topBarWrapper {
     z-index: 999;
+}
+
+
+.logoWrapper {
+    display: flex;
+    margin-top: 50px;
+    gap: 8px;
+    align-items: center;
+    position: fixed;
+    z-index: 99999;
+}
+
+.shape {
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-primary-highlight);
+    border-radius: 6px 0px;
+}
+
+.logoText {
+    color: #7867F6;
+    font-size: 28px;
+    color: white;
+    font-family: 'Bebas Neue';
+
+}
+
+.afkText {
+    color: #7867F6;
+
+}
+
+.leftPanelInnerWrapper {
+    position: fixed;
 }

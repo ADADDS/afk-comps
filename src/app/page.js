@@ -10,6 +10,7 @@ import SearchBar from "./components/Search/SearchBar/SearchBar";
 import { globalStore } from "@/stores/globalStore";
 import Header from "./components/Header/Header";
 import TopBar from "./components/TopBar/TopBar";
+import Filters from "./components/shared/Filters/Filters";
 
 const FACTION_OPTIONS = [
   { id: 0, faction: "Celestial" },
@@ -61,15 +62,22 @@ const Home = () => {
         />
 
         <div className={styles.leftPanelWrapper}>
+        <div className={styles.logoWrapper}>
+        <div className={styles.shape} />
+        <p className={styles.logoText}>
+          <span className={styles.afkText}> AFK</span>COMPS
+        </p>
+      </div> 
           <div classN ame={styles.leftPanelInnerWrapper}>
+            
             <LeftPanel selectedHeroes={selectedHeroes} />
           </div>
         </div>
         <div className={styles.heroGridWrapper}>
-      <TopBar />
-    
-
-          <div className={styles.dropdown}></div>
+          <TopBar />
+          <div className={styles.Filter}>
+            <Filters />
+          </div>
 
           <HeroGrid
             updateSelectedHeroes={updateSelectedHeroes}
