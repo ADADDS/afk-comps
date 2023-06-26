@@ -8,11 +8,11 @@ const TopBar = () => {
   const ref = useRef(null);
   const [hasScrolled, setHasScrolled] = useState(false);
   const { scrollYProgress } = useScroll(ref);
-  const opacity = useTransform(scrollYProgress, [0.3, 0.4], [0, 1]);
+  const opacity = useTransform(scrollYProgress, [0.15, 0.3], [0, 1]);
 
   useEffect(() => {
     const checkScroll = () => {
-      setHasScrolled(window.scrollY > 200);
+      setHasScrolled(window.scrollY > 100);
     };
 
     window.addEventListener("scroll", checkScroll);
@@ -33,7 +33,7 @@ const TopBar = () => {
             <motion.a
               href="https://github.com/ADADDS/afk-comps"
               target="_blank"
-              whileHover={{ scale: 1.05 }}
+              // whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className={styles.secondaryButton}
             >

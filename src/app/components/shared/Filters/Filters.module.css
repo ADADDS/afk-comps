@@ -1,0 +1,11 @@
+.title {
+    font-size: 28px;
+    color: white;
+    font-family: 'Bebas Neue';
+}
+
+.factionsFilterWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}

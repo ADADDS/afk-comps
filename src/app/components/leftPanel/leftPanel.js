@@ -34,6 +34,7 @@ const LeftPanel = ({ selectedHeroes, onHeroRemove }) => {
       </AnimatePresence>
 
       <div className={styles.FormationSelectorWrapper}>
+        <div className={styles.FormationSelectorTitle}>COMP SELECTION</div>
         <FormationSelector
           selectedHeroes={selectedHeroes}
           onHeroRemove={onHeroRemove}

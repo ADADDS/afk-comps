@@ -28,7 +28,7 @@ const ShareButton = () => {
 
   return (
     <motion.button
-      whileHover={{ scale: 1.05 }}
+      // whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       onClick={handleShare}
       className={styles.primaryButton}

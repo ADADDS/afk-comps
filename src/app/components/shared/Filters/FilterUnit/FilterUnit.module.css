@@ -1,6 +1,53 @@
-.title{
-    font-size: 28px;
-    color: white;
-    font-family: 'Bebas Neue';
+.filterUnitWrapper {
+    display: flex;
+    padding: 8px 8px 8px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 12px;
+    border: none;
+    border-top: 1px solid #353739;
+    background: #1E2023;
+    color: #9C9DA6;
 
+}
+
+.factionAvatar {
+    width: 24px;
+    height: 24px;
+}
+
+.quantityHeroesinFactionWrapper {
+    border-radius: 24px;
+    background: #353739;
+    width: 24px;
+    height: 24px;
+    color: #9C9DA6;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: -0.11px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.factionName {
+    position: relative;
+}
+
+
+.activeFilter {
+    color: white;
+}
+
+.deactivated {
+    color: #37393D;
+}
+
+.striketrough {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    height: 1px;
+    background-color: #37393D;
 }

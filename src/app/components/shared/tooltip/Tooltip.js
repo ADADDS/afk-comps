@@ -4,9 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 const Tooltip = ({ text }) => {
   return (
     <>
-
-      <div 
-	  className={styles.container}>{text}</div>
+      <div className={styles.container}>{text}</div>
     </>
   );
 };

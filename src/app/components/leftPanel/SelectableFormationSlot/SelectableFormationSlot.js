@@ -55,7 +55,6 @@ const SelectableFormationSlot = ({ slot }) => {
               ease: [0.17, 0.67, 0.83, 0.67],
             }}
           >
-            <div className={styles.gradient}></div>
             <img
               className={styles.avatarPreview}
               src={`/Images/HeroAvatar/${hoveredHero}.png`}

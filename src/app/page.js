@@ -62,20 +62,19 @@ const Home = () => {
         />
 
         <div className={styles.leftPanelWrapper}>
-        <div className={styles.logoWrapper}>
-        <div className={styles.shape} />
-        <p className={styles.logoText}>
-          <span className={styles.afkText}> AFK</span>COMPS
-        </p>
-      </div> 
-          <div classN ame={styles.leftPanelInnerWrapper}>
-            
+          <div className={styles.logoWrapper}>
+            <div className={styles.shape} />
+            <p className={styles.logoText}>
+              <span className={styles.afkText}> AFK</span>COMPS
+            </p>
+          </div>
+          <div className={styles.leftPanelInnerWrapper}>
             <LeftPanel selectedHeroes={selectedHeroes} />
           </div>
         </div>
         <div className={styles.heroGridWrapper}>
           <TopBar />
-          <div className={styles.Filter}>
+          <div className={styles.Filters}>
             <Filters />
           </div>
 

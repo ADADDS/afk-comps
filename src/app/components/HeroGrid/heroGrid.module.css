@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: var(--spacing-sm);
-    margin-right: 4px;
+    gap: 4px;
 }
 
 
@@ -12,7 +12,7 @@
     font-family: 'Bebas Neue';
     color: white;
     display: flex;
-    align-items:center;
+    align-items: center;
     gap: 8px;
 }
 
@@ -25,10 +25,12 @@
     border-radius: 24px 0px 24px 0px;
     overflow: hidden;
     z-index: 1;
+    flex-grow: 1;
+
 }
 
 .heroWrapper.selected {
-    opacity: 0.2;
+    opacity: 0.2 !important;
     filter: grayscale(1);
 }
 
@@ -78,7 +80,7 @@
     bottom: 0;
     z-index: 9999;
     pointer-events: none;
-    width:100%;
+    width: 100%;
     height: 120px;
     background: linear-gradient(180deg, rgba(15, 16, 18, 0.00) 0%, #0F1012 100%);
 }

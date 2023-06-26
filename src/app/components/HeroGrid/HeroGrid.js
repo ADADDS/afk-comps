@@ -6,20 +6,20 @@ import Hero from "../shared/hero/hero";
 import styles from "src/app/components/heroGrid/heroGrid.module.css";
 
 const HeroGrid = ({ selectedFactions, selectedClasses }) => {
-  const {
-    selectedSlot,
-    removeHero,
-    slots,
-    setHero,
-    setSelectedSlot,
-    swapHero,
-    clearHoveredHero,
-  } = globalStore((state) => state);
+  const { selectedSlot, removeHero, slots, setHero, swapHero } = globalStore(
+    (state) => state
+  );
 
-  const filteredHeroes = heroGridStore((state) => state.filteredHeroes);
+  const { setSearchQuery, filteredHeroes, selectedFaction } = heroGridStore(
+    (state) => state
+  );
 
   const [isHovered, setIsHovered] = useState(false);
   const [hoveredHeroName, setHoveredHeroName] = useState("");
+
+  const factionFilteredHeroes = filteredHeroes.filter((hero) =>
+    selectedFaction.includes(hero.faction)
+  );
 
   const handleMouseEnter = (heroName) => {
     setIsHovered(true);
@@ -54,13 +54,13 @@ const HeroGrid = ({ selectedFactions, selectedClasses }) => {
   return (
     <>
       <span className={styles.title}>
-        Heroes<div className={styles.heroQuantity}>{filteredHeroes.length}</div>
+        Heroes<div className={styles.heroQuantity}>{factionFilteredHeroes.length}</div>
       </span>
 
       <div className={styles.gradientOverlay}></div>
       <div className={styles.heroGridWrapper}>
         <AnimatePresence>
-          {filteredHeroes.map((hero) => {
+          {factionFilteredHeroes.map((hero) => {
             const isSelected = Object.values(slots).find(
               (h) => h?.id === hero.id
             );
