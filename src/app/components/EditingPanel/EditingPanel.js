@@ -61,7 +61,9 @@ const EditingPanel = ({ handleClose }) => {
         >
           <div className={styles.Header}>
             Editing {slots[selectedSlot]?.name}
-            <button className={styles.closeButton} onClick={handleClose}><img src={`/Images/Icons/close.svg`}/></button>
+            <button className={styles.closeButton} onClick={handleClose}>
+              <img src={`/Images/Icons/close.svg`} />
+            </button>
           </div>
           <GroupButton
             title={"Stars"}
@@ -108,8 +110,13 @@ const EditingPanel = ({ handleClose }) => {
           </div>
 
           <div className={styles.maxOutSection}>
-            <button className={styles.maxOutButton} onClick={handleMaxOutHero}>Max out hero</button>
-            <button className={styles.maxOutButton} onClick={handleMaxOutComposition}>
+            <button className={styles.maxOutButton} onClick={handleMaxOutHero}>
+              Max out hero
+            </button>
+            <button
+              className={styles.maxOutButton}
+              onClick={handleMaxOutComposition}
+            >
               Max out composition
             </button>
           </div>

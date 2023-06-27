@@ -54,7 +54,10 @@ const HeroGrid = ({ selectedFactions, selectedClasses }) => {
   return (
     <>
       <span className={styles.title}>
-        Heroes<div className={styles.heroQuantity}>{factionFilteredHeroes.length}</div>
+        Heroes
+        <div className={styles.heroQuantity}>
+          {factionFilteredHeroes.length}
+        </div>
       </span>
 
       <div className={styles.gradientOverlay}></div>
@@ -110,7 +113,7 @@ const HeroGrid = ({ selectedFactions, selectedClasses }) => {
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 2 }}
+                  transition={{ duration: 0.5 }}
                   className={`${styles.heroWrapper} ${
                     isSelected ? styles.selected : ""
                   }`}

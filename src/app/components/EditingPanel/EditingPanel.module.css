@@ -1,9 +1,10 @@
 .container {
+    position: absolute;
     width: 600px;
     display: flex;
     flex-direction: column;
-    height: 100vh;
     padding: 48px;
+    z-index: 999;
     background-color: var(--color-secondary-background);
 }
 

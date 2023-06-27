@@ -8,6 +8,7 @@
     margin-right: 80px;
     display: flex;
     flex-direction: column;
+    z-index: 2;
 }
 
 
@@ -20,17 +21,18 @@
 
 .leftPanelInnerWrapper {
     position: fixed;
-    top: 150px;
 }
 
 .leftPanelWrapper {
     display: flex;
     justify-content: flex-start;
-    margin-left: 80px;
+    /* margin-left: 80px; */
+    z-index: 501;
+
 }
 
 .topBarWrapper {
-    z-index: 999;
+    z-index: 500;
 }
 
 
@@ -65,4 +67,12 @@
 .Filters{
     margin-bottom: 40px;
     margin-top: 20px;
+}
+
+.logoWrapper{
+    margin-left: 80px;  
+}
+
+.editingPanelWrapper{
+    position: fixed;
 }

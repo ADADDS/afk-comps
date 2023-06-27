@@ -6,3 +6,16 @@
     align-items: center;
     justify-content: center;
 }
+
+.FormationSelectorTitle {
+    margin-left: 80px;
+    margin-top: 150px;
+}
+
+.maxOutSection {
+    margin-left: 80px;
+}
+
+.container {
+    top: 0;
+}

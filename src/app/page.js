@@ -11,6 +11,10 @@ import { globalStore } from "@/stores/globalStore";
 import Header from "./components/Header/Header";
 import TopBar from "./components/TopBar/TopBar";
 import Filters from "./components/shared/Filters/Filters";
+import EditingPanel from "./components/EditingPanel/EditingPanel";
+import { editingPanelStore } from "@/stores/editingPanel";
+import { motion, AnimatePresence } from "framer-motion";
+
 
 const FACTION_OPTIONS = [
   { id: 0, faction: "Celestial" },
@@ -34,6 +38,9 @@ const Home = () => {
   const [selectedFactions, setSelectedFactions] = useState(FACTION_OPTIONS);
   const [selectedClasses, setSelectedClasses] = useState(CLASS_OPTIONS);
   const [selectedHeroes, setSelectedHeroes] = useState([]);
+  const { modalIsOpen, setModalIsOpen } = editingPanelStore();
+
+  const toggleModal = () => setModalIsOpen(!modalIsOpen);
 
   const handleFactionChange = (newSelection) => {
     setSelectedFactions(newSelection);
@@ -71,6 +78,20 @@ const Home = () => {
           <div className={styles.leftPanelInnerWrapper}>
             <LeftPanel selectedHeroes={selectedHeroes} />
           </div>
+          <AnimatePresence>
+        {modalIsOpen && (
+          <motion.div
+          className={styles.editingPanelWrapper}
+            key="panel"
+            initial={{ x: "100vw" }}
+            animate={{ x: "calc(100vw - 600px)" }}
+            transition={{ ease: "easeInOut", duration: 0.35 }}
+            exit={{ x: "100vw" }}
+          >
+            <EditingPanel handleClose={toggleModal} />
+          </motion.div>
+        )}
+      </AnimatePresence>
         </div>
         <div className={styles.heroGridWrapper}>
           <TopBar />
