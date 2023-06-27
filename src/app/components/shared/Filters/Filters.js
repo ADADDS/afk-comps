@@ -28,6 +28,10 @@ const Filters = () => {
     return heros.filter((hero) => hero.faction === faction).length;
   }
 
+  const handleAllclick = () => {
+    setSelectedFaction(allFactions);
+  };
+
   const handleFilterClick = (faction) => {
     if (faction == selectedFaction) {
       setSelectedFaction(allFactions);
@@ -40,6 +44,11 @@ const Filters = () => {
     <>
       <div className={styles.title}>Factions</div>
       <div className={styles.factionsFilterWrapper}>
+        <FilterUnit
+          onFilterClick={handleAllclick}
+          all
+          quantity={heros.length}
+        />
         {FACTION_OPTIONS.map((option) => (
           <FilterUnit
             key={option.id}

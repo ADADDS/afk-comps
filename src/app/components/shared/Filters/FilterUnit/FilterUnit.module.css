@@ -9,12 +9,23 @@
     border-top: 1px solid #353739;
     background: #1E2023;
     color: #9C9DA6;
+    transition: background 0.3s ease-in-out;
+}
 
+.filterUnitWrapper:hover {
+    background: #272a2d;
+    cursor: pointer;
+}
+
+.filterUnitWrapper:hover .quantityHeroesinFactionWrapper {
+    background: #3a3d3f;
+    transition: background 0.3s ease-in-out;
 }
 
 .factionAvatar {
     width: 24px;
     height: 24px;
+    transition: all 0.3s ease-in-out;
 }
 
 .quantityHeroesinFactionWrapper {
@@ -29,25 +40,26 @@
     justify-content: center;
     align-items: center;
     display: flex;
+    transition: background 0.3s ease-in-out;
 }
 
 .factionName {
     position: relative;
+    transition: color 0.3s ease-in-out;
 }
-
 
 .activeFilter {
     color: white;
+    transition: color 0.3s ease-in-out;
 }
 
 .deactivated {
-    color: #37393D;
+    filter: grayscale(1);
+    opacity: 0.5;
+    transition: all 0.3s ease-in-out;
 }
 
-.striketrough {
-    position: absolute;
-    top: 10px;
-    width: 100%;
-    height: 1px;
-    background-color: #37393D;
+.allButtonText {
+    color: #9C9DA6;
+    transition: color 0.3s ease-in-out;
 }
