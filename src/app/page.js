@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import Dropdown from "./components/shared/dropdown/dropdown";
 import HeroGrid from "./components/HeroGrid/HeroGrid.js";
-import LeftPanel from "./components/LeftPanel/leftPanel.js";
+
 import styles from "./page.module.css";
 import SearchBar from "./components/Search/SearchBar/SearchBar";
 import Header from "./components/Header/Header";
@@ -13,6 +13,7 @@ import EditingPanel from "./components/EditingPanel/EditingPanel";
 import { editingPanelStore } from "@/stores/editingPanel";
 import { motion, AnimatePresence } from "framer-motion";
 import Backdrop from "./components/EditingPanel/Backdrop";
+import LeftPanel from "./components/LeftPanel/leftPanel";
 
 const FACTION_OPTIONS = [
   { id: 0, faction: "Celestial" },
@@ -68,7 +69,7 @@ const Home = () => {
             </p>
           </div>
           <div className={styles.leftPanelInnerWrapper}>
-            <LeftPanel selectedHeroes={selectedHeroes} />
+          <LeftPanel selectedHeroes={selectedHeroes} />
           </div>
 
           <div className={styles.LeftPanelPlaceholder}></div>

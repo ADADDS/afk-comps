@@ -1,7 +1,7 @@
 "use client";
 import { globalStore } from "@/stores/globalStore";
 import { useState, useEffect } from "react";
-import LeftPanel from "../components/LeftPanel/leftPanel.js";
+import LeftPanel from "../components/LeftPanel/leftPanel";
 
 
 const View = () => {
@@ -19,7 +19,8 @@ const View = () => {
 
   return (
     <div>
-      <LeftPanel />
+      <LeftPanel/>
+    
     
     </div>
   );
