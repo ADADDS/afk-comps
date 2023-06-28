@@ -12,6 +12,7 @@
 - [Important] Create an empty state for the `EditingPanel`;
 - [Important] Improve the serialization algorithm to make the url string smaller;
 - [Refinement] Change the paste sctruture;
+- [Refinement] The background image is not responding too well to rezising due to the new box added;
 - [Refinement] Make the red pulsate to delete, just 'cause it could look good;
 - [Refinement] If users tap a selected slot it should un-select;
 - [Refinement] Remove the `!important` in `heroGrid.module.css`;

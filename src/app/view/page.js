@@ -1,7 +1,7 @@
 "use client";
 import { globalStore } from "@/stores/globalStore";
 import { useState, useEffect } from "react";
-import LeftPanel from "src/app/components/LeftPanel/LeftPanel.js";
+import LeftPanel from "../components/LeftPanel/leftPanel.js";
 
 
 const View = () => {

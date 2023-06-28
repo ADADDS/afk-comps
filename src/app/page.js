@@ -2,12 +2,10 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Dropdown from "./components/shared/dropdown/dropdown";
-import HeroGrid from "src/app/components/HeroGrid/HeroGrid.js";
-import LeftPanel from "src/app/components/LeftPanel/LeftPanel.js";
+import HeroGrid from "./components/HeroGrid/HeroGrid.js";
+import LeftPanel from "./components/LeftPanel/leftPanel.js";
 import styles from "./page.module.css";
-import Data from "/Users/lucianoinfanti/afk-comps/src/app/assets/Data/Data.json";
 import SearchBar from "./components/Search/SearchBar/SearchBar";
-import { globalStore } from "@/stores/globalStore";
 import Header from "./components/Header/Header";
 import TopBar from "./components/TopBar/TopBar";
 import Filters from "./components/shared/Filters/Filters";
@@ -84,20 +82,17 @@ const Home = () => {
                 transition={{ duration: 0.6, ease: "easeInOut" }}
               >
                 <EditingPanel handleClose={toggleModal} />
-    
               </motion.div>
             )}
           </AnimatePresence>
         </div>
 
-
         {modalIsOpen && (
-        <div
-                className={styles.backdrop}
-                >
-                  <Backdrop />
-                </div>)}
-               
+          <div className={styles.backdrop}>
+            <Backdrop />
+          </div>
+        )}
+
         <div className={styles.heroGridWrapper}>
           <TopBar />
           <div className={styles.Filters}>
