@@ -1,0 +1,13 @@
+.optionsWrapper {
+    display: flex;
+    margin-bottom: 32px;
+	
+}
+
+.sectionTitle {
+    font-family: 'Bebas Neue';
+    color: #FFF;
+    font-size: 16px;
+    opacity: 0.5;
+	margin-bottom: 8px;
+}

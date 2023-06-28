@@ -1,0 +1,21 @@
+.FormationSelectorTitle {
+    font-family: 'Bebas Neue';
+    font-size: 28px;
+    color: white;
+    margin-bottom: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.FormationSelectorTitle {
+    margin-left: 80px;
+    margin-top: 150px;
+}
+
+.maxOutSection {
+    margin-left: 80px;
+}
+
+.FormationSelectorWrapper {
+    position: fixed;
+}

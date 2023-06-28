@@ -1,0 +1,66 @@
+
+
+.scrolledContent {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 116px;
+    background: rgba(14, 15, 17, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+}
+
+
+
+.container {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.SearchBarWrapper {
+    flex-grow: 1;
+    margin-right: 16px;
+}
+
+.buttonWrapper {
+    display: flex;
+}
+
+.wrapper {
+    position: sticky;
+    display: flex;
+    align-items: center;
+    top: 0;
+
+    height: 130px;
+    z-index: 900;
+    justify-content: space-between;
+}
+
+
+.secondaryButton {
+    border-radius: 12px 0px;
+    border: 1px solid #262629;
+    display: inline-flex;
+    text-decoration: none;
+    background: rgba(14, 15, 17, 0.5);
+    backdrop-filter: blur(7.5px);
+    padding: 24px 24px 24px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 66px;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--color-icon);
+    margin-right: 16px;
+    transition: border 0.3s ease, color 0.3s ease;
+
+}
+
+.secondaryButton:hover {
+    cursor: pointer;
+    border: 1px solid #353739;
+    color: white;
+}
