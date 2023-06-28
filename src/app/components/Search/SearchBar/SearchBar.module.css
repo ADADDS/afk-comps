@@ -6,7 +6,7 @@
 .input {
     border-radius: 12px;
     border: 1px solid #262629;
-    background: rgba(14, 15, 17, 0.9);
+    background: rgba(14, 15, 17, 0.5);
     backdrop-filter: blur(7.5px);
     color: var(--color-primary-text);
     transition: border-color 0.3s ease-in-out;

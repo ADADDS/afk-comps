@@ -44,7 +44,7 @@
     border: 1px solid #262629;
     display: inline-flex;
     text-decoration: none;
-    background: rgba(14, 15, 17, 0.9);
+    background: rgba(14, 15, 17, 0.5);
     backdrop-filter: blur(7.5px);
     padding: 24px 24px 24px 16px;
     justify-content: center;

@@ -16,6 +16,6 @@
     margin-left: 80px;
 }
 
-.container {
-    top: 0;
+.FormationSelectorWrapper {
+    position: fixed;
 }

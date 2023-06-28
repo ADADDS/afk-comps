@@ -14,7 +14,7 @@ import Filters from "./components/shared/Filters/Filters";
 import EditingPanel from "./components/EditingPanel/EditingPanel";
 import { editingPanelStore } from "@/stores/editingPanel";
 import { motion, AnimatePresence } from "framer-motion";
-
+import Backdrop from "./components/EditingPanel/Backdrop";
 
 const FACTION_OPTIONS = [
   { id: 0, faction: "Celestial" },
@@ -36,7 +36,6 @@ const CLASS_OPTIONS = [
 
 const Home = () => {
   const [selectedFactions, setSelectedFactions] = useState(FACTION_OPTIONS);
-  const [selectedClasses, setSelectedClasses] = useState(CLASS_OPTIONS);
   const [selectedHeroes, setSelectedHeroes] = useState([]);
   const { modalIsOpen, setModalIsOpen } = editingPanelStore();
 
@@ -46,16 +45,11 @@ const Home = () => {
     setSelectedFactions(newSelection);
   };
 
-  const handleClassChange = (newSelection) => {
-    setSelectedClasses(newSelection);
-  };
-
   const updateSelectedHeroes = (heroes) => {
     setSelectedHeroes(heroes);
   };
 
   const selectedFactionValues = selectedFactions.map((obj) => obj.faction);
-  const selectedClassValues = selectedClasses.map((obj) => obj.class);
 
   return (
     <>
@@ -78,21 +72,32 @@ const Home = () => {
           <div className={styles.leftPanelInnerWrapper}>
             <LeftPanel selectedHeroes={selectedHeroes} />
           </div>
+
+          <div className={styles.LeftPanelPlaceholder}></div>
           <AnimatePresence>
-        {modalIsOpen && (
-          <motion.div
-          className={styles.editingPanelWrapper}
-            key="panel"
-            initial={{ x: "100vw" }}
-            animate={{ x: "calc(100vw - 600px)" }}
-            transition={{ ease: "easeInOut", duration: 0.35 }}
-            exit={{ x: "100vw" }}
-          >
-            <EditingPanel handleClose={toggleModal} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {modalIsOpen && (
+              <motion.div
+                className={styles.modal}
+                initial={{ x: "-600px" }}
+                animate={{ x: 0 }}
+                exit={{ x: "-600px" }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+              >
+                <EditingPanel handleClose={toggleModal} />
+    
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
+
+
+        {modalIsOpen && (
+        <div
+                className={styles.backdrop}
+                >
+                  <Backdrop />
+                </div>)}
+               
         <div className={styles.heroGridWrapper}>
           <TopBar />
           <div className={styles.Filters}>
@@ -102,7 +107,6 @@ const Home = () => {
           <HeroGrid
             updateSelectedHeroes={updateSelectedHeroes}
             selectedFactions={selectedFactionValues}
-            selectedClasses={selectedClassValues}
           />
         </div>
       </main>

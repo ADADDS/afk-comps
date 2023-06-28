@@ -1,7 +1,7 @@
 import styles from "./GroupButton.module.css";
 import SelectableOption from "../SelectableOption/SelectableOption";
 
-const GroupButton = ({ title, options, handleClick }) => {
+const GroupButton = ({ title, options, handleClick, imageFolder, imageOptions }) => {
   return (
     <>
       <div className={styles.sectionTitle}>{title}</div>
@@ -12,6 +12,8 @@ const GroupButton = ({ title, options, handleClick }) => {
               key={index}
               label={option}
               handleClick={() => handleClick(option)}
+              imageFolder={imageFolder}
+              imageOptions={imageOptions?.[index]} 
             />
           );
         })}

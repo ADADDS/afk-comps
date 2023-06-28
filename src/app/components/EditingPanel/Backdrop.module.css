@@ -1,9 +1,10 @@
-.Backdrop{
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	display: flex;
-	z-index: 999;
+.Backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: rgba(15, 16, 18, 0.06);
+    backdrop-filter: blur(14.5px);
+    width: 100%;
+    display: flex;
 }

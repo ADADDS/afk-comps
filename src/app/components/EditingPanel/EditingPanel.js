@@ -2,6 +2,7 @@ import styles from "./EditingPanel.module.css";
 import { globalStore } from "@/stores/globalStore";
 import { motion, AnimatePresence } from "framer-motion";
 import GroupButton from "./GroupButton/GroupButton";
+import Backdrop from "./Backdrop";
 
 const EditingPanel = ({ handleClose }) => {
   const {
@@ -60,10 +61,39 @@ const EditingPanel = ({ handleClose }) => {
           className={styles.container}
         >
           <div className={styles.Header}>
-            Editing {slots[selectedSlot]?.name}
-            <button className={styles.closeButton} onClick={handleClose}>
-              <img src={`/Images/Icons/close.svg`} />
-            </button>
+            Customizing hero
+            <div className={styles.closeButtonWrapper}>
+              Close
+              <button className={styles.closeButton} onClick={handleClose}>
+                <img src={`/Images/Icons/close.svg`} />
+              </button>
+            </div>
+          </div>
+          <div className={styles.heroInformation}>
+            <img
+              className={styles.avatarImg}
+              src={`/Images/HeroAvatar/${slots[selectedSlot]?.name}.png`}
+              width={60}
+              height={60}
+            />
+            <div className={styles.heroNameAndDescription}>
+              <div className={styles.firstRowDescription}>
+                {slots[selectedSlot]?.name}
+                <span className={styles.iconsWrapper}>
+                  <img
+                    src={`/Images/Classes/${slots[selectedSlot]?.class}.png`}
+                    width={24}
+                    height={24}
+                  />
+                  <img
+                    src={`/Images/Attribute Icon/${slots[selectedSlot]?.type}.png`}
+                    width={24}
+                    height={24}
+                  />
+                </span>
+              </div>
+              <span>{slots[selectedSlot]?.title}</span>
+            </div>
           </div>
           <GroupButton
             title={"Stars"}
@@ -83,6 +113,8 @@ const EditingPanel = ({ handleClose }) => {
           <GroupButton
             title={"Engraving"}
             options={[0, 30, 60, 80]}
+            imageFolder={"Stars"}
+            imageOptions={["Stage0", "Stage1", "Stage2", "Stage3"]}
             handleClick={handleEngravingLevel}
           />
 
