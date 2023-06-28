@@ -1,8 +1,7 @@
 "use client";
 import { globalStore } from "@/stores/globalStore";
 import { useState, useEffect } from "react";
-import LeftPanel from "../components/LeftPanel/leftPanel";
-
+import LeftPanel from "../components/LeftPanel/LeftPanel";
 
 const View = () => {
   //URL serialization and deserialization
@@ -19,9 +18,7 @@ const View = () => {
 
   return (
     <div>
-      <LeftPanel/>
-    
-    
+      <LeftPanel />
     </div>
   );
 };

@@ -13,7 +13,7 @@ import EditingPanel from "./components/EditingPanel/EditingPanel";
 import { editingPanelStore } from "@/stores/editingPanel";
 import { motion, AnimatePresence } from "framer-motion";
 import Backdrop from "./components/EditingPanel/Backdrop";
-import LeftPanel from "./components/LeftPanel/leftPanel";
+import LeftPanel from "./components/LeftPanel/LeftPanel";
 
 const FACTION_OPTIONS = [
   { id: 0, faction: "Celestial" },
