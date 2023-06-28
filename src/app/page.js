@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import Head from "next/head";
-import Dropdown from "./components/shared/dropdown/dropdown";
 import HeroGrid from "./components/HeroGrid/HeroGrid.js";
 
 import styles from "./page.module.css";
