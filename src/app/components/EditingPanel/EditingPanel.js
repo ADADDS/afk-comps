@@ -35,6 +35,8 @@ const EditingPanel = ({ handleClose }) => {
   const [isSignatureActive, setIsSignatureActive] = useState(false);
   const [isDropdownOptionSelected, setIsDropdownOptionSelected] =
     useState(false);
+
+  const [isHovered, setIsHovered] = useState(false);
   const [open, setOpen] = useState(false);
 
   const handleDropdownClick = () => {
@@ -97,6 +99,31 @@ const EditingPanel = ({ handleClose }) => {
     console.log("awakeningLevel:", awakeningLevel);
   }, [awakeningLevel]);
 
+  const getMatchingLevelDiv = () => {
+    const currentAwakeningLevel = slots[selectedSlot]?.awakeningLevel.replace(
+      / /g,
+      ""
+    );
+
+    const matchingLevel = AWAKENING_LEVELS.find(
+      (level) => level.level.replace(/ /g, "") === currentAwakeningLevel
+    );
+
+    if (matchingLevel) {
+      return <div className={styles[`_${matchingLevel.id}`]}></div>;
+    }
+    return null;
+  };
+
+  const formatAwakeningLevel = () => {
+    if (slots[selectedSlot]?.awakeningLevel) {
+      return slots[selectedSlot]?.awakeningLevel
+        .replace(/([A-Z])/g, " $1")
+        .trim();
+    }
+    return "";
+  };
+
   return (
     <>
       <AnimatePresence>
@@ -151,24 +178,27 @@ const EditingPanel = ({ handleClose }) => {
               }`}
               onClick={handleDropdownClick}
             >
-              {isDropdownOptionSelected
-                ? slots[selectedSlot]?.awakeningLevel
-                    .replace(/([A-Z])/g, " $1")
-                    .trim()
-                : "Select your awakening level"}
+              {isDropdownOptionSelected ? (
+                <div className={styles.selectedAwakeningLevelOption}>
+                  {getMatchingLevelDiv()}
+                  {formatAwakeningLevel()}
+                </div>
+              ) : (
+                "Select awakening level"
+              )}
             </div>
             <div className={styles.dropdown}>
               {open ? (
                 <ul className={styles.menu}>
                   {AWAKENING_LEVELS.map((level) => (
-                    <li className={styles.dropdownItem} key={level.id}>
+                    <li
+                      onClick={() => handleAwakeningLevel(`${level.level}`)}
+                      className={styles.dropdownItem}
+                      key={level.id}
+                    >
                       <div className={styles.contentWrapper}>
                         <div className={styles[`_${level.id}`]}></div>
-                        <button
-                          onClick={() => handleAwakeningLevel(`${level.level}`)}
-                        >
-                          {level.level}
-                        </button>
+                        <div>{level.level}</div>
                       </div>
                     </li>
                   ))}

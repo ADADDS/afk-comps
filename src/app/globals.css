@@ -100,10 +100,14 @@
     color: var(--color-primary-text);
     margin: 0;
     padding: 0;
+    scrollbar-width: none;
     height: 100%;
     font-family: 'Inter', sans-serif;
   }
-
+  body::-webkit-scrollbar {
+    display: none;
+    
+  }
   /* A elements that don't have a class get default styles */
   a:not([class]) {
     text-decoration-skip-ink: auto;

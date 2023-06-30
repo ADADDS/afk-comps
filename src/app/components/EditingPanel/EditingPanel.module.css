@@ -124,8 +124,12 @@
 
 .dropdownItem {
     display: flex;
-    margin-top: 12px;
-    margin-bottom: 12px;
+    padding: 12px;
+}
+
+.dropdownItem:hover {
+    background: #272a2d;
+    cursor: pointer;
 }
 
 .placeholderWrapper {
@@ -134,7 +138,7 @@
     color: var(--color-primary-text);
     padding: 12px;
     border-radius: 8px;
-    padding-left: 24px;
+    padding-left: 12px;
     margin-top: 4px;
     border-top: 1px solid #61666B;
     transition: background-color 0.3s ease-in-out;
@@ -157,7 +161,7 @@
     z-index: 2;
     margin: 0;
     width: 100%;
-    padding-left: 24px;
+    padding-left: 0px;
     border-radius: 0px 0px 16px 16px;
     background-color: var(--color-secondary-background);
 }
@@ -183,6 +187,8 @@
 
 ._1 {
     background-color: #9B13F0;
+    margin-left: 8px;
+    margin-right: 8px;
     height: 6px;
     width: 6px;
     border-radius: 50%;
@@ -190,6 +196,8 @@
 
 ._2 {
     background-color: #9B13F0;
+    margin-left: 8px;
+    margin-right: 8px;
     height: 6px;
     width: 6px;
     border-radius: 50%;
@@ -197,6 +205,8 @@
 
 ._3 {
     background-color: #FAE950;
+    margin-left: 8px;
+    margin-right: 8px;
     height: 6px;
     width: 6px;
     border-radius: 50%;
@@ -204,6 +214,8 @@
 
 ._4 {
     background-color: #FAE950;
+    margin-left: 8px;
+    margin-right: 8px;
     height: 6px;
     width: 6px;
     border-radius: 50%;
@@ -211,6 +223,8 @@
 
 ._5 {
     background-color: #E41832;
+    margin-left: 8px;
+    margin-right: 8px;
     height: 6px;
     width: 6px;
     border-radius: 50%;
@@ -218,6 +232,8 @@
 
 ._6 {
     background-color: #E41832;
+    margin-left: 8px;
+    margin-right: 8px;
     height: 6px;
     width: 6px;
     border-radius: 50%;
@@ -226,7 +242,14 @@
 
 ._7 {
     background-color: #D5C4FF;
+    margin-left: 8px;
+    margin-right: 8px;
     height: 6px;
     width: 6px;
     border-radius: 50%;
+}
+
+.selectedAwakeningLevelOption{
+    display: flex;
+    align-items: center;
 }
