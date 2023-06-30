@@ -3,7 +3,7 @@ import LZString from "lz-string";
 
 export const globalStore = create((set, get) => {
   return {
-    selectedSlot: undefined,
+    selectedSlot: 1,
     slots: {},
     hoveredHero: undefined,
     faction: "",

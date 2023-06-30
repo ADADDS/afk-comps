@@ -5,9 +5,18 @@ const SelectableOption = ({
   handleClick,
   imageFolder,
   imageOptions,
+  isActive,
 }) => {
+  const handleClickIfActive = () => {
+    if (isActive) {
+      handleClick();
+    }
+  };
   return (
-    <button onClick={handleClick} className={styles.wrapper}>
+    <button
+      onClick={handleClickIfActive}
+      className={`${styles.wrapper}  ${!isActive ? styles.notActive : ""} `}
+    >
       {label}
       {imageOptions && (
         <img

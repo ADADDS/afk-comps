@@ -3,6 +3,7 @@ import { editingPanelStore } from "@/stores/editingPanel";
 import styles from "./SelectableFormationSlot.module.css";
 import HeroOrnaments from "../../shared/HeroOrnaments/HeroOrnaments";
 import { globalStore } from "@/stores/globalStore";
+import { useEffect } from "react";
 
 const SelectableFormationSlot = ({ slot }) => {
   const { selectedSlot, setSelectedSlot, removeHero, slots, hoveredHero } =
@@ -28,6 +29,11 @@ const SelectableFormationSlot = ({ slot }) => {
     }
     setSelectedSlot(slot);
   };
+
+  useEffect(() => {
+    console.log("SelectableFormationSlot rendered with slot:", slot);
+    console.log("selectedSlot is:", selectedSlot);
+  }, [slot, selectedSlot]);
 
   return (
     <div

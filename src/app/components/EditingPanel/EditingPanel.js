@@ -3,6 +3,17 @@ import { globalStore } from "@/stores/globalStore";
 import { motion, AnimatePresence } from "framer-motion";
 import GroupButton from "./GroupButton/GroupButton";
 import Backdrop from "./Backdrop";
+import { useEffect, useState } from "react";
+
+const AWAKENING_LEVELS = [
+  { id: "1", level: "Elite" },
+  { id: "2", level: "Elite Plus" },
+  { id: "3", level: "Legendary" },
+  { id: "4", level: "Legendary Plus" },
+  { id: "5", level: "Mythic" },
+  { id: "6", level: "Mythic Plus" },
+  { id: "7", level: "Ascended" },
+];
 
 const EditingPanel = ({ handleClose }) => {
   const {
@@ -15,6 +26,49 @@ const EditingPanel = ({ handleClose }) => {
     setEngravingLevel,
   } = globalStore();
 
+  const awakeningLevel = slots[selectedSlot]?.awakeningLevel;
+  const starAmout = slots[selectedSlot]?.stars;
+
+  const [isStarsActive, setIsStarsActive] = useState(false);
+  const [isFurnitureActive, setIsFurnitureActive] = useState(false);
+  const [isEngravingActive, setIsEngravingActive] = useState(false);
+  const [isSignatureActive, setIsSignatureActive] = useState(false);
+  const [isDropdownOptionSelected, setIsDropdownOptionSelected] =
+    useState(false);
+  const [open, setOpen] = useState(false);
+
+  const handleDropdownClick = () => {
+    setOpen(!open);
+  };
+
+  useEffect(() => {
+    const isAscended = awakeningLevel === "Ascended";
+    const isMythicOrAbove =
+      awakeningLevel === "Mythic" || awakeningLevel === "MythicPlus";
+
+    if (isMythicOrAbove || isAscended) {
+      setIsSignatureActive(true);
+    } else {
+      setIsSignatureActive(false);
+    }
+
+    if (isAscended) {
+      setIsSignatureActive(true);
+      setIsFurnitureActive(true);
+      setIsStarsActive(true);
+    } else {
+      setIsStarsActive(false);
+      setIsSignatureActive(false);
+      setIsFurnitureActive(false);
+    }
+
+    if (isAscended && starAmout >= 1) {
+      setIsEngravingActive(true);
+    } else {
+      setIsEngravingActive(false);
+    }
+  }, [awakeningLevel, starAmout]);
+
   const handleStars = (stars) => {
     setStars(stars, selectedSlot);
   };
@@ -24,7 +78,11 @@ const EditingPanel = ({ handleClose }) => {
   };
 
   const handleAwakeningLevel = (awakeningLevel) => {
-    setAwakeningLevel(awakeningLevel, selectedSlot);
+    const sanitizedAwakeningLevel = awakeningLevel.replace(/ /g, "");
+
+    setAwakeningLevel(sanitizedAwakeningLevel, selectedSlot);
+    setIsDropdownOptionSelected(awakeningLevel);
+    handleDropdownClick();
   };
 
   const handleFurnitureLevel = (furnitureLevel) => {
@@ -35,23 +93,9 @@ const EditingPanel = ({ handleClose }) => {
     setEngravingLevel(engravingLevel, selectedSlot);
   };
 
-  const handleMaxOutHero = () => {
-    setStars(5, selectedSlot);
-    setSignatureLevel(30, selectedSlot);
-    setAwakeningLevel("Ascended", selectedSlot);
-    setFurnitureLevel("27/9", selectedSlot);
-    setEngravingLevel(80, selectedSlot);
-  };
-
-  const handleMaxOutComposition = () => {
-    Object.keys(slots).forEach((slot) => {
-      setStars(5, slot);
-      setSignatureLevel(30, slot);
-      setAwakeningLevel("Ascended", slot);
-      setFurnitureLevel("27/9", slot);
-      setEngravingLevel(80, slot);
-    });
-  };
+  useEffect(() => {
+    console.log("awakeningLevel:", awakeningLevel);
+  }, [awakeningLevel]);
 
   return (
     <>
@@ -95,63 +139,72 @@ const EditingPanel = ({ handleClose }) => {
               <span>{slots[selectedSlot]?.title}</span>
             </div>
           </div>
+
+          <div className={styles.awakeningSection}>
+            <span className={styles.awakeningSectionTitle}>
+              Awakening Level
+            </span>
+
+            <div
+              className={`${styles.placeholderWrapper} ${
+                open ? styles.placeholderOpen : ""
+              }`}
+              onClick={handleDropdownClick}
+            >
+              {isDropdownOptionSelected
+                ? slots[selectedSlot]?.awakeningLevel
+                    .replace(/([A-Z])/g, " $1")
+                    .trim()
+                : "Select your awakening level"}
+            </div>
+            <div className={styles.dropdown}>
+              {open ? (
+                <ul className={styles.menu}>
+                  {AWAKENING_LEVELS.map((level) => (
+                    <li className={styles.dropdownItem} key={level.id}>
+                      <div className={styles.contentWrapper}>
+                        <div className={styles[`_${level.id}`]}></div>
+                        <button
+                          onClick={() => handleAwakeningLevel(`${level.level}`)}
+                        >
+                          {level.level}
+                        </button>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          </div>
+
           <GroupButton
             title={"Stars"}
+            isActive={isStarsActive}
             options={[0, 1, 2, 3, 4, 5]}
             handleClick={handleStars}
           />
-          <GroupButton
-            title={"Furniture"}
-            options={["0/9", "3/9", "9/9", "27/9"]}
-            handleClick={handleFurnitureLevel}
-          />
-          <GroupButton
-            title={"Signature"}
-            options={[0, 1, 10, 20, 30]}
-            handleClick={handleSignatureLevel}
-          />
+
           <GroupButton
             title={"Engraving"}
+            isActive={isEngravingActive}
             options={[0, 30, 60, 80]}
             imageFolder={"Stars"}
             imageOptions={["Stage0", "Stage1", "Stage2", "Stage3"]}
             handleClick={handleEngravingLevel}
           />
 
-          <div className={styles.awakeningSection}>
-            Awakening Level
-            <button onClick={() => handleAwakeningLevel("Elite")}>Elite</button>
-            <button onClick={() => handleAwakeningLevel("ElitePlus")}>
-              Elite Plus
-            </button>
-            <button onClick={() => handleAwakeningLevel("Legendary")}>
-              Legendary Plus
-            </button>
-            <button onClick={() => handleAwakeningLevel("LegendaryPlus")}>
-              Legendary Plus
-            </button>
-            <button onClick={() => handleAwakeningLevel("Mythic")}>
-              Mythic
-            </button>
-            <button onClick={() => handleAwakeningLevel("MythicPlus")}>
-              MythicPlus
-            </button>
-            <button onClick={() => handleAwakeningLevel("Ascended")}>
-              Ascended
-            </button>
-          </div>
-
-          <div className={styles.maxOutSection}>
-            <button className={styles.maxOutButton} onClick={handleMaxOutHero}>
-              Max out hero
-            </button>
-            <button
-              className={styles.maxOutButton}
-              onClick={handleMaxOutComposition}
-            >
-              Max out composition
-            </button>
-          </div>
+          <GroupButton
+            title={"Furniture"}
+            isActive={isFurnitureActive}
+            options={["0/9", "3/9", "9/9", "27/9"]}
+            handleClick={handleFurnitureLevel}
+          />
+          <GroupButton
+            title={"Signature"}
+            isActive={isSignatureActive}
+            options={[0, 1, 10, 20, 30]}
+            handleClick={handleSignatureLevel}
+          />
         </motion.div>
       </AnimatePresence>
     </>

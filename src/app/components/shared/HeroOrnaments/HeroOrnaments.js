@@ -25,19 +25,22 @@ const HeroOrnaments = ({ hero }) => {
 
   useEffect(() => {
     const newStarAmount = [];
-
-    for (let i = 0; i < (hero?.stars || 0); i++) {
-      newStarAmount.push(
-        <img
-          key={i}
-          className={styles.star}
-          src={`/Images/Stars/${engravingLevel}.png`}
-          alt={`star${i}`}
-        />
-      );
+    if (awakeningLevelStage !== "Ascended") {
+      setStarAmount(0);
+    } else {
+      for (let i = 0; i < (hero?.stars || 0); i++) {
+        newStarAmount.push(
+          <img
+            key={i}
+            className={styles.star}
+            src={`/Images/Stars/${engravingLevel}.png`}
+            alt={`star${i}`}
+          />
+        );
+      }
     }
     setStarAmount(newStarAmount);
-  }, [hero, engravingLevel]);
+  }, [hero, engravingLevel, awakeningLevelStage]);
 
   useEffect(() => {
     const signatureLevel = hero?.signatureLevel;

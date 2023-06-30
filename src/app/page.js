@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import HeroGrid from "./components/HeroGrid/HeroGrid.js";
-
+import { globalStore } from "@/stores/globalStore";
 import styles from "./page.module.css";
 import SearchBar from "./components/Search/SearchBar/SearchBar";
 import Header from "./components/Header/Header";
@@ -36,7 +36,9 @@ const Home = () => {
   const [selectedFactions, setSelectedFactions] = useState(FACTION_OPTIONS);
   const [selectedHeroes, setSelectedHeroes] = useState([]);
   const { modalIsOpen, setModalIsOpen } = editingPanelStore();
+  const { selectedSlot,  slots} = globalStore((state) => state);
 
+  const selectedFactionValues = selectedFactions.map((obj) => obj.faction);
   const toggleModal = () => setModalIsOpen(!modalIsOpen);
 
   const handleFactionChange = (newSelection) => {
@@ -46,8 +48,6 @@ const Home = () => {
   const updateSelectedHeroes = (heroes) => {
     setSelectedHeroes(heroes);
   };
-
-  const selectedFactionValues = selectedFactions.map((obj) => obj.faction);
 
   return (
     <>
@@ -68,7 +68,7 @@ const Home = () => {
             </p>
           </div>
           <div className={styles.leftPanelInnerWrapper}>
-          <LeftPanel selectedHeroes={selectedHeroes} />
+            <LeftPanel selectedHeroes={selectedHeroes} />
           </div>
 
           <div className={styles.LeftPanelPlaceholder}></div>

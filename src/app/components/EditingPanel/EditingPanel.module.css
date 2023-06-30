@@ -4,6 +4,7 @@
     flex-direction: column;
     width: 450px;
     max-width: 500px;
+    height: 100%;
     padding: 48px;
     padding-top: 40px;
     top: 0;
@@ -109,4 +110,123 @@
 .maxOutButton:hover {
     border: 1px solid white;
     cursor: pointer;
+}
+
+.awakeningSectionTitle {
+    font-family: 'Bebas Neue';
+}
+
+.dropdown {
+    position: relative;
+    background-color: var(--color-secondary-background);
+    border-radius: 32px;
+}
+
+.dropdownItem {
+    display: flex;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.placeholderWrapper {
+    background: #353739;
+    border: none;
+    color: var(--color-primary-text);
+    padding: 12px;
+    border-radius: 8px;
+    padding-left: 24px;
+    margin-top: 4px;
+    border-top: 1px solid #61666B;
+    transition: background-color 0.3s ease-in-out;
+
+}
+
+.placeholderWrapper:hover{
+    cursor: pointer;
+    background: #272a2d;
+}
+
+.placeholderWrapper.placeholderOpen{
+    border-radius: 8px 8px 0px 0px;
+    background: #353739;
+}
+
+.menu {
+    position: absolute;
+    list-style-type: none;
+    z-index: 2;
+    margin: 0;
+    width: 100%;
+    padding-left: 24px;
+    border-radius: 0px 0px 16px 16px;
+    background-color: var(--color-secondary-background);
+}
+
+.contentWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.contentWrapper>button {
+    border: none;
+    padding-left: 10px;
+    background-color: var(--color-secondary-background);
+    color: var(--color-primary-text);
+
+}
+
+.dropdownItem>button:hover {
+    border: none;
+    background-color: var(--color-secondary-background);
+    color: white;
+}
+
+._1 {
+    background-color: #9B13F0;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+}
+
+._2 {
+    background-color: #9B13F0;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+}
+
+._3 {
+    background-color: #FAE950;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+}
+
+._4 {
+    background-color: #FAE950;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+}
+
+._5 {
+    background-color: #E41832;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+}
+
+._6 {
+    background-color: #E41832;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+}
+
+
+._7 {
+    background-color: #D5C4FF;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
 }
