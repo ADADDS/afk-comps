@@ -253,3 +253,8 @@
     display: flex;
     align-items: center;
 }
+
+.emptyState{
+
+opacity: 0.3;
+}
